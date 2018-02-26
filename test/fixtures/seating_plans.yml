@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  nb_participants: 1
+  wedding_address: MyString
+  wedding_date: 2018-02-26
+  user: one
+
+two:
+  name: MyString
+  nb_participants: 1
+  wedding_address: MyString
+  wedding_date: 2018-02-26
+  user: two

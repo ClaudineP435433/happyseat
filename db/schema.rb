@@ -10,10 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226153838) do
+ActiveRecord::Schema.define(version: 20180226161626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "participants", force: :cascade do |t|
+    t.bigint "table_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "age_range"
+    t.integer "seat"
+    t.string "family_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["table_id"], name: "index_participants_on_table_id"
+  end
+
+  create_table "relationship_participants", force: :cascade do |t|
+    t.bigint "participant_id"
+    t.bigint "relationship_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["participant_id"], name: "index_relationship_participants_on_participant_id"
+    t.index ["relationship_id"], name: "index_relationship_participants_on_relationship_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "seating_plans", force: :cascade do |t|
+    t.string "name"
+    t.integer "nb_participants"
+    t.string "wedding_address"
+    t.date "wedding_date"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_seating_plans_on_user_id"
+  end
+
+  create_table "tables", force: :cascade do |t|
+    t.string "name"
+    t.integer "nb_max_participants"
+    t.bigint "seating_plan_id"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["seating_plan_id"], name: "index_tables_on_seating_plan_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,8 +76,18 @@ ActiveRecord::Schema.define(version: 20180226153838) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "groom_first_name"
+    t.string "groom_last_name"
+    t.string "bride_first_name"
+    t.string "bride_last_name"
+    t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "participants", "tables"
+  add_foreign_key "relationship_participants", "participants"
+  add_foreign_key "relationship_participants", "relationships"
+  add_foreign_key "seating_plans", "users"
+  add_foreign_key "tables", "seating_plans"
 end

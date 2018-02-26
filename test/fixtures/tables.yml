@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  nb_max_participants: 1
+  seating_plan: one
+  status: 1
+
+two:
+  name: MyString
+  nb_max_participants: 1
+  seating_plan: two
+  status: 1

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  table: one
+  first_name: MyString
+  last_name: MyString
+  age_range: MyString
+  seat: 1
+  family_type: MyString
+
+two:
+  table: two
+  first_name: MyString
+  last_name: MyString
+  age_range: MyString
+  seat: 1
+  family_type: MyString
