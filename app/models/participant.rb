@@ -8,16 +8,7 @@ class Participant < ApplicationRecord
   validates :seat, uniqueness: { scope: :table_id }
   validates :age_range, presence: true
 
-  CATEGORIES_AGE = ["0 - 15", "16 - 25", "26 - 62", "63 +"]
-  validates :age_range, inclusion: {
-    in: CATEGORIES_AGE,
-    message: "%{value} is not a valid category"
-  }
-
-  CATEGORIES_TYPE = ["Groom", "Bride", "Others"]
-  validates :family_type, inclusion: {
-    in: CATEGORIES_TYPE,
-    message: "%{value} is not a valid category"
-  }
+  enum age_range: { children: 0, teenagers: 1, adults: 2, elderly: 3 }
+  enum family_type: { groom: 0, bride: 1, others: 2 }
 
 end

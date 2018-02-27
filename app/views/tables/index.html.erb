@@ -16,18 +16,10 @@
         <%= f.error_notification %>
         <%= f.input :first_name, required: true %>
         <%= f.input :first_name, required: true %>
-        <%= f.association :age_range, prompt: "Select Age",required: true %>
+        <%= f.association :age_range, collection: CATEGORIES_AGE, prompt: "Select Age", required: true %>
         <%= f.association :family_type, prompt: "Select Family Link", required: true %>
         <%= f.button :submit %>
        <% end %>
-
-      <%= simple_form_for @participant2 do |t| %>
-        <%= t.error_notification %>
-        <%= t.input :first_name, required: true %>
-        <%= t.input :first_name, required: true %>
-        <%= t.association :age_range, prompt: "Select Age",required: true %>
-        <%= t.button :submit %>
-      <% end %>
     </div>
 
     <div class="toolbar-buttons">

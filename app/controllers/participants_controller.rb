@@ -1,7 +1,7 @@
 class ParticipantsController < ApplicationController
 
   def create
-    #@table = algo.com
+    @table = Table.first
 
   end
 
