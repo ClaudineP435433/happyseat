@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>BANNER</h1>
+
+
+<%= simple_form_for @seating_plan do |f| %>
+  <%= f.input :nb_max_participants %>
+  <%= f.input :nb_tables %>
+  <%= f.input :nb_participants %>
+  <%= f.button :submit %>
+<% end %>

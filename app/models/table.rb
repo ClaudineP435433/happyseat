@@ -8,4 +8,5 @@ class Table < ApplicationRecord
     return nb_max_participants if nb_max_participants.present?
     seating_plan.nb_max_participants
   end
+
 end
