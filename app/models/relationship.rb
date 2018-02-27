@@ -1,11 +1,10 @@
 class Relationship < ApplicationRecord
-  has_many :relationship_participants, dependent: :destroy
+  belongs_to :first_guest, class_name: 'Participant', foreign_key: 'first_guest_id'
+  belongs_to :second_guest, class_name: 'Participant', foreign_key: 'second_guest_id'
+
+  validates :first_guest, uniqueness: { scope: :second_guest }
   validates :link, presence: true
+  validates :first_guest, presence: true
+  validates :second_guest, presence: true
   enum link: { couple: 0, hate: 1 }
-  validate :validate_number_participant
-
-  def validate_number_participant
-    errors.add(:relationship_participants, "too much") if relationship_participants.size > 2
-  end
-
 end

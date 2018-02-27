@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226161626) do
+ActiveRecord::Schema.define(version: 20180226161446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,19 +27,14 @@ ActiveRecord::Schema.define(version: 20180226161626) do
     t.index ["table_id"], name: "index_participants_on_table_id"
   end
 
-  create_table "relationship_participants", force: :cascade do |t|
-    t.bigint "participant_id"
-    t.bigint "relationship_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["participant_id"], name: "index_relationship_participants_on_participant_id"
-    t.index ["relationship_id"], name: "index_relationship_participants_on_relationship_id"
-  end
-
   create_table "relationships", force: :cascade do |t|
     t.integer "link"
+    t.bigint "first_guest_id"
+    t.bigint "second_guest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["first_guest_id"], name: "index_relationships_on_first_guest_id"
+    t.index ["second_guest_id"], name: "index_relationships_on_second_guest_id"
   end
 
   create_table "seating_plans", force: :cascade do |t|
@@ -86,8 +81,6 @@ ActiveRecord::Schema.define(version: 20180226161626) do
   end
 
   add_foreign_key "participants", "tables"
-  add_foreign_key "relationship_participants", "participants"
-  add_foreign_key "relationship_participants", "relationships"
   add_foreign_key "seating_plans", "users"
   add_foreign_key "tables", "seating_plans"
 end

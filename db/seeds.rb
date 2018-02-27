@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+u = User.create(email: "toto@toto.com", password: "123456", groom_first_name: "Teddy", groom_last_name: "Smith", bride_first_name: "Pamela", bride_last_name: "Andersson")
+sp = SeatingPlan.create(nb_participants: 20, user: u)
+t = Table.create(nb_max_participants: 5, seating_plan: sp)
+p1 = Participant.create(first_name: "Camomille", last_name: "Franchin", table: t, seat: 5, age_range: "16 - 25", family_type: "Bride")
+p2 = Participant.create(first_name: "Patrick", last_name: "Bonnard", table: t, seat: 4, age_range: "16 - 25", family_type: "Bride")

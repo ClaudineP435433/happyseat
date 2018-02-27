@@ -1,6 +1,8 @@
 class Participant < ApplicationRecord
   belongs_to :table
-  has_many :relationship_participants
+  has_many :relationships
+
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :seat, uniqueness: { scope: :table_id }
