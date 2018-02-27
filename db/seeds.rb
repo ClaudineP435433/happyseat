@@ -15,7 +15,7 @@ User.destroy_all
 puts "start seeds"
 
 u = User.create(email: "toto@toto.com", password: "123456", groom_first_name: "Teddy", groom_last_name: "Smith", bride_first_name: "Pamela", bride_last_name: "Andersson")
-sp = SeatingPlan.create(nb_participants: 48, user: u)
+sp = SeatingPlan.create(nb_max_participants: 8, nb_participants: 48, user: u)
 
 t = Table.create(nb_max_participants: 8, seating_plan: sp)
 

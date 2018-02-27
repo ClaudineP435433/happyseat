@@ -1,6 +1,7 @@
 class ParticipantsController < ApplicationController
 
   def create
+    #@table = algo.com
 
   end
 

@@ -3,4 +3,8 @@ class Table < ApplicationRecord
   has_many :participants
   # enum status: { empty: 0, available: 1, full: 2 }
   validates :nb_max_participants, presence: true
+
+  def default_nb_max_participants
+    nb_max_participants.present? ? nb_max_participants : seating_plan.nb_max_participants
+  end
 end
