@@ -1,0 +1,30 @@
+
+.table-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.table-frame {
+  border: 1px solid black;
+  height: 80px;
+  width: 100px;
+}
+
+.table-card {
+  background-color: green;
+  height: 200px;
+   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.avatar-frame{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
