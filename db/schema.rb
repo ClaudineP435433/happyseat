@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20180227142237) do
     t.bigint "table_id"
     t.string "first_name"
     t.string "last_name"
-    t.string "age_range"
+    t.integer "age_range"
     t.integer "seat"
-    t.string "family_type"
+    t.integer "family_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["table_id"], name: "index_participants_on_table_id"
@@ -29,11 +29,11 @@ ActiveRecord::Schema.define(version: 20180227142237) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer "link"
-    t.bigint "first_guest_id"
+    t.bigint "participant_id"
     t.bigint "second_guest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["first_guest_id"], name: "index_relationships_on_first_guest_id"
+    t.index ["participant_id"], name: "index_relationships_on_participant_id"
     t.index ["second_guest_id"], name: "index_relationships_on_second_guest_id"
   end
 

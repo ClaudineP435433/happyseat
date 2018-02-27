@@ -5,13 +5,14 @@ class ParticipantsController < ApplicationController
     @table = Table.first
     @participant = Participant.new(participant_params)
     @participant.table = @table
-    @participant.seat = 4 #algo
-
+    # @participant.seat = 4 #algo
+    raise
     if @participant.save
       redirect_to seating_plan_tables_path(@table.seating_plan)
       flash[:notice] = "Successfully added your guest #{@participant.first_name.capitalize} #{@participant.last_name.capitalize}"
       #algo ajouter sur table + allouer un siége
     else
+      @tables = Table.all
       render 'tables/index'
     end
   end
