@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root to: 'pages#home'
 
@@ -7,9 +8,8 @@ Rails.application.routes.draw do
 
   end
 
-  resources :tables, only: [] do
-    resources :participants, only: [:create, :update, :destroy], shallow: true
-  end
+
+  resources :participants, only: [:create, :update, :destroy], shallow: true
 
   resources :relationships, only: [:create]
 
