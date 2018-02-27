@@ -15,9 +15,23 @@
       <%= simple_form_for @participant do |f| %>
         <%= f.error_notification %>
         <%= f.input :first_name, required: true %>
-        <%= f.input :first_name, required: true %>
-        <%= f.input :age_range, collection: Participant.age_ranges, prompt: "Select Age", required: true %>
-        <%= f.input :family_type, collection: Participant.family_types, prompt: "Select Family Link", required: true %>
+        <%= f.input :last_name, required: true %>
+        <%= f.input :age_range, collection: Participant.age_ranges.keys, prompt: "Select Age", required: true %>
+        <%= f.input :family_type, collection: Participant.family_types.keys, prompt: "Select Family Link", required: true %>
+
+        <div id="couple">
+          <%= f.simple_fields_for :relationships, @relationship do |t| %>
+            <!-- Task: <%#= task.text_field :name %> -->
+            <div class="nested-fields">
+              <%= t.input :link, collection: Relationship.links.keys, prompt: "Select Relationship", required: true %>
+              <%= t.input :second_guest_id, collection: Participant.all.map(&:id) %>
+            </div>
+          <% end %>
+        </div>
+
+
+
+
         <%= f.button :submit %>
        <% end %>
     </div>
@@ -37,7 +51,7 @@
         <% @tables.each do |table| %>
           <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="table-section">
-              <div class="table-card-name"> <h3>table.name</h3></div>
+              <div class="table-card-name"> <h3><%= table.name %></h3></div>
               <div class="table-card">
                 <div class="avatar-frame">
                   <% @nbhaut.times do %>

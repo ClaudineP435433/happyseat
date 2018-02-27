@@ -1,7 +1,6 @@
 class Participant < ApplicationRecord
   belongs_to :table
-  has_many :relationships
-
+  has_many :relationships, inverse_of: :first_guest
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -11,5 +10,7 @@ class Participant < ApplicationRecord
   enum age_range: { children: 0, teenagers: 1, adults: 2, elderly: 3 }
 
   enum family_type: { groom: 0, bride: 1, others: 2 }
+
+  accepts_nested_attributes_for :relationships, reject_if: proc { |atrributes| atrributes[:link].blank? }, allow_destroy: true
 
 end
