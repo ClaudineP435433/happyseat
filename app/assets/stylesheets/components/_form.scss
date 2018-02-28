@@ -12,7 +12,7 @@
     margin-bottom: 20px
   }
 }
-  
+
 .form-home {
   display: flex;
   justify-content: center;
@@ -28,3 +28,8 @@
   }
 
 }
+
+  .form-control {
+    color: $grey-form;
+    font-size: 16px;
+  }

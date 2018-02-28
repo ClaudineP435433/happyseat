@@ -15,4 +15,8 @@ class Participant < ApplicationRecord
 
   #accepts_nested_attributes_for :relationships, reject_if: proc { |atrributes| atrributes[:link].blank? && atrributes[:second_guest_id].blank? }, allow_destroy: true
 
+  def name
+    "#{first_name} #{last_name}"
+  end
+
 end
