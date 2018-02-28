@@ -8,8 +8,8 @@ class Relationship < ApplicationRecord
   validates :second_guest, presence: true
   enum link: { couple: 0, hate: 1 }
 
-  accepts_nested_attributes_for :first_guest, reject_if: proc { |atrributes| atrributes[:first_name].blank? && atrributes[:last_name].blank? && atrributes[:age_range].blank? && atrributes[:family_type].blank? }, allow_destroy: true
-  accepts_nested_attributes_for :second_guest, reject_if: proc { |atrributes| atrributes[:first_name].blank? && atrributes[:last_name].blank? && atrributes[:age_range].blank? && atrributes[:family_type].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :first_guest, reject_if: proc { |attributes| attributes[:first_name].blank? && atrributes[:last_name].blank? && atrributes[:age_range].blank? && atrributes[:family_type].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :second_guest, reject_if: proc { |attributes| attributes[:first_name].blank? && attributes[:last_name].blank? && atrributes[:age_range].blank? && attributes[:family_type].blank? }, allow_destroy: true
 
   # after_create :recipro
 

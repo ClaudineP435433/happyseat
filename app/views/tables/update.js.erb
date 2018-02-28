@@ -1,0 +1,13 @@
+// function refreshForm(innerHTML) {
+//   const updateParticipantForm = document.getElementById('ajax');
+//   updateParticipantForm.innerHTML = innerHTML;
+// }
+
+function updateParticipant(participantHTML) {
+  const amendParticipant = document.getElementById('ajax');
+  amendParticipant.insertAdjacentHTML('beforeend', participantHTML);
+}
+
+// document.querySelector("[data-restaurant-id='<%= @restaurant.id %>']")
+//   .remove();
+

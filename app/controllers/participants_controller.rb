@@ -6,19 +6,34 @@ class ParticipantsController < ApplicationController
     @participant.table = @table
 
     # @participant.seat = 4 #algo
-    raise
     if @participant.save
       redirect_to seating_plan_tables_path(@table.seating_plan)
-      flash[:notice] = "Successfully added your guest #{@participant.first_name.capitalize} #{@participant.last_name.capitalize}"
       #algo ajouter sur table + allouer un siége
+      flash[:notice] = "Successfully added your guest #{@participant.first_name.capitalize} #{@participant.last_name.capitalize}"
     else
       @tables = Table.all
-      render 'tables/index'
+       render 'tables/index'
+      end
+    end
+
+  def update
+    @participant = Participant.find(params[:id])
+    if @participant.update_attributes(participant_params)
+      redirect_to @participant, notice: 'Successfully updated participant'
+    else
+      #render????
     end
   end
 
-  def update
+  def find_for_modal
+    @participant = Participant.find(params[:participant_id])
+    redirect_to seating_plan_tables_path(params[:seating_plan_id])
+    #ajax todo
   end
+
+  # def edit
+  #   @participant = Participant.find(params[:id])
+  # end
 
   def destroy
   end
@@ -33,5 +48,15 @@ class ParticipantsController < ApplicationController
       :family_type,
     )
   end
-
 end
+
+
+
+# click finalize
+#1 afficher en ajax @participant.name
+#2 ouvrir modal lors click button + display
+#3 display params @participant ds modal
+#4 nested form
+
+
+
