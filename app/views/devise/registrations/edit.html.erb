@@ -13,6 +13,12 @@
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
 
+          <%= f.input :bride_first_name, required: true %>
+          <%= f.input :bride_last_name %>
+          <%= f.input :groom_first_name, required: true %>
+          <%= f.input :groom_last_name %>
+          <%= f.input :address %>
+
           <%= f.input :password, autocomplete: "off", hint: "Leave this blank if you don't want to change it", required: false %>
           <%= f.input :password_confirmation, required: false %>
           <%= f.input :current_password, hint: "Please enter your current password to confirm the changes", required: true %>
