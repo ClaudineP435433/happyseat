@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20180227142237) do
     t.bigint "table_id"
     t.string "first_name"
     t.string "last_name"
-    t.string "age_range"
+    t.integer "age_range"
     t.integer "seat"
-    t.string "family_type"
+    t.integer "family_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["table_id"], name: "index_participants_on_table_id"

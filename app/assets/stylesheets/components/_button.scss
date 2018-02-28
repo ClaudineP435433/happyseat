@@ -1,0 +1,10 @@
+.btn-happy-grey {
+  background-color: transparent;
+  color: $grey-btn;
+  border: 1px solid $grey-btn;
+  border-radius: 2px;
+  &:hover {
+  background-color : $grey-btn;
+  color: white;
+  }
+}
