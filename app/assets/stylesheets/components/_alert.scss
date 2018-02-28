@@ -16,7 +16,6 @@
 
 .alert.alert-info.alert-dismissible{
   display: flex;
-  align-item: center;
   justify-content: center;
   position: fixed;
   width: 100%;
@@ -27,4 +26,10 @@
   border: none;
 
 
+}
+
+.alert-child {
+  min-width: 2px;
+  display: flex;
+  justify-content: center;
 }
