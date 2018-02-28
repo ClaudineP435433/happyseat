@@ -70,11 +70,19 @@
     </div>
 
     <div class="toolbar-buttons">
-      <%=  link_to "Relationships", relationships_path, class: "btn btn-happy-grey"  %>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-happy-grey" data-toggle="modal" data-target="#exampleModalRelationship">
+        Add a Bad Relationship
+      </button>
       <%=  link_to "Finalize", "", class: "btn btn-happy-grey"  %>
     </div>
 
   </div>
+
+
+  <!-- Modal -->
+  <%= render "modalRelationship" %>
+  <%= render "modalParticipant" %>
 
   <!-- Tables#index -->
 
