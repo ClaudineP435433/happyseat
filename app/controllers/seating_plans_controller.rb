@@ -11,8 +11,7 @@ class SeatingPlansController < ApplicationController
         @seating_plan.tables.create(name: "Table #{n}", nb_max_participants: params[:seating_plan][:nb_max_participants])
         n += 1
       end
-      raise
-      redirect_to root_path
+      redirect_to seating_plan_tables_path
     else
       render "pages/new"
     end
