@@ -1,6 +1,7 @@
 class TablesController < ApplicationController
   def index
-    @tables = Table.all
+    @seating_plan = SeatingPlan.find(params[:seating_plan_id])
+    @tables = @seating_plan.tables
     @nbhaut = @tables.first.nb_max_participants/2.round
     @nbbas = @tables.first.nb_max_participants - @nbhaut
 

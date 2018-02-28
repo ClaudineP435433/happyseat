@@ -1,4 +1,8 @@
-<div class="navbar-wagon">
+<% if current_page? root_path %>
+  <div class="navbar-wagon navbar-fixed-top" >
+<% else %>
+  <div class="navbar-wagon navbar-fixed-top navbar-wagon-white"  >
+<% end %>
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
 
@@ -10,10 +14,17 @@
 
     <% if user_signed_in? %>
 
+      <% if @seating_plan.present? && @seating_plan.id? && current_page?(seating_plan_tables_path(@seating_plan))%>
+        <div class="search">
+          <%= render 'tables/search', query: params[:query] %>
+        </div>
+      <% else  %>
+          <div class="test"></div>
+      <% end %>
+
+
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "test", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -42,7 +53,7 @@
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
-  </div>
+    </div>
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
