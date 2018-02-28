@@ -66,15 +66,22 @@
         <%= t.button :submit, class: "btn-success"%>
         <% end %>
       </div>
-
     </div>
 
     <div class="toolbar-buttons">
-      <%=  link_to "Relationships", relationships_path, class: "btn btn-happy-grey"  %>
-      <%=  link_to "Finalize", "", class: "btn btn-happy-grey"  %>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-happy-grey btn-size" data-toggle="modal" data-target="#exampleModalRelationship">
+        Add a Bad Relationship
+      </button>
+      <%=  link_to "Finalize", "", class: "btn btn-happy-grey btn-size"  %>
     </div>
 
   </div>
+
+
+  <!-- Modal -->
+  <%= render "modalRelationship" %>
+  <%= render "modalParticipant" %>
 
   <!-- Tables#index -->
 
