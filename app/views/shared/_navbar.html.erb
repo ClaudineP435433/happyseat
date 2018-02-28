@@ -1,4 +1,8 @@
-<div class="navbar-wagon">
+<% if current_page? root_path %>
+  <div class="navbar-wagon navbar-fixed-top" >
+<% else %>
+  <div class="navbar-wagon navbar-fixed-top navbar-wagon-white"  >
+<% end %>
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
 
