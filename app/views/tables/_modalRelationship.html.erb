@@ -1,32 +1,42 @@
 <div class="modal fade" id="exampleModalRelationship" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">RELATIONSHIP</h5>
+            <div class="modal-header header-size">
+              <h5 class="modal-title" id="exampleModalLongTitle">Define a conflictual relationship</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
+              <p>Select the 2 persons that can not be seated at the same table</p>
             </div>
+
             <div class="modal-body">
               <div class="container-fluid">
                 <div class="row">
-                  <div class="col-sm-9">
-                    Level 1: .col-sm-9
-                    <div class="row">
-                      <div class="col-8 col-sm-6">
-                        Level 2: .col-8 .col-sm-6
-                      </div>
-                      <div class="col-4 col-sm-6">
-                        Level 2: .col-4 .col-sm-6
-                      </div>
+                  <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+
+                    <div class="form-hate">
+                    <%= simple_form_for @relationship do |t| %>
+
+                    <div id="first_guest">
+
+                        <%= t.input :first_guest, collection: Participant.all.map(&:name), required: true, prompt: "Select 1st Guest", label: false  %>
                     </div>
+
+                    <div class="braked_heart text-center">
+                        <%= image_tag "braked-heart.png" %>
+                    </div>
+
+                    <div id="second_guest">
+
+                        <%= t.input :second_guest, collection: Participant.all.map(&:name), required: true, prompt: "Select 2nd Guest", label: false  %>
+                    </div>
+                    <%= t.button :submit, class: "btn-success btn-max"%>
+                    <% end %>
+                  </div>
+
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>
