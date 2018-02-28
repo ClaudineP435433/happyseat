@@ -1,10 +1,10 @@
 class ParticipantsController < ApplicationController
 
   def create
-
     @table = Table.first
     @participant = Participant.new(participant_params)
     @participant.table = @table
+
     # @participant.seat = 4 #algo
     raise
     if @participant.save
@@ -26,7 +26,12 @@ class ParticipantsController < ApplicationController
   private
 
   def participant_params
-    params.require(:participant).permit(:first_name, :last_name, :age_range, :family_type, relationships_attributes: [:link, :second_guest_id])
+    params.require(:participant).permit(
+      :first_name,
+      :last_name,
+      :age_range,
+      :family_type,
+    )
   end
 
 end

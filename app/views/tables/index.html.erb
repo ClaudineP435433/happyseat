@@ -7,38 +7,71 @@
 
   <div class="toolbar">
 
-    <div class="toolbar-name">
-      <h3>Add a Participant</h3>
+    <div class="toolbar-name text-center">
+      <h5>Add a Participant</h5>
+      <%=  link_to "#", class: "btn btn-happy-grey active-couple"  do %>
+        Or a couple <i class="fas fa-venus-mars"></i>
+      <% end %>
     </div>
 
     <div class="toolbar-form">
+      <div class="toolbar-form-one-participant">
       <%= simple_form_for @participant do |f| %>
         <%= f.error_notification %>
-        <%= f.input :first_name, required: true %>
-        <%= f.input :last_name, required: true %>
-        <%= f.input :age_range, collection: Participant.age_ranges.keys, prompt: "Select Age", required: true %>
-        <%= f.input :family_type, collection: Participant.family_types.keys, prompt: "Select Family Link", required: true %>
+        <%= f.input :first_name, required: true, placeholder: "First Name", label: false %>
+        <%= f.input :last_name, required: true, placeholder: "Last Name", label: false %>
+        <div class="nested-prompt">
+          <%= f.input :age_range, collection: Participant.age_ranges.keys, prompt: "Age", required: true, label: false, class: "prompt-size nested-prompt-age" %>
+          <%= f.input :family_type, collection: Participant.family_types.keys, prompt: "Family Link", required: true, label: false %>
+        </div>
+        <%= f.button :submit, class: "btn-success" %>
+       <% end %>
+      </div>
 
-        <div id="couple">
-          <%= f.simple_fields_for :relationships, @relationship do |t| %>
+      <div class="toolbar-form-couple hidden-couple">
+        <%= simple_form_for @relationship do |t| %>
+        <%= t.error_notification %>
+        <%#= t.input :link, collection: Relationship.links.keys, prompt: "Select Relationship", label: false, required: true, value: 0, type: "hidden" %>
+
+        <div id="first_guest">
+          <%= t.simple_fields_for :first_guest, @first_guest do |x| %>
             <!-- Task: <%#= task.text_field :name %> -->
             <div class="nested-fields">
-              <%= t.input :link, collection: Relationship.links.keys, prompt: "Select Relationship", required: true %>
-              <%= t.input :second_guest_id, collection: Participant.all.map(&:id) %>
+              <h6>First Guest</h6>
+              <%= x.input :first_name, required: true, placeholder: "First Name", label: false  %>
+              <%= x.input :last_name, required: true, placeholder: "Last Name", label: false  %>
+              <div class="nested-prompt">
+                <%= x.input :age_range, collection: Participant.age_ranges.keys, prompt: "Age", required: true, label: false, class: "prompt-size nested-prompt-age" %>
+                <%= x.input :family_type, collection: Participant.family_types.keys, prompt: "Family Link", required: true , label: false%>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <hr>
+        <div id="second_guest">
+          <%= t.simple_fields_for :second_guest, @second_guest do |y| %>
+            <!-- Task: <%#= task.text_field :name %> -->
+            <div class="nested-fields">
+              <h6>Second Guest</h6>
+              <%= y.input :first_name, required: true, placeholder: "First Name" , label: false %>
+              <%= y.input :last_name, required: true, placeholder: "Last Name", label: false  %>
+              <div class="nested-prompt">
+                <%= y.input :age_range, collection: Participant.age_ranges.keys, prompt: "Age", required: true, label: false, class: "prompt-size nested-prompt-age" %>
+                <%= y.input :family_type, collection: Participant.family_types.keys, prompt: "Family Link", required: true, label: false %>
+              </div>
             </div>
           <% end %>
         </div>
 
+        <%= t.button :submit, class: "btn-success"%>
+        <% end %>
+      </div>
 
-
-
-        <%= f.button :submit %>
-       <% end %>
     </div>
 
     <div class="toolbar-buttons">
-      <%=  link_to "Relationships", relationships_path, class: "btn btn-sucess"  %>
-      <%=  link_to "Finalize", "", class: "btn btn-sucess"  %>
+      <%=  link_to "Relationships", relationships_path, class: "btn btn-happy-grey"  %>
+      <%=  link_to "Finalize", "", class: "btn btn-happy-grey"  %>
     </div>
 
   </div>

@@ -5,7 +5,8 @@ class TablesController < ApplicationController
     @nbbas = @tables.first.nb_max_participants - @nbhaut
 
     @participant = Participant.new
-    @participant2 = Participant.new
+    @first_guest = Participant.new
+    @second_guest = Participant.new
     @relationship = Relationship.new
   end
 

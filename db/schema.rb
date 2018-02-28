@@ -29,11 +29,11 @@ ActiveRecord::Schema.define(version: 20180227142237) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer "link"
-    t.bigint "participant_id"
+    t.bigint "first_guest_id"
     t.bigint "second_guest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["participant_id"], name: "index_relationships_on_participant_id"
+    t.index ["first_guest_id"], name: "index_relationships_on_first_guest_id"
     t.index ["second_guest_id"], name: "index_relationships_on_second_guest_id"
   end
 
