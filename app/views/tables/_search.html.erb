@@ -1,7 +1,12 @@
 
-<%= simple_form_for :search, url: find_for_modal_path, method: :get, html: { class: 'form-inline' } do |f| %>
+<%= simple_form_for :search, url: find_for_modal_path, method: :get, html: { class: 'form-inline' }, remote: true do |f| %>
   <%= f.input :seating_plan_id, input_html: {value: @seating_plan.id}, as: :hidden %>
   <%= f.input :participant_id, collection: @seating_plan.participants.map{|p| [p.first_name, p.id]}, input_html: {class: 'select2'}, label: false %>
 
-  <%= f.button :submit %>
+  <%= f.button :submit, id: "submit-form", data: {target: "#exampleModalParticipant", toggle: "modal"}%>
 <% end %>
+<!--   <%#= button_to "coco", data: {target: "#", toggle: "modal"} %> -->
+
+<button type="button" id="open-modal" data-toggle="modal" data-target="#exampleModalParticipant">
+  Launch demo modal
+</button>
