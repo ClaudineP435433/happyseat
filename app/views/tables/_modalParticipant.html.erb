@@ -2,15 +2,15 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header" style="background-image: linear-gradient(-225deg, rgba(70,70,70,0.2) 0%, rgba(55,55,55,0.1) 20%), url('<%= image_path "modal-pic.png" %>');">
-<!--   <h5 class="modal-title" id="exampleModalLongTitle">Participant details</h5> -->
-<!--           <span aria-hidden="true">&times;</span> -->
+<!--   <h5 class="modal-title" id="exampleModalLongTitle">Participant details</h5>
+          <span aria-hidden="true">&times;</span> -->
 
 
       </div>
         <div class="modal-body">
           <div class="toolbar-form">
             <div class="toolbar-form-one-participant">
-            <%= simple_form_for(@participant) do |f| %>
+            <%= simple_form_for(@participant, remote: true) do |f| %>
               <%= f.error_notification %>
               <%= f.input :first_name, required: true, placeholder: "First Name", label: false %>
               <%= f.input :last_name, required: true, placeholder: "Last Name", label: false %>
@@ -28,8 +28,8 @@
 </div>
 
 
-
-<!--       <div class="modal-footer">
+<!--
+      <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div> -->

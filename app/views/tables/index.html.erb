@@ -70,17 +70,14 @@
         Add a Bad Relationship
       </button>
 
-
-<!--       <button type="button" class="btn btn-happy-grey btn-size" data-toggle="modal" data-target="#exampleModalParticipant">
+<!--
+      <button type="button" class="btn btn-happy-grey btn-size" data-toggle="modal" data-target="#exampleModalParticipant">
         Finalize
       </button> -->
       <%=  link_to "Finalize", find_for_modal_path(seating_plan_id: @seating_plan.id,  participant_id: Participant.last), class: "btn btn-happy-grey btn-size"   %>
     </div>
   </div>
 
-<div id="ajax">
-  <%= @participant.name %>
-</div>
 
   <!-- Modal -->
   <%= render "modalRelationship" %>

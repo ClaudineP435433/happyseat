@@ -56,6 +56,7 @@ end
 #1 afficher en ajax @participant.name
 #2 ouvrir modal lors click button + display
 #3 display params @participant ds modal
+
 #4 nested form
 
 
