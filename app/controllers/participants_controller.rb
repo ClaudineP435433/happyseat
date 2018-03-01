@@ -16,16 +16,15 @@ class ParticipantsController < ApplicationController
     end
   end
 
+
   def update
     @participant = Participant.find(params[:id])
-    if @participant.update_attributes(participant_params)
-      redirect_to @participant, notice: 'Successfully updated participant'
+    if @participant.update(participant_params)
+      flash[:notice] = 'Successfully updated participant'
     else
-      #render????
+      # render 'tables/index'
     end
   end
-
-
 
 
 
@@ -48,14 +47,6 @@ class ParticipantsController < ApplicationController
   end
 end
 
-
-
-# click finalize
-#1 afficher en ajax @participant.name
-#2 ouvrir modal lors click button + display
-#3 display params @participant ds modal
-
-#4 nested form
 
 
 

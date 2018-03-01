@@ -4,7 +4,9 @@
       <div class="modal-header" style="background-image: linear-gradient(-225deg, rgba(70,70,70,0.2) 0%, rgba(55,55,55,0.1) 20%), url('<%= image_path "modal-pic.png" %>');">
 <!--   <h5 class="modal-title" id="exampleModalLongTitle">Participant details</h5>
           <span aria-hidden="true">&times;</span> -->
-
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
 
       </div>
         <div class="modal-body">
@@ -18,7 +20,7 @@
                 <%= f.input :age_range, collection: Participant.age_ranges.keys, prompt: "Age", required: true, label: false, class: "prompt-size nested-prompt-age" %>
                 <%= f.input :family_type, collection: Participant.family_types.keys, prompt: "Family Link", required: true, label: false %>
               </div>
-              <%= f.button :submit, class: "btn-success" %>
+              <%= f.button :submit, class: "btn-success " %>
              <% end %>
             </div>
           </div>

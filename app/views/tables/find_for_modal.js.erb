@@ -1,16 +1,14 @@
 
-
-
-const name = document.getElementById('coco');
+const name = document.getElementById('modalParticipant');
 name.insertAdjacentHTML('beforeend', '<%= j render "tables/modalParticipant", participant: @participant %>');
-
 const openModal = document.getElementById('open-modal');
 const submitForm = document.getElementById('submit-form');
 
 submitForm.addEventListener("click", (event) => {
-
   openModal.click();
   });
+
+
 
 
 
