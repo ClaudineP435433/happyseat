@@ -3,13 +3,33 @@
 * ------------------------------------- */
 
 .alert {
-  margin: 0;
   text-align: center;
-  color: white;
+  color: $grey-btn;
 }
 .alert-info {
-  background: $green;
+  background: transparent;
+
 }
 .alert-warning {
   background: $red;
+}
+
+.alert.alert-info.alert-dismissible{
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  top: 40px;
+  text-align: center;
+  color: $green-btn;
+  font-size: 20px;
+  border: none;
+
+
+}
+
+.alert-child {
+  min-width: 2px;
+  display: flex;
+  justify-content: center;
 }

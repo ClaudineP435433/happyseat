@@ -1,4 +1,7 @@
-<%= form_tag seating_plan_tables_path(@seating_plan), method: :get do %>
-  <%= text_field_tag :query,
-  params[:query], class: "form-control search-bar", placeholder: "Find a guest" %>
+
+<%= simple_form_for :search, url: find_for_modal_path, method: :get, html: { class: 'form-inline' } do |f| %>
+  <%= f.input :seating_plan_id, input_html: {value: @seating_plan.id}, as: :hidden %>
+  <%= f.input :participant_id, collection: @seating_plan.participants.map{|p| [p.first_name, p.id]}, input_html: {class: 'select2'}, label: false %>
+
+  <%= f.button :submit %>
 <% end %>

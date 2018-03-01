@@ -9,6 +9,17 @@ class TablesController < ApplicationController
     @first_guest = Participant.new
     @second_guest = Participant.new
     @relationship = Relationship.new
+
+    @participants = Participant.all
+
+    if params[:query].present?
+      sql_query = " \
+      participants.first_name @@ :query \
+      OR participants.last_name @@ :query \
+      "
+      raise
+      @participant_search = Participant.where(sql_query, query: "%#{params[:query]}%")
+    end
   end
 
   def update

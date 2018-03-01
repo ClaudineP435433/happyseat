@@ -46,11 +46,11 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
+  color: $grey-btn;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: white;
   text-decoration: none;
 }
 
@@ -87,7 +87,7 @@
 
 
 .search {
-  width: 250px;
+  min-width: 250px;
 }
 
 .search-bar {

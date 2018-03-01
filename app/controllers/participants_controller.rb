@@ -38,6 +38,10 @@ class ParticipantsController < ApplicationController
   def destroy
   end
 
+  def find_for_modal
+    raise
+  end
+
   private
 
   def participant_params

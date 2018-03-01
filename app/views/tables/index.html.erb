@@ -8,11 +8,15 @@
       <%=  link_to "#", class: "btn btn-happy-grey active-couple"  do %>
         Or a couple <i class="fas fa-venus-mars"></i>
       <% end %>
+
+      <%=  link_to "#", class: "btn btn-happy-grey active-couple hidden-couple"  do %>
+        Or a participant <i class="fas fa-venus-mars"></i>
+      <% end %>
     </div>
 
     <div class="toolbar-form">
       <div class="toolbar-form-one-participant">
-      <%= simple_form_for @participant do |f| %>
+        <%= simple_form_for @participant do |f| %>
         <%= f.error_notification %>
         <%= f.input :first_name, required: true, placeholder: "First Name", label: false %>
         <%= f.input :last_name, required: true, placeholder: "Last Name", label: false %>
@@ -27,7 +31,7 @@
       <div class="toolbar-form-couple hidden-couple">
         <%= simple_form_for @relationship do |t| %>
         <%= t.error_notification %>
-        <%#= t.input :link, collection: Relationship.links.keys, prompt: "Select Relationship", label: false, required: true, value: 0, type: "hidden" %>
+        <%= t.input :link, input_html: {value: "couple"}, as: :hidden %>
 
         <div id="first_guest">
           <%= t.simple_fields_for :first_guest, @first_guest do |x| %>
