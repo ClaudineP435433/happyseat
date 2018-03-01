@@ -8,23 +8,25 @@ class ParticipantsController < ApplicationController
     # @participant.seat = 4 #algo
     if @participant.save
       redirect_to seating_plan_tables_path(@table.seating_plan)
-      flash[:notice] = "Successfully added your guest #{@participant.first_name.capitalize} #{@participant.last_name.capitalize}"
       #algo ajouter sur table + allouer un siége
+      flash[:notice] = "Successfully added your guest #{@participant.first_name.capitalize} #{@participant.last_name.capitalize}"
     else
       @tables = Table.all
-      render 'tables/index'
+       render 'tables/index'
     end
   end
 
+
   def update
+    @participant = Participant.find(params[:id])
+    if @participant.update(participant_params)
+      flash[:notice] = 'Successfully updated participant'
+    else
+      # render 'tables/index'
+    end
   end
 
-  def destroy
-  end
 
-  def find_for_modal
-    raise
-  end
 
   private
 
@@ -37,4 +39,14 @@ class ParticipantsController < ApplicationController
     )
   end
 
+  def search_params
+    params.require(:search).permit(
+      :participant_id,
+      :seating_plan_id
+      )
+  end
 end
+
+
+
+
