@@ -11,17 +11,21 @@ class TablesController < ApplicationController
     @relationship = Relationship.new
 
     @participants = Participant.all
+  end
 
-    if params[:query].present?
-      sql_query = " \
-      participants.first_name @@ :query \
-      OR participants.last_name @@ :query \
-      "
-      raise
-      @participant_search = Participant.where(sql_query, query: "%#{params[:query]}%")
+  def find_for_modal
+    @participant = Participant.find(search_params[:participant_id])
+    respond_to do |format|
+      format.html { redirect_to seating_plan_tables_path(search_params[:seating_plan_id]) }
+      format.js
     end
   end
 
-  def update
+  def search_params
+    params.require(:search).permit(
+      :participant_id,
+      :seating_plan_id
+      )
   end
+
 end

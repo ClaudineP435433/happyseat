@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   patch 'participants/swap'
   put 'participants/swap'
 
-  get 'participants/find_for_modal', as: "find_for_modal"
+  get 'tables/find_for_modal', as: "find_for_modal"
 
 
 end

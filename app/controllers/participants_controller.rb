@@ -13,8 +13,8 @@ class ParticipantsController < ApplicationController
     else
       @tables = Table.all
        render 'tables/index'
-      end
     end
+  end
 
   def update
     @participant = Participant.find(params[:id])
@@ -25,22 +25,9 @@ class ParticipantsController < ApplicationController
     end
   end
 
-  def find_for_modal
-    @participant = Participant.find(params[:participant_id])
-    redirect_to seating_plan_tables_path(params[:seating_plan_id])
-    #ajax todo
-  end
 
-  # def edit
-  #   @participant = Participant.find(params[:id])
-  # end
 
-  def destroy
-  end
 
-  def find_for_modal
-    raise
-  end
 
   private
 
@@ -51,6 +38,13 @@ class ParticipantsController < ApplicationController
       :age_range,
       :family_type,
     )
+  end
+
+  def search_params
+    params.require(:search).permit(
+      :participant_id,
+      :seating_plan_id
+      )
   end
 end
 
