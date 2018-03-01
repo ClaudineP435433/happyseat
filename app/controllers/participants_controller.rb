@@ -5,6 +5,7 @@ class ParticipantsController < ApplicationController
     @participant = Participant.new(participant_params)
     @participant.table = @table
 
+
     # @participant.seat = 4 #algo
     if @participant.save
       redirect_to seating_plan_tables_path(@table.seating_plan)
