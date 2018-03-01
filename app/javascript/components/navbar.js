@@ -1,7 +1,7 @@
 
   function initUpdateNavbarOnScroll() {
     const navbar = document.querySelector('.navbar-wagon');
-    url.addEventListener('scroll', () => {
+    window.addEventListener('scroll', () => {
       if (window.scrollY >= window.innerHeight) {
         navbar.classList.add('navbar-wagon-white');
       } else {
