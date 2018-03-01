@@ -1,7 +1,7 @@
 <% if current_page? root_path %>
   <div class="navbar-wagon navbar-fixed-top" >
 <% else %>
-  <div class="navbar-wagon navbar-fixed-top navbar-wagon-white"  >
+  <div class="navbar-wagon navbar-sticky-top navbar-wagon-white"  >
 <% end %>
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
@@ -52,6 +52,7 @@
     <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+       <%= link_to t(".sign_in", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
     </div>
 
