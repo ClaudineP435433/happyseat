@@ -18,11 +18,17 @@ u = User.create!(email: "toto@toto.com", password: "123456", groom_first_name: "
 sp = SeatingPlan.create!(nb_tables: 6, nb_max_participants: 8, nb_participants: 48, user: u)
 
 t = Table.create!(nb_max_participants: 8, seating_plan: sp)
+t2 = Table.create!(nb_max_participants: 8, seating_plan: sp)
+t3 = Table.create!(nb_max_participants: 8, seating_plan: sp)
 
-5.times do
+3.times do
   Table.create!(nb_max_participants: 8, seating_plan: sp)
 end
 
 p1 = Participant.create!(first_name: "Camomille", last_name: "Franchin", table: t, seat: 5, age_range: 2, family_type: 1)
 p2 = Participant.create!(first_name: "Patrick", last_name: "Bonnard", table: t, seat: 4, age_range: 2, family_type: 1)
+p3 = Participant.create!(first_name: "Francine", last_name: "Pompidou", table: t2, seat: 10, age_range: 2, family_type: 1)
+p4 = Participant.create!(first_name: "Antoine", last_name: "Lejeune", table: t2, seat: 13, age_range: 2, family_type: 1)
+p5 = Participant.create!(first_name: "Monique", last_name: "Champard", table: t3, seat: 18, age_range: 2, family_type: 1)
+p6 = Participant.create!(first_name: "Estelle", last_name: "Galoa", table: t3, seat: 19, age_range: 2, family_type: 1)
  puts "Finished"
