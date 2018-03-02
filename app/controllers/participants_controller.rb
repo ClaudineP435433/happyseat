@@ -19,8 +19,10 @@ class ParticipantsController < ApplicationController
 
   def update
     @participant = Participant.find(params[:id])
+    @seating_plan = @participant.table.seating_plan
     if @participant.update(participant_params)
       flash[:notice] = 'Successfully updated participant'
+      redirect_to seating_plan_tables_path(@seating_plan)
     else
       # render 'tables/index'
     end
@@ -37,13 +39,6 @@ class ParticipantsController < ApplicationController
       :age_range,
       :family_type,
     )
-  end
-
-  def search_params
-    params.require(:search).permit(
-      :participant_id,
-      :seating_plan_id
-      )
   end
 end
 
