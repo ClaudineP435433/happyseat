@@ -21,12 +21,17 @@
   color: $green-btn;
   font-size: 20px;
   border: none;
-    background: transparent;
-
+  background: transparent;
 }
 
 .alert-child {
   min-width: 2px;
   display: flex;
   justify-content: center;
+}
+
+.alert-test {
+  color: white;
+  background: $green;
+  margin-bottom: 0;
 }
