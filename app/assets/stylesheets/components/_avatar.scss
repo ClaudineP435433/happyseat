@@ -2,5 +2,22 @@
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid $grey-btn;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    color: $grey-btn;
+    font-size: 12px;
+    margin: 0;
+  }
+}
+
+#avatar-1 {
+  background-color: pink;
+
+}
+
+#avatar-10 {
+  background-color: $blue;
 }

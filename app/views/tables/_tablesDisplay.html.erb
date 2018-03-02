@@ -1,0 +1,62 @@
+<div class="wrapper-tables">
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="table-section">
+            <div class="table-drop-zone" id="drop-zone">
+              <p>Guests Drop Zone</p>
+             </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <% @tables.each_with_index do |table, index| %>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="table-section" >
+              <div class="table-card-name"> <h3><%= table.name %></h3></div>
+              <div class="table-card">
+
+                <div class="avatar-frame" id='table-top-<%= "#{index}" %>'>
+                    <% @super_tables["#{index}"][0...(@super_tables["#{index}"].size / 2)].each do |seat| %>
+                        <div class="avatar " id="avatar-<%= seat %>">
+                          <p> <%= Participant.find_by(seat: seat).initial if Participant.find_by(seat: seat).present? %> </p>
+                        </div>
+                    <% end %>
+                </div>
+
+                <div class="table-frame">
+                  <div class="table-frame-nappe" style="background-image: url('<%= image_path "nappe.jpg" %>');"></div>
+                </div>
+
+                <div class="avatar-frame" id='table-bottom-<%= "#{index}" %>'>
+                    <% @super_tables["#{index}"][(@super_tables["#{index}"].size / 2)..-1].each do |seat| %>
+                        <div class="avatar" id="avatar-<%= seat %>">
+                          <p> <%= Participant.find_by(seat: seat).initial if Participant.find_by(seat: seat).present? %> </p>
+                        </div>
+                    <% end %>
+                </div>
+
+                <!-- <div class="avatar-frame">
+                  <%# @nbhaut.times do %>
+                    <div class="avatar"></div>
+                  <%# end %>
+                </div> -->
+
+               <!--  <div class="avatar-frame">
+                  <%# @nbbas.times do %>
+                    <div class="avatar"></div>
+                  <%# end %>
+                </div> -->
+
+
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
