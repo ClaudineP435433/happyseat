@@ -1,7 +1,7 @@
 
 
 .search {
-  min-width: 250px;
+  min-width: 300px;
 }
 
 .search-bar {
@@ -11,4 +11,9 @@
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.09);
   font-weight: lighter;
   font-size: 13px;
+}
+
+
+.select2 {
+  min-width: 100px;
 }

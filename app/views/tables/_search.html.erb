@@ -1,7 +1,7 @@
 
 <%= simple_form_for :search, url: find_for_modal_path, method: :get, html: { class: 'form-inline' }, remote: true do |f| %>
   <%= f.input :seating_plan_id, input_html: {value: @seating_plan.id}, as: :hidden %>
-  <%= f.input :participant_id, collection: @seating_plan.participants.map{|p| [p.first_name, p.id]}, input_html: {class: 'select2'}, label: false %>
+  <%= f.input :participant_id, collection: @seating_plan.participants.map{|p| [p.name, p.id]}, input_html: {class: 'select2'}, label: false %>
 
   <%= f.button :submit, id: "submit-form", data: {target: "#exampleModalParticipant", toggle: "modal"}%>
 <% end %>
