@@ -16,7 +16,7 @@
 
     <div class="toolbar-form">
       <div class="toolbar-form-one-participant" id="form-recuperate">
-        <%= simple_form_for(@participant, remote: true) do |f| %>
+        <%= simple_form_for @participant do |f| %>
         <%= f.error_notification %>
         <%= f.input :first_name, required: true, placeholder: "First Name", label: false %>
         <%= f.input :last_name, required: true, placeholder: "Last Name", label: false %>
@@ -84,10 +84,7 @@
 
   <!-- Modal -->
   <%= render "modalRelationship" %>
-
-<div id="modalParticipant">
-
-</div>
+  <%= render "modalParticipant" %>
 
   <!-- Tables#index -->
 

@@ -4,12 +4,12 @@ class ParticipantsController < ApplicationController
     @table = Table.first
     @participant = Participant.new(participant_params)
     @participant.table = @table
-
+    @seating_plan = @participant.table.seating_plan
     # @participant.seat = 4 #algo
     if @participant.save
-      redirect_to seating_plan_tables_path(@table.seating_plan)
+      redirect_to seating_plan_tables_path(@seating_plan)
       #algo ajouter sur table + allouer un siége
-      flash[:notice] = "Successfully added your guest #{@participant.first_name.capitalize} #{@participant.last_name.capitalize}"
+      flash[:notice] = "Successfully added your guest : #{@participant.first_name.capitalize} #{@participant.last_name.capitalize}"
     else
       @tables = Table.all
        render 'tables/index'
@@ -19,10 +19,12 @@ class ParticipantsController < ApplicationController
 
   def update
     @participant = Participant.find(params[:id])
+    @seating_plan = @participant.table.seating_plan
     if @participant.update(participant_params)
       flash[:notice] = 'Successfully updated participant'
+      redirect_to seating_plan_tables_path(@seating_plan)
     else
-      # render 'tables/index'
+      render 'tables/index'
     end
   end
 
@@ -35,15 +37,8 @@ class ParticipantsController < ApplicationController
       :first_name,
       :last_name,
       :age_range,
-      :family_type,
+      :family_type
     )
-  end
-
-  def search_params
-    params.require(:search).permit(
-      :participant_id,
-      :seating_plan_id
-      )
   end
 end
 

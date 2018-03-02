@@ -9,22 +9,7 @@
               </button>
 
       </div>
-        <div class="modal-body">
-          <div class="toolbar-form">
-            <div class="toolbar-form-one-participant">
-            <%= simple_form_for(participant, remote: true) do |f| %>
-              <%= f.error_notification %>
-              <%= f.input :first_name, required: true, placeholder: "First Name", label: false %>
-              <%= f.input :last_name, required: true, placeholder: "Last Name", label: false %>
-              <div class="nested-prompt">
-                <%= f.input :age_range, collection: Participant.age_ranges.keys, prompt: "Age", required: true, label: false, class: "prompt-size nested-prompt-age" %>
-                <%= f.input :family_type, collection: Participant.family_types.keys, prompt: "Family Link", required: true, label: false %>
-              </div>
-              <%= f.button :submit, class: "btn-success " %>
-             <% end %>
-            </div>
-          </div>
-        </div>
+      <div class="modal-body" id="modalParticipant"></div>
     </div>
   </div>
 </div>
