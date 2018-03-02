@@ -1,10 +1,16 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible" role="alert">
-    <div class="alert-child">
-      <%= notice %>
-      <button type="button" class="close alert-child" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <% if current_page? root_path %>
+      <div class="alert alert-dismissible alert-info" role="alert">
+    <% else %>
+      <div class="alert alert-dismissible" role="alert">
+    <% end %>
+
+      <div class="alert-child">
+        <%= notice %>
+        <button type="button" class="close alert-child" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
     </div>
-  </div>
+
 <% end %>
 <% if alert %>
   <div class="alert alert-warning alert-dismissible" role="alert">

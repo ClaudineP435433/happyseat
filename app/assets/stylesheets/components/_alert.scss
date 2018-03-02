@@ -6,15 +6,12 @@
   text-align: center;
   color: $grey-btn;
 }
-.alert-info {
-  background: transparent;
 
-}
 .alert-warning {
   background: $red;
 }
 
-.alert.alert-info.alert-dismissible{
+.alert-info{
   display: flex;
   justify-content: center;
   position: fixed;
@@ -24,7 +21,7 @@
   color: $green-btn;
   font-size: 20px;
   border: none;
-
+    background: transparent;
 
 }
 
