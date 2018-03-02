@@ -35,12 +35,14 @@
 
 .table-card-name {
   h3{
-    color: rgb(150,150,150);
+    color: black;
+    opacity: 0.8;
     font-size: 20px;
     font-family: light;
     font-family: Raleway, Helvetica, sans-serif;
     width: 100%;
     margin-bottom: 5px;
+    padding-top: 15px;
   }
 }
 .table-drop-zone {
@@ -48,13 +50,13 @@
   box-shadow: 0 0 5px $grey-btn;
   height: 50px;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 15px;
   padding: 10px;
   position:relative;
   p {
     font-size: 16px;
     opacity: 0.6;
-    color: $grey-btn;
+    color: #353535;
     position:absolute;
     top: 0;
     left: 0;

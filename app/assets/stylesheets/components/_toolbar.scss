@@ -3,13 +3,10 @@
   min-height: calc(100vh - 70px);
   padding: 5px;
   background-color: white;
-  border-right: 1px dotted $grey-btn;
+  border-right: 1px solid black;
   border-top: 1px dotted $grey-btn;
   position: sticky;
   top: 70px;
-  border-radius: 3px;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
