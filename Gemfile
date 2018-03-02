@@ -16,7 +16,9 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem "cocoon"
 gem 'pg_search' #searchbar
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

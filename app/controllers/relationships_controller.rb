@@ -3,7 +3,6 @@ class RelationshipsController < ApplicationController
     @table = Table.first
     @relationship = Relationship.new(relationship_params)
     #@relationship.link = 0
-    raise
     #@participant.table = @table ATTENTION allouer une table au M et Mme ;)
     @relationship.first_guest.table = Table.first
     @relationship.second_guest.table = Table.first

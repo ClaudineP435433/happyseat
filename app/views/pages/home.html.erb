@@ -1,21 +1,12 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(70,70,70,0.8) 0%, rgba(55,55,55,0.7) 50%), url('<%= image_path "banner.png" %>');">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(80,80,80,0.6) 0%, rgba(55,55,55,0.4) 50%), url('<%= image_path "banner.png" %>');">
   <div class="banner-content">
     <h1>HAPPY SEAT</h1>
     <p>Everyone can have the best seat</p>
     <%= simple_form_for @seating_plan do |f| %>
     <div class="form-home">
-      <div class="form-label">
-        <h4>Nombre total d'invités</h4>
-        <%= f.input :nb_participants, label: false %>
-      </div>
-      <div class="form-label">
-        <h4>Nombre total de tables</h4>
-        <%= f.input :nb_tables, label: false  %>
-      </div>
-      <div class="form-label">
-        <h4>Nombre d'invités par table</h4>
-        <%= f.input :nb_max_participants, label: false %>
-      </div>
+        <%= f.input :nb_participants, label: false, placeholder:"Total Number of Guests" %>
+        <%= f.input :nb_tables, label: false, placeholder:"Total Number of Tables"  %>
+        <%= f.input :nb_max_participants, label: false, placeholder:"Number of Guests per Table" %>
     </div>
     <%= f.button :submit, class: "green-btn" %>
     <% end %>

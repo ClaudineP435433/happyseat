@@ -3,6 +3,7 @@ import '../components/select2';
 import '../components/dragula';
 
 
+
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 if (window.location.pathname === "/"){
 initUpdateNavbarOnScroll();
