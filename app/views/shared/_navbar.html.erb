@@ -36,7 +36,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to (seating_plan_tables_path(1)) do %>
+              <%= link_to (seating_plan_tables_path(current_user.seating_plans.first)) do %>
                 <i class="fa fa-cog"></i>  <%= t(".settings", default: "My seating plan") %>
               <% end %>
             </li>
