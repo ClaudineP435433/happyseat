@@ -1,5 +1,6 @@
 import "bootstrap";
 import '../components/select2';
+import '../components/dragula';
 
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
