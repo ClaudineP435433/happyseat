@@ -1,7 +1,3 @@
-
-<!-- Navbar auto -->
-
-
 <div class="wrapper">
   <!-- Toolbar -->
 
@@ -19,8 +15,8 @@
     </div>
 
     <div class="toolbar-form">
-      <div class="toolbar-form-one-participant">
-        <%= simple_form_for @participant do |f| %>
+      <div class="toolbar-form-one-participant" id="form-recuperate">
+        <%= simple_form_for(@participant, remote: true) do |f| %>
         <%= f.error_notification %>
         <%= f.input :first_name, required: true, placeholder: "First Name", label: false %>
         <%= f.input :last_name, required: true, placeholder: "Last Name", label: false %>
@@ -54,7 +50,6 @@
         <hr>
         <div id="second_guest">
           <%= t.simple_fields_for :second_guest, @second_guest do |y| %>
-            <!-- Task: <%#= task.text_field :name %> -->
             <div class="nested-fields">
               <h6>Second Guest</h6>
               <%= y.input :first_name, required: true, placeholder: "First Name" , label: false %>
@@ -77,15 +72,22 @@
       <button type="button" class="btn btn-happy-grey btn-size" data-toggle="modal" data-target="#exampleModalRelationship">
         Add a Bad Relationship
       </button>
-      <%=  link_to "Finalize", "", class: "btn btn-happy-grey btn-size"  %>
-    </div>
 
+
+      <button type="button" class="btn btn-happy-grey btn-size">
+        Finalize
+      </button>
+
+    </div>
   </div>
 
 
   <!-- Modal -->
   <%= render "modalRelationship" %>
-  <%= render "modalParticipant" %>
+
+<div id="modalParticipant">
+
+</div>
 
   <!-- Tables#index -->
 
@@ -114,7 +116,11 @@
         <% end %>
       </div>
     </div>
+
   </div>
+
+
+
 
 </div>
 <!-- Footer -->

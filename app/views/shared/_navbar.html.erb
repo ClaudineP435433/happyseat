@@ -24,12 +24,11 @@
 
 
       <!-- Links when logged in -->
-      <%= link_to "test", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "", class: "fa fa-bars dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
@@ -37,8 +36,8 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+              <%= link_to root_path do %>
+                <i class="fa fa-cog"></i>  <%= t(".settings", default: "My seating plan") %>
               <% end %>
             </li>
             <li>
@@ -68,4 +67,3 @@
     </div>
   </div>
 </div>
-

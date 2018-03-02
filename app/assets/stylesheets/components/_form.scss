@@ -15,8 +15,11 @@
 
 .form-home {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
   margin-top: 70px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .form-label {
@@ -33,3 +36,4 @@
     color: $grey-form;
     font-size: 16px;
   }
+
