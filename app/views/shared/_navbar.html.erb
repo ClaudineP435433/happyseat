@@ -36,8 +36,10 @@
               <% end %>
             </li>
             <li>
-              <%= link_to (seating_plan_tables_path(current_user.seating_plans.first)) do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "My seating plan") %>
+              <% current_user.seating_plans.each_with_index do |seating_plan, index| %>
+                <%= link_to (seating_plan_tables_path(seating_plan)) do %>
+                  <i class="fa fa-cog"></i>  <%= "My seating plan N° #{index}" %>
+                <% end %>
               <% end %>
             </li>
             <li>
@@ -60,9 +62,21 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li>
+          <%= link_to "#" do %>
+            <%= t(".profile", default: "Profile") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to (seating_plan_tables_path(current_user.seating_plans.first)) do %>
+            <%= t(".settings", default: "My seating plan") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= t(".sign_out", default: "Log out") %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
