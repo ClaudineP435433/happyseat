@@ -67,11 +67,15 @@
             <%= t(".profile", default: "Profile") %>
           <% end %>
         </li>
-        <li>
-          <%= link_to (seating_plan_tables_path(current_user.seating_plans.first)) do %>
-            <%= t(".settings", default: "My seating plan") %>
-          <% end %>
-        </li>
+        <% if user_signed_in? %>
+          <li>
+            <% current_user.seating_plans.each_with_index do |seating_plan, index| %>
+              <%= link_to (seating_plan_tables_path(seating_plan)) do %>
+                <i class="fa fa-cog"></i>  <%= "My seating plan N° #{index}" %>
+              <% end %>
+            <% end %>
+          </li>
+         <% end %>
         <li>
           <%= link_to destroy_user_session_path, method: :delete do %>
             <%= t(".sign_out", default: "Log out") %>
