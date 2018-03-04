@@ -6,18 +6,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   p {
     color: $grey-btn;
     font-size: 12px;
+    font-weight: bolder;
     margin: 0;
+    position: sticky;
   }
 }
 
-#avatar-1 {
+.avatar_color {
   background-color: pink;
-
-}
-
-#avatar-10 {
-  background-color: $blue;
+  p {
+    color: white;
+  }
 }
