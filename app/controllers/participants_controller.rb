@@ -1,9 +1,10 @@
 class ParticipantsController < ApplicationController
+  before_action :init, only: [:create]
 
   def create
-    @seating_plan = SeatingPlan.find(params[:seating_plan_id].to_i)
-    @table = @seating_plan.tables.first
     @participant = Participant.new(participant_params)
+    @relationship = Relationship.new
+    @table = @seating_plan.tables.first
     @participant.table = @table
     # @participant.seat = 4 #algo
     if @participant.save
@@ -11,8 +12,7 @@ class ParticipantsController < ApplicationController
       #algo ajouter sur table + allouer un siége
       flash[:notice] = "Successfully added your guest : #{@participant.first_name.capitalize} #{@participant.last_name.capitalize}"
     else
-      @tables = Table.all
-       render 'tables/index'
+      render 'tables/index'
     end
   end
 
