@@ -2,6 +2,7 @@ class TablesController < ApplicationController
   before_action :init, only: [:index]
 
   def index
+
     @relationship = Relationship.new
     @participant = Participant.new
     @participants = Participant.all
