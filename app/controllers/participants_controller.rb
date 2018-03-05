@@ -2,11 +2,8 @@ class ParticipantsController < ApplicationController
   before_action :init, only: [:create]
 
   def create
-    @participant = Participant.new(participant_params)
+    @participant = @seating_plan.participants.new(participant_params)
     @relationship = Relationship.new
-    @table = @seating_plan.tables.first
-    @participant.table = @table
-    # @participant.seat = 4 #algo
     if @participant.save
       redirect_to seating_plan_tables_path(@seating_plan)
       #algo ajouter sur table + allouer un siége

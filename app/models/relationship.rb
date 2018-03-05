@@ -27,4 +27,9 @@ class Relationship < ApplicationRecord
       "Error in your last update"
     end
   end
+
+  def reverse_relationship
+    Relationship.create(first_guest: second_guest, second_guest: first_guest, link: link)
+  end
+
 end

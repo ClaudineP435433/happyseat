@@ -2,7 +2,7 @@
   <h5>Add Conflictual Relationship <%= image_tag "braked-heart.png" %></h5>
   <p>Define a conflictual relationship with another guest</p>
 
-    <%= simple_form_for [participant.table.seating_plan, relationship] do |t| %>
+    <%= simple_form_for [participant.seating_plan, relationship] do |t| %>
     <%= t.input :link, input_html: {value: "hate"}, as: :hidden %>
     <div id="first_guest">
         <%= t.input :first_guest_id, input_html: {value: participant.id}, as: :hidden   %>

@@ -1,5 +1,5 @@
 class Participant < ApplicationRecord
-  belongs_to :table
+  belongs_to :seating_plan
   #has_many :relationships
   has_many :relationships, inverse_of: :first_guest
   has_many :relationships, inverse_of: :second_guest
