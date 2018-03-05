@@ -3,6 +3,12 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+    h3 {
+      font-size: 19px;
+      font-weight: 300;
+      line-height: 1.1;
+      margin: 18px 0 12px 0;
+    }
 }
 
 .table-frame {
