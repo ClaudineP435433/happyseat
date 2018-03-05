@@ -25,6 +25,7 @@ class TablesController < ApplicationController
 
   def find_for_modal
     @participant = Participant.find(search_params[:participant_id])
+    @relationship = Relationship.new
     respond_to do |format|
       format.html { redirect_to seating_plan_tables_path(search_params[:seating_plan_id]) }
       format.js

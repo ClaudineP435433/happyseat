@@ -9,3 +9,57 @@
   margin-top: -14px;
   margin-bottom: 14px;
 }
+
+.modal-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 20px 0 20px;
+}
+
+.modal-right {
+  flex: 50%;
+  padding-left: 5px;
+  display: flex;
+  flex-direction: column;
+  h5 {
+    margin: 0;
+    color: $grey-btn;
+  }
+}
+
+.modal-bottom {
+  border-top: 1px dotted $grey-btn;
+  padding: 20px;
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  h5 {
+    margin: 0;
+    color: $grey-btn;
+  }
+  img {
+      width: 30px;
+
+  }
+  p {
+    font-size: 13px;
+    color: $grey-btn;
+  }
+}
+
+.modal-left {
+  flex: 50%;
+  border-right: 1px dotted $grey-btn;
+  display: flex;
+  flex-direction: column;
+  h5 {
+
+    color: $grey-btn;
+  }
+}
+
+.modal-details {
+  font-size: 13px;
+  color: $grey-btn;
+}

@@ -2,6 +2,7 @@ class Relationship < ApplicationRecord
   belongs_to :first_guest, class_name: 'Participant', foreign_key: 'first_guest_id', inverse_of: :relationships
   belongs_to :second_guest, class_name: 'Participant', foreign_key: 'second_guest_id', inverse_of: :relationships
 
+
   validates :first_guest, uniqueness: { scope: :second_guest }
   validates :link, presence: true
   validates :first_guest, presence: true

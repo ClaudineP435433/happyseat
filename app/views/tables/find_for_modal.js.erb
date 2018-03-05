@@ -1,8 +1,10 @@
 console.log("coco");
-const name = document.getElementById('modalParticipant');
-name.insertAdjacentHTML('beforeend', '<%= j render "tables/modal_body", participant: @participant %>');
 
-
-
+  let name = document.getElementById('modalParticipant');
+  let name2 = document.getElementById('modalParticipant2');
+  let name3 = document.getElementById('modalParticipant3');
+  name.insertAdjacentHTML('beforeend', '<%= j render "tables/modal_body", participant: @participant %>');
+  name2.insertAdjacentHTML('beforeend', '<%= j render "tables/modal_body2", participant: @participant %>');
+  name3.insertAdjacentHTML('beforeend', '<%= j render "tables/modal_body3", participant: @participant, relationship: @relationship %>');
 
 
