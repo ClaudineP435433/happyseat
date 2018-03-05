@@ -1,10 +1,9 @@
 console.log("coco");
 
-  let name = document.getElementById('modalParticipant');
-  let name2 = document.getElementById('modalParticipant2');
-  let name3 = document.getElementById('modalParticipant3');
-  name.insertAdjacentHTML('beforeend', '<%= j render "tables/modal_body", participant: @participant %>');
-  name2.insertAdjacentHTML('beforeend', '<%= j render "tables/modal_body2", participant: @participant %>');
-  name3.insertAdjacentHTML('beforeend', '<%= j render "tables/modal_body3", participant: @participant, relationship: @relationship %>');
+
+document.getElementById('modalParticipant').innerHTML = '<%= j render "tables/modal_body", participant: @participant %>';
+document.getElementById('modalParticipant2').innerHTML = '<%= j render "tables/modal_body2", participant: @participant %>';
+document.getElementById('modalParticipant3').innerHTML = '<%= j render "tables/modal_body3", participant: @participant, relationship: @relationship %>';
+
 
 

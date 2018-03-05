@@ -1,10 +1,10 @@
 class ParticipantsController < ApplicationController
 
   def create
-    @table = Table.first
+    @seating_plan = SeatingPlan.find(params[:seating_plan_id].to_i)
+    @table = @seating_plan.tables.first
     @participant = Participant.new(participant_params)
     @participant.table = @table
-    @seating_plan = @participant.table.seating_plan
     # @participant.seat = 4 #algo
     if @participant.save
       redirect_to seating_plan_tables_path(@seating_plan)
@@ -16,10 +16,8 @@ class ParticipantsController < ApplicationController
     end
   end
 
-
   def update
     @participant = Participant.find(params[:id])
-    @seating_plan = @participant.table.seating_plan
     if @participant.update(participant_params)
       flash[:notice] = 'Successfully updated participant'
       redirect_to seating_plan_tables_path(@seating_plan)
@@ -29,7 +27,6 @@ class ParticipantsController < ApplicationController
   end
 
 
-
   private
 
   def participant_params
@@ -37,7 +34,7 @@ class ParticipantsController < ApplicationController
       :first_name,
       :last_name,
       :age_range,
-      :family_type
+      :family_type,
     )
   end
 end

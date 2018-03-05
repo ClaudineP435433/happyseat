@@ -5,13 +5,13 @@ Rails.application.routes.draw do
 
   resources :seating_plans, only: [:create ] do
     resources :tables, only: [:index]
-
+    resources :participants, only: [:create]
+    resources :relationships, only: [:create]
   end
 
 
-  resources :participants, only: [:create, :update, :destroy], shallow: true
+  resources :participants, only: [:update, :destroy], shallow: true
 
-  resources :relationships, only: [:create]
 
   patch 'participants/swap'
   put 'participants/swap'
