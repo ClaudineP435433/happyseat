@@ -4,8 +4,8 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="table-section">
+          <p>Guests Drop Zone</p>
             <div class="table-drop-zone" id="drop-zone">
-              <p>Guests Drop Zone</p>
              </div>
           </div>
         </div>
@@ -21,8 +21,12 @@
 
                 <div class="avatar-frame" id='table-top-<%= "#{index}" %>'>
                     <% @super_tables["#{index}"][0...(@super_tables["#{index}"].size / 2)].each do |seat| %>
-                        <div class="avatar <%= "avatar_color" if @seating_plan.participants.find_by(seat: seat).present? %>" id="avatar-<%= seat %>">
-                          <p> <%= @seating_plan.participants.find_by(seat: seat).initial if @seating_plan.participants.find_by(seat: seat).present? %> </p>
+                        <div class="avatar" id="avatar-<%= seat %>">
+                          <% if @seating_plan.participants.find_by(seat: seat).present? %>
+                            <div class="avatar-participant avatar_color" ><p><%= @seating_plan.participants.find_by(seat: seat).initial %></p></div>
+                          <% else  %>
+                              <div class="none-participant"></div>
+                          <% end %>
                         </div>
                     <% end %>
                 </div>
@@ -33,8 +37,12 @@
 
                 <div class="avatar-frame" id='table-bottom-<%= "#{index}" %>'>
                     <% @super_tables["#{index}"][(@super_tables["#{index}"].size / 2)..-1].each do |seat| %>
-                        <div class="avatar <%= "avatar_color" if @seating_plan.participants.find_by(seat: seat).present? %>" id="avatar-<%= seat %>">
-                          <p> <%= @seating_plan.participants.find_by(seat: seat).initial if @seating_plan.participants.find_by(seat: seat).present? %> </p>
+                        <div class="avatar" id="avatar-<%= seat %>">
+                          <% if @seating_plan.participants.find_by(seat: seat).present? %>
+                            <div class="avatar-participant avatar_color" ><p><%= @seating_plan.participants.find_by(seat: seat).initial %></p></div>
+                          <% else  %>
+                              <div class="none-participant"></div>
+                          <% end %>
                         </div>
                     <% end %>
                 </div>

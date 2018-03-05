@@ -23,7 +23,7 @@
 .table-card {
   background-color: white;
   box-shadow: 0 0 5px $grey-btn;
-  height: 200px;
+  height: 230px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -48,30 +48,19 @@
 .table-drop-zone {
   background-color: transparent;
   box-shadow: 0 0 5px $grey-btn;
-  height: 50px;
+  height: 65px;
   width: 100%;
-  margin-top: 15px;
-  padding: 10px;
+  margin-top: 0px;
+  padding: 6px 5px 0 5px;
   position:relative;
   display: flex;
-
   p {
-    font-size: 16px;
-    opacity: 0.6;
-    color: #353535;
-    position:absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height:100%;
-    z-index: -1;
-    background-color: white;
+    color: white;
+    font-size: 17px;
+    font-weight: bolder;
+    margin: 13px;
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: center;
   }
-}
-
-.avatar-frame{
-  padding: 10px;
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
 }
