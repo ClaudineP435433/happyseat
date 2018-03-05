@@ -16,7 +16,7 @@
 
     <div class="toolbar-form">
       <div class="toolbar-form-one-participant" id="form-recuperate">
-        <%= simple_form_for @participant do |f| %>
+        <%= simple_form_for [@seating_plan, @participant] do |f| %>
         <%= f.error_notification %>
         <%= f.input :first_name, required: true, placeholder: "First Name", label: false %>
         <%= f.input :last_name, required: true, placeholder: "Last Name", label: false %>
@@ -29,7 +29,7 @@
       </div>
 
       <div class="toolbar-form-couple hidden-couple">
-        <%= simple_form_for @relationship do |t| %>
+        <%= simple_form_for [@seating_plan, @relationship] do |t| %>
         <%= t.error_notification %>
         <%= t.input :link, input_html: {value: "couple"}, as: :hidden %>
 
@@ -74,18 +74,16 @@
       </button>
 
 
-      <button type="button" class="btn btn-happy-grey btn-size">
-        Finalize
-      </button>
+      <%= link_to "Finalize", seating_plan_path(@seating_plan), class: "btn btn-happy-grey btn-size" %>
 
     </div>
   </div>
 
 
   <!-- Modal -->
-  <%= render "modalRelationship" %>
-  <%= render "modalParticipant" %>
-  <%= render "tablesDisplay" %>
+  <%= render "tables/modalRelationship" %>
+  <%= render "tables/modalParticipant" %>
+  <%= render "tables/tablesDisplay" %>
 
 </div>
 <!-- Footer -->

@@ -1,24 +1,21 @@
 class RelationshipsController < ApplicationController
+  before_action :init, only: [:create]
+
   def create
-    @table = Table.first
     @relationship = Relationship.new(relationship_params)
-    #@relationship.link = 0
+    @participant = Participant.new
+    @table = @seating_plan.tables.first
     #@participant.table = @table ATTENTION allouer une table au M et Mme ;)
-    @relationship.first_guest.table = Table.first
-    @relationship.second_guest.table = Table.first
+
+    @relationship.first_guest.table = @table if @relationship.first_guest.present?
+    @relationship.second_guest.table = @table if @relationship.second_guest.present?
 
     if @relationship.save
       redirect_to seating_plan_tables_path(@table.seating_plan)
-      if @relationship.link == "couple"
-        flash[:notice] = "Successfully added your guests in couple"
-      elsif @relationship.link == "hate"
-        flash[:notice] = "Successfully added your conflictual relationship"
-      else
-        flash[:notice] = "Error in your last update"
-      end
+      flash[:notice] = @relationship.errors_flash
       #algo ajouter sur table + allouer un siége
     else
-      @tables = Table.all
+      flash[:alert] = "Please review your inputs"
       render 'tables/index'
     end
   end

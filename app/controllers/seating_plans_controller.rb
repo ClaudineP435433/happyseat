@@ -17,9 +17,14 @@ class SeatingPlansController < ApplicationController
     end
   end
 
+  def show
+    @seating_plan = SeatingPlan.find(params[:id])
+  end
+
   private
 
   def seating_plan_params
     params.require(:seating_plan).permit(:nb_participants, :nb_max_participants, :nb_tables)
   end
+
 end

@@ -1,0 +1,17 @@
+
+  <h5>Relationship(s) associated</h5>
+  <div class="modal-details">
+    <% if Relationship.where(first_guest: participant).empty? %>
+      <p>No Relationship recorded</p>
+    <% else %>
+      <ul>
+      <% Relationship.where(first_guest: participant).each do |relation| %>
+      <li>
+        <p>Relation : <%= relation.link %> with <%= relation.second_guest.name %></p>
+      </li>
+      <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+

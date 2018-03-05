@@ -4,6 +4,7 @@ class Participant < ApplicationRecord
   has_many :relationships, inverse_of: :first_guest
   has_many :relationships, inverse_of: :second_guest
 
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   #validates :seat, uniqueness: { scope: :table_id }
@@ -18,11 +19,6 @@ class Participant < ApplicationRecord
 
   def name
       "#{first_name} #{last_name}"
-  end
-
-
-  def name
-    "#{first_name} #{last_name}"
   end
 
   def initial
