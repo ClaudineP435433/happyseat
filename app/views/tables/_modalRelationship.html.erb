@@ -15,7 +15,7 @@
                   <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
 
                     <div class="form-hate">
-                    <%= simple_form_for @relationship do |t| %>
+                    <%= simple_form_for [@seating_plan, @relationship] do |t| %>
                     <%= t.input :link, input_html: {value: "hate"}, as: :hidden %>
                     <div id="first_guest">
 

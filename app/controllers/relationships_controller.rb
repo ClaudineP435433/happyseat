@@ -1,11 +1,12 @@
 class RelationshipsController < ApplicationController
   def create
-    @table = Table.first
+    @seating_plan = SeatingPlan.find(params[:seating_plan_id].to_i)
+    @table = @seating_plan.tables.first
     @relationship = Relationship.new(relationship_params)
     #@relationship.link = 0
     #@participant.table = @table ATTENTION allouer une table au M et Mme ;)
-    @relationship.first_guest.table = Table.first
-    @relationship.second_guest.table = Table.first
+    @relationship.first_guest.table = @table
+    @relationship.second_guest.table = @table
 
     if @relationship.save
       redirect_to seating_plan_tables_path(@table.seating_plan)
