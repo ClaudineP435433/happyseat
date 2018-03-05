@@ -10,6 +10,7 @@ Participant.destroy_all
 Table.destroy_all
 SeatingPlan.destroy_all
 User.destroy_all
+Relationship.destroy_all
 
 
 puts "start seeds"
