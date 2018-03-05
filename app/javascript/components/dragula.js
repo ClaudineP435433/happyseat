@@ -19,15 +19,13 @@ const dragDecorator = (containers, options, transitZone) => {
   });
 };
 
-document.querySelectorAll('.table-card').forEach((table) => {
-  let table_nb_top = document.querySelector(`#table-top-${seatIndex}`);
-  containers.push(table_nb_top);
-  let table_nb_bottom = document.querySelector(`#table-bottom-${seatIndex}`);
-  containers.push(table_nb_bottom);
+document.querySelectorAll('.avatar').forEach((table) => {
+  let seats = document.querySelector(`#avatar-${seatIndex}`);
+  containers.push(seats);
   seatIndex += 1;
  });
 
 const options = { };
-dragDecorator(containers, options);
+dragDecorator(containers, options, area);
 
 import 'dragula/dist/dragula.css';
