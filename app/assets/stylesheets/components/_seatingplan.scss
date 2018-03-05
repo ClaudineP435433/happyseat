@@ -1,4 +1,6 @@
 .seating-plan-show{
+  width: 100%;
+  text-align:center;
   h2{
     color: $grey-btn;
     font-size: 143px;
@@ -12,10 +14,12 @@
   justify-content: center;
 
 
+
 }
 
 .btn-congrats {
   width: 120px;
+  height: 102px;
   background-color: $green-btn;
   border: none;
   margin: 30px 30px ;
@@ -28,13 +32,45 @@
   font-family: "Raleway", "Helvetica", "sans-serif";
 }
 
-.container {
-  display:flex;
-  align-items: center;
-  justify-content: center;
+.card {
+  margin: 20px 20px;
+  padding: 30px 30px;
+  background-image: url("image 2.png");
+  border: 1px solid $grey-btn;
+}
+.card-description {
+
+
 }
 
-.card {
+.card-title {
+  font-family:bold;
+  color: $grey-btn;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  font-size: 28px;
+  padding: 10px;
+
+}
+
+.card-content {
+  padding: 10px 0px;
+}
+
+.card-info {
+  border: 2px dashed $grey-btn ;
+  background-color: white;
+}
+
+
+
+.card-info-placement {
+  background-image: url("image 2.png");
+
+}
+
+.card-content-placement {
+  border: 2px dashed $grey-btn ;
+  background-color: white;
 
 }
 
