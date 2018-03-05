@@ -17,6 +17,10 @@ class SeatingPlansController < ApplicationController
     end
   end
 
+  def show
+    @seating_plan = SeatingPlan.find(params[:id])
+  end
+
   private
 
   def seating_plan_params
