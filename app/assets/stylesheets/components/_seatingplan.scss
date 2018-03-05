@@ -5,3 +5,37 @@
     font-weight: lighter;
   }
 }
+
+.seating-plan-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.btn-congrats {
+  width: 120px;
+  background-color: $green-btn;
+  border: none;
+  margin: 30px 30px ;
+  color: white;
+  padding: 15px 15px;
+  border-radius: 3px;
+  font-size: 17px;
+  font-family: bold;
+  text-align: center;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+}
+
+.container {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+
+}
+
+
