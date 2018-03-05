@@ -13,7 +13,8 @@ class SeatingPlansController < ApplicationController
       end
       redirect_to seating_plan_tables_path(@seating_plan)
     else
-      render "pages/new"
+      flash[:alert] = "Please review your inputs"
+      redirect_to root_path
     end
   end
 

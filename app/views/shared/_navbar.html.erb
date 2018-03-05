@@ -14,9 +14,9 @@
 
     <% if user_signed_in? %>
 
-      <% if @seating_plan.present? && @seating_plan.id? && current_page?(seating_plan_tables_path(@seating_plan))%>
+      <% if @seating_plan.present? && @seating_plan.id?%>
         <div class="search">
-          <%= render 'tables/search', query: params[:query] %>
+          <%= render 'shared/search', query: params[:query] %>
         </div>
       <% else  %>
           <div class="test"></div>
