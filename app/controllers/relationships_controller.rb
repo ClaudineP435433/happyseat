@@ -20,7 +20,6 @@ class RelationshipsController < ApplicationController
   end
 
 
-
   private
 
   def relationship_params
