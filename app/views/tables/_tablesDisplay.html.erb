@@ -21,7 +21,7 @@
 
                 <div class="avatar-frame" id='table-top-<%= "#{index}" %>'>
                     <% @super_tables["#{index}"][0...(@super_tables["#{index}"].size / 2)].each do |seat| %>
-                        <div class="avatar " id="avatar-<%= seat %>">
+                        <div class="avatar <%= "avatar_color" if @seating_plan.participants.find_by(seat: seat).present? %>" id="avatar-<%= seat %>">
                           <p> <%= @seating_plan.participants.find_by(seat: seat).initial if @seating_plan.participants.find_by(seat: seat).present? %> </p>
                         </div>
                     <% end %>
@@ -33,7 +33,7 @@
 
                 <div class="avatar-frame" id='table-bottom-<%= "#{index}" %>'>
                     <% @super_tables["#{index}"][(@super_tables["#{index}"].size / 2)..-1].each do |seat| %>
-                        <div class="avatar" id="avatar-<%= seat %>">
+                        <div class="avatar <%= "avatar_color" if @seating_plan.participants.find_by(seat: seat).present? %>" id="avatar-<%= seat %>">
                           <p> <%= @seating_plan.participants.find_by(seat: seat).initial if @seating_plan.participants.find_by(seat: seat).present? %> </p>
                         </div>
                     <% end %>
