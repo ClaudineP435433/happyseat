@@ -26,4 +26,5 @@ class SeatingPlansController < ApplicationController
   def seating_plan_params
     params.require(:seating_plan).permit(:nb_participants, :nb_max_participants, :nb_tables)
   end
+
 end
