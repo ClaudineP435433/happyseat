@@ -66,6 +66,7 @@ class Relationship < ApplicationRecord
     super_tables = SuperTable.new(seating_plan: seating_plan)
     if super_tables.find_table(self.first_guest.seat) == super_tables.find_table(self.second_guest.seat)
       if first_guest.couple_relationships.size >= second_guest.couple_relationships.size
+        #si first en couple
         switch_guests(super_tables, first_guest, second_guest)
       else
         switch_guests(super_tables, second_guest, first_guest)
@@ -74,9 +75,14 @@ class Relationship < ApplicationRecord
   end
 
   def switch_guests(super_tables, guest_1, guest_2)
-    table_index = super_tables.find_table(guest_1.seat)
-    second_table_index = super_tables.find_another_table(table_index)
-    guest_2_seat = super_tables.find_available_seat(second_table_index)
+    # table_index = super_tables.find_table(guest_1.seat)
+    # second_table_index = super_tables.find_another_table(table_index)
+    # guest_2_seat = super_tables.find_available_seat(second_table_index)
+    # guest_2.update(seat: guest_2_seat)
+    score_guest_2 = super_tables.score_table(guest_2) #renvoie [{table_index: 0,score: 1 }, {}] avec toutes les tables
+    score_guest_2_sorted = score_guest_2.select { |table| super_tables.table_available(table[:table_index]) }.sort { |table| table[:score] }
+    guest_2_table = score_guest_2_sorted.first[:table_index]
+    guest_2_seat = super_tables.find_available_seat(guest_2_table)
     guest_2.update(seat: guest_2_seat)
   end
 
