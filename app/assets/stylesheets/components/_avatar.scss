@@ -11,15 +11,33 @@
 
 .avatar_pink {
   background-color: $pink-sit;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
   p {
     color: white;
+    font-size: 17px;
+    font-weight: bolder;
+    margin: 13px;
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: center;
   }
 }
 
 .avatar_blue {
   background-color: $blue-sit;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
   p {
     color: white;
+    font-size: 17px;
+    font-weight: bolder;
+    margin: 13px;
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: center;
   }
 }
 
