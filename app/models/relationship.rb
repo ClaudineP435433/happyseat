@@ -64,17 +64,11 @@ class Relationship < ApplicationRecord
 
   def hate_seat(seating_plan)
     super_tables = SuperTable.new(seating_plan: seating_plan)
-    if (self.first_guest.seat.present? && self.second_guest.seat.nil?) || (self.second_guest.seat.present? && self.first_guest.seat.present?)
+
       table_index = super_tables.find_table(self.first_guest.seat)
       second_table_index = super_tables.find_another_table(table_index)
       second_guest_seat = super_tables.find_available_seat(second_table_index)
       self.second_guest.update(seat: second_guest_seat)
-    elsif self.second_guest.seat.present? && self.first_guest.seat.nil?
-      table_index = super_tables.find_table(self.second_guest.seat)
-      first_table_index = super_tables.find_another_table(table_index)
-      first_guest_seat = super_tables.find_available_seat(first_table_index)
-      self.first_guest.update(seat: first_guest_seat)
-    end
   end
 
 end
