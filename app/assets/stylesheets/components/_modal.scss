@@ -63,3 +63,10 @@
   font-size: 13px;
   color: $grey-btn;
 }
+
+.display-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
