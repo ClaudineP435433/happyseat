@@ -9,9 +9,11 @@ class ApplicationController < ActionController::Base
 
   def init
     @seating_plan = SeatingPlan.find(params[:seating_plan_id].to_i)
+    @bride = @seating_plan.participants.find_by(seat: 1)
+    @groom = @seating_plan.participants.find_by(seat: 2)
     @first_guest = Participant.new
     @second_guest = Participant.new
-    @tables = @seating_plan.tables
+    @tables = @seating_plan.tables.order(:id)
     @super_tables = SuperTable.new(seating_plan: @seating_plan).list
   end
 
