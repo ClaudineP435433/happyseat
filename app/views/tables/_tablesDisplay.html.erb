@@ -6,6 +6,10 @@
           <div class="table-section">
           <h3>Guests Drop Zone</h3>
             <div class="table-drop-zone" id="drop-zone">
+              <% @seating_plan.participants.where(seat: nil).each do |participant| %>
+                <div class="avatar-participant avatar_color" data-path="<%= seating_plan_participant_swap_url(@seating_plan, participant) %>" ><p><%= participant.initial %></p>
+                </div>
+              <% end %>
              </div>
           </div>
         </div>
@@ -23,9 +27,8 @@
                     <% @super_tables["#{index}"][0...(@super_tables["#{index}"].size / 2)].each do |seat| %>
                         <div class="avatar" id="avatar-<%= seat %>">
                           <% if @seating_plan.participants.find_by(seat: seat).present? %>
-                            <div class="avatar-participant avatar_color" ><p><%= @seating_plan.participants.find_by(seat: seat).initial %></p></div>
-                          <% else  %>
-                              <div class="none-participant"></div>
+                            <div class="avatar-participant avatar_color" data-path="<%= seating_plan_participant_swap_url(@seating_plan, @seating_plan.participants.find_by(seat: seat)) %>" ><p><%= @seating_plan.participants.find_by(seat: seat).initial %></p></div>
+
                           <% end %>
                         </div>
                     <% end %>
@@ -39,9 +42,7 @@
                     <% @super_tables["#{index}"][(@super_tables["#{index}"].size / 2)..-1].each do |seat| %>
                         <div class="avatar" id="avatar-<%= seat %>">
                           <% if @seating_plan.participants.find_by(seat: seat).present? %>
-                            <div class="avatar-participant avatar_color" ><p><%= @seating_plan.participants.find_by(seat: seat).initial %></p></div>
-                          <% else  %>
-                              <div class="none-participant"></div>
+                            <div class="avatar-participant avatar_color" data-path="<%= seating_plan_participant_swap_url(@seating_plan, @seating_plan.participants.find_by(seat: seat)) %>" ><p><%= @seating_plan.participants.find_by(seat: seat).initial %></p></div>
                           <% end %>
                         </div>
                     <% end %>
@@ -68,3 +69,11 @@
       </div>
     </div>
   </div>
+
+<% content_for(:after_js) do %>
+  <script>
+
+
+
+  </script>
+<% end %>
