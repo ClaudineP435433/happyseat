@@ -13,8 +13,6 @@
   align-items: center;
   justify-content: center;
 
-
-
 }
 
 .btn-congrats {
@@ -38,8 +36,17 @@
   background-image: url("image 2.png");
   border: 1px solid $grey-btn;
 }
-.card-description {
+.card-description1 {
 
+ padding-top: 30px;
+
+
+}
+
+.card-description2 {
+  display: flex;
+  align-items: center;
+  padding-bottom: 30px;
 
 }
 
@@ -50,6 +57,16 @@
   font-size: 28px;
   padding: 10px;
 
+}
+
+.card-title-cadre {
+  font-family:bold;
+  color: $grey-btn;
+  background-color: white;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  font-size: 28px;
+  padding: 15px;
+  border: dashed 2px $grey-btn;
 }
 
 .card-content {
@@ -63,15 +80,95 @@
 
 
 
-.card-info-placement {
-  background-image: url("image 2.png");
 
+#separe {
+  width: 100px;
+  opacity: 0.4;
 }
 
-.card-content-placement {
+.card-title-menu {
+  padding-bottom: 10px
+}
+
+.card-content-menu {
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  padding: 15px;
+  font-size: 15px;
+}
+
+.card-info-name {
+  border: 2px dashed $grey-btn ;
+  background-color: white;
+}
+
+.card-org {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.text-deco {
+  h2 {
+    color: $grey-btn;
+    font-size: 40px;
+    font-weight: lighter
+  }
+}
+
+.print {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.card-print {
+  margin: 20px 20px;
+  padding: 15px 15px;
+  background-image: url("image 2.png");
+  border: 1px solid $grey-btn;
+}
+
+.card-info-print {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 2px dashed $grey-btn ;
   background-color: white;
 
+
+}
+.card-title-print {
+  font-family:bold;
+  color: $grey-btn;
+  font-family: "Helvetica", "sans-serif";
+  font-size: 20px;
+  padding: 10px;
+
 }
 
+.btn-congrats-print {
+  width: 120px;
+  height: 102px;
+  background-color: $green-btn;
+  border: none;
+  margin: 30px 30px ;
+  color: white;
+  padding: 15px 15px;
+  border-radius: 3px;
+  font-size: 22px;
+  font-family: bolder;
+  text-align: center;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  vertical-align: middle;
+}
 
+.card-title-print.large {
+  font-family:bold;
+  color: $grey-btn;
+  font-family: "Helvetica", "sans-serif";
+  font-size: 20px;
+  padding: 10px;
+}
