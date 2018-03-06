@@ -44,10 +44,16 @@
   flex-direction: column;
   padding: 10px;
   position: relative;
+  margin-top: 70px;
 }
 
 .table-card-name {
   display: flex;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  // min-height: 70px;
+  top: 0;
   h3 .pencil {
     color: black;
     opacity: 0.8;
