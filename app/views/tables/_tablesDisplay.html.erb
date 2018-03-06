@@ -38,14 +38,11 @@
 
               <div class="table-card">
                 <div class="avatar-frame" id='table-top-<%= "#{index}" %>'>
-                    <% @super_tables["#{index}"][0...(@super_tables["#{index}"].size / 2)].each do |seat| %>
-                        <div class="avatar" id="avatar-<%= seat %>">
-                          <% if @seating_plan.participants.find_by(seat: seat).present? %>
 
-                            <div class="avatar-participant avatar_color" ><p><%= @seating_plan.participants.find_by(seat: seat).initial %></p></div>
-                          <% else  %>
-                              <div class="none-participant"></div>
-                          <% end %>
+                    <% @super_tables[index][0...(@super_tables[index].size / 2)].each do |seat| %>
+
+                        <div class="avatar <%= avatar_colored(seat[:seat_id]) %>" id="avatar-<%= seat[:seat_id] %>">
+                          <p> <%= @seating_plan.participants.find_by(seat: seat[:seat_id]).initial if @seating_plan.participants.find_by(seat: seat[:seat_id]).present? %> </p>
 
                         </div>
                     <% end %>
@@ -56,13 +53,11 @@
                 </div>
 
                 <div class="avatar-frame" id='table-bottom-<%= "#{index}" %>'>
-                    <% @super_tables["#{index}"][(@super_tables["#{index}"].size / 2)..-1].each do |seat| %>
-                        <div class="avatar" id="avatar-<%= seat %>">
-                          <% if @seating_plan.participants.find_by(seat: seat).present? %>
-                            <div class="avatar-participant avatar_color" ><p><%= @seating_plan.participants.find_by(seat: seat).initial %></p></div>
-                          <% else  %>
-                              <div class="none-participant"></div>
-                          <% end %>
+
+                    <% @super_tables[index][(@super_tables[index].size / 2)..-1].each do |seat| %>
+                        <div class="avatar <%= avatar_colored(seat[:seat_id]) %>" id="avatar-<%= seat[:seat_id] %>">
+                          <p> <%= @seating_plan.participants.find_by(seat: seat[:seat_id]).initial if @seating_plan.participants.find_by(seat: seat[:seat_id]).present? %> </p>
+
                         </div>
                     <% end %>
                 </div>

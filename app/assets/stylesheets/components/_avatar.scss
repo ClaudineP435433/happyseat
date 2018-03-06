@@ -9,6 +9,20 @@
   position: relative;
 }
 
+.avatar_pink {
+  background-color: $pink-sit;
+  p {
+    color: white;
+  }
+}
+
+.avatar_blue {
+  background-color: $blue-sit;
+  p {
+    color: white;
+  }
+}
+
 .avatar_color {
   background-color: pink;
   width: 52px;
@@ -25,8 +39,24 @@
   }
 }
 
+
+.avatar-small {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid $grey-btn;
+  margin-right: 7px;
+  p {
+    color: $grey-btn;
+    font-size: 12px;
+    font-weight: bolder;
+    margin: 0;
+    position: sticky;
+  }
+
 .avatar-frame{
   display: flex;
   justify-content: space-around;
   width: 100%;
+
 }

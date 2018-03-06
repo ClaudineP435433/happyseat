@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     @first_guest = Participant.new
     @second_guest = Participant.new
     @tables = @seating_plan.tables
-    @super_tables = @seating_plan.super_tables
+    @super_tables = SuperTable.new(seating_plan: @seating_plan).list
   end
 
 end
