@@ -26,12 +26,9 @@ class ParticipantsController < ApplicationController
 
   def swap
     @participant = Participant.find(params[:participant_id])
-    puts @participant.seat
     seat =  params[:seat] == "zone" ? nil : params[:seat].to_i
     @participant.update(seat: seat)
-    puts "coco"
-    puts @participant.id
-    puts params[:seat]
+
   end
 
   private

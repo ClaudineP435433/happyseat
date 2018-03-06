@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20180227142237) do
     t.integer "age_range"
     t.integer "seat"
     t.integer "family_type"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["seating_plan_id"], name: "index_participants_on_seating_plan_id"

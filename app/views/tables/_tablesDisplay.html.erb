@@ -46,7 +46,7 @@
                     <% @super_tables[index][0...(@super_tables[index].size / 2)].each do |seat| %>
                         <div class="avatar" id="avatar-<%= seat[:seat_id] %>">
                           <% if @seating_plan.participants.find_by(seat: seat[:seat_id]).present? %>
-                            <div class="avatar-participant <%= avatar_colored(seat[:seat_id]) %>" data-path="<%= seating_plan_participant_swap_url(@seating_plan, @seating_plan.participants.find_by(seat: seat[:seat_id]))><p><%= @seating_plan.participants.find_by(seat: seat[:seat_id]).initial %></p></div>
+                            <div class="avatar-participant <%= avatar_colored(seat[:seat_id]) %>" data-path="<%= seating_plan_participant_swap_url(@seating_plan, @seating_plan.participants.find_by(seat: seat[:seat_id]))%>"> <p> <%= @seating_plan.participants.find_by(seat: seat[:seat_id]).initial %></p></div>
                           <% end %>
 
 
@@ -63,13 +63,11 @@
                         <div class="avatar" id="avatar-<%= seat[:seat_id] %>">
 
                           <% if @seating_plan.participants.find_by(seat: seat[:seat_id]).present? %>
-                            <div class="avatar-participant <%= avatar_colored(seat[:seat_id]) %>" data-path="<%= seating_plan_participant_swap_url(@seating_plan, @seating_plan.participants.find_by(seat: seat[:seat_id]))><p><%= @seating_plan.participants.find_by(seat: seat[:seat_id]).initial %></p></div>
+                            <div class="avatar-participant <%= avatar_colored(seat[:seat_id]) %>" data-path="<%= seating_plan_participant_swap_url(@seating_plan, @seating_plan.participants.find_by(seat: seat[:seat_id]))%>"><p><%= @seating_plan.participants.find_by(seat: seat[:seat_id]).initial %></p></div>
                           <% end %>
                         </div>
                     <% end %>
                 </div>
-
-
               </div>
             </div>
           </div>
