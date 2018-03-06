@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :seating_plans, only: [:create, :show ] do
-    resources :tables, only: [:index]
+    resources :tables, only: [:index, :update]
     resources :participants, only: [:create]
     resources :relationships, only: [:create]
   end

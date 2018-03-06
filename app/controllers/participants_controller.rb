@@ -10,7 +10,7 @@ class ParticipantsController < ApplicationController
     if @participant.save
       redirect_to seating_plan_tables_path(@seating_plan)
       #algo ajouter sur table + allouer un siége
-      flash[:notice] = "Successfully added your guest : #{@participant.first_name.capitalize} #{@participant.last_name.capitalize}"
+      flash.now[:notice] = "Successfully added your guest : #{@participant.first_name.capitalize} #{@participant.last_name.capitalize}"
     else
       render 'tables/index'
     end
@@ -19,7 +19,7 @@ class ParticipantsController < ApplicationController
   def update
     @participant = Participant.find(params[:id])
     if @participant.update(participant_params)
-      flash[:notice] = 'Successfully updated participant'
+      flash.now[:notice] = 'Successfully updated participant'
       redirect_to seating_plan_tables_path(@seating_plan)
     else
       render 'tables/index'
