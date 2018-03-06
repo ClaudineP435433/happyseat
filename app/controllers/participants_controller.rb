@@ -1,5 +1,5 @@
 class ParticipantsController < ApplicationController
-  before_action :init, only: [:create]
+  before_action :init, only: [:create, :swap]
 
   def create
     @participant = @seating_plan.participants.new(participant_params)
@@ -24,6 +24,15 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  def swap
+    @participant = Participant.find(params[:participant_id])
+    puts @participant.seat
+    seat =  params[:seat] == "zone" ? nil : params[:seat].to_i
+    @participant.update(seat: seat)
+    puts "coco"
+    puts @participant.id
+    puts params[:seat]
+  end
 
   private
 

@@ -17,7 +17,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem "cocoon"
-gem 'pg_search' #searchbar
+gem 'pg_search'
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
 
 
 group :development do
