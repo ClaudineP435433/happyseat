@@ -20,16 +20,16 @@ class SeatingPlansController < ApplicationController
 
   def show
     @seating_plan = SeatingPlan.find(params[:id])
+    # @pdf = WickedPdf.new.pdf_from_html_file("/views/seating_plans/export.html.erb")
   end
 
   def export
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "My Seating Plan",
-               template: 'seating_plans/export.html.erb',
+        render pdf: "My_Seating_Plan",
                orientation: 'Landscape',
-               layout: 'pdf',
+               layout: false,
                margin:  {   top:               15,                     # default 10 (mm)
                             bottom:            15,
                             left:              15,

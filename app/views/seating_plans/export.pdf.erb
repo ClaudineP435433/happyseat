@@ -19,12 +19,13 @@
     </script>
   </head>
   <body onload='number_pages'>
+    <h1>BONJOUR</h1>
     Page <span class="page"></span> of <span class="topage"></span>
 <!-- <div id="header">
       <%= wicked_pdf_image_tag 'mysite.jpg' %>
     </div> -->
     <div id="content">
-      <%= yield %>
+      <%= render "tablesDisplay" %>
     </div>
   </body>
 </html>
