@@ -22,6 +22,22 @@ class SeatingPlansController < ApplicationController
     @seating_plan = SeatingPlan.find(params[:id])
   end
 
+  def export
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "My Seating Plan",
+               template: 'seating_plans/export.html.erb',
+               orientation: 'Landscape',
+               layout: 'pdf',
+               margin:  {   top:               15,                     # default 10 (mm)
+                            bottom:            15,
+                            left:              15,
+                            right:             15 }
+      end
+    end
+  end
+
   private
 
   def seating_plan_params

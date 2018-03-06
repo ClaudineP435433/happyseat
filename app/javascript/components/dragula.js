@@ -16,6 +16,7 @@ const dragDecorator = (containers, options, transitZone) => {
       source.insertAdjacentHTML("beforeend", element.outerHTML);
       element.remove();
     }
+    console.log("coco");
   });
 };
 

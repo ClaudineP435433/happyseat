@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :tables, only: [:index]
     resources :participants, only: [:create]
     resources :relationships, only: [:create]
+    get 'export'
   end
 
 
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   put 'participants/swap'
 
   get 'tables/find_for_modal', as: "find_for_modal"
+
 
 
 end
