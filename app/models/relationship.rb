@@ -64,11 +64,20 @@ class Relationship < ApplicationRecord
 
   def hate_seat(seating_plan)
     super_tables = SuperTable.new(seating_plan: seating_plan)
+    if super_tables.find_table(self.first_guest.seat) == super_tables.find_table(self.second_guest.seat)
+      if first_guest.couple_relationships.size >= second_guest.couple_relationships.size
+        switch_guests(super_tables, first_guest, second_guest)
+      else
+        switch_guests(super_tables, second_guest, first_guest)
+      end
+    end
+  end
 
-      table_index = super_tables.find_table(self.first_guest.seat)
-      second_table_index = super_tables.find_another_table(table_index)
-      second_guest_seat = super_tables.find_available_seat(second_table_index)
-      self.second_guest.update(seat: second_guest_seat)
+  def switch_guests(super_tables, guest_1, guest_2)
+    table_index = super_tables.find_table(guest_1.seat)
+    second_table_index = super_tables.find_another_table(table_index)
+    guest_2_seat = super_tables.find_available_seat(second_table_index)
+    guest_2.update(seat: guest_2_seat)
   end
 
 end

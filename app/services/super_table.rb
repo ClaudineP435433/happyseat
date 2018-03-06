@@ -42,6 +42,20 @@ class SuperTable
     @list.each_with_index do |table, index|
       return index if table.select { |seat| seat[:participant_id].nil?}.size >= 2
     end
+    nil
+    #ATTENTION SI TROP GENS CA CASSE!!!! T'es dans la merde
+  end
+
+  def find_table_with_two_available_seats_with_no_hate_people(couple_relationships)
+    @list.each_with_index do |table, index|
+      two_seats = table.select { |seat| seat[:participant_id].nil?}.size >= 2
+      hate_pers = couple_relationships.map { |relation| relation.second_guest.id }
+      no_hate_pers = table.select { |seat| !hate_pers.include? seat[:participant_id] }
+      if (two_seats) && (no_hate_pers)
+        return index
+      end
+    end
+    nil
   end
 
   def find_two_seats(index)

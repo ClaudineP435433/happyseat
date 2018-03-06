@@ -36,3 +36,18 @@
     color: white;
   }
 }
+
+.avatar-small {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid $grey-btn;
+  margin-right: 7px;
+  p {
+    color: $grey-btn;
+    font-size: 12px;
+    font-weight: bolder;
+    margin: 0;
+    position: sticky;
+  }
+}
