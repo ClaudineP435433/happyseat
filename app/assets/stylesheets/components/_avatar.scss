@@ -24,7 +24,7 @@
 }
 
 .avatar_color {
-  background-color: pink;
+  background-color: $purple-sit;
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -53,7 +53,7 @@
     margin: 0;
     position: sticky;
   }
-
+}
 .avatar-frame{
   display: flex;
   justify-content: space-around;
