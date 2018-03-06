@@ -81,10 +81,9 @@
   color: black !important;
 }
 .navbar-wagon-dropdown-menu:before {
-  content: ' ';
+  // content: ' ';
   height: 10px;
   width: 10px;
-  position: absolute;
   right: 10px;
   top: -6px;
   background-color: white;
@@ -92,6 +91,11 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.navbar-wagon-dropdown-menu {
+  z-index: 1000;
+}
+
 
 .dropdown-toggle{
   color: $grey-btn;

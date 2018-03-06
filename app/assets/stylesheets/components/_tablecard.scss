@@ -11,11 +11,18 @@
     }
 }
 
+ i {
+  color: black;
+    opacity: 0.8;
+    font-size: 13px;
+    padding-left: 10px;
+ }
+
 .table-frame {
   border: 1px solid $grey-btn;
   height: 80px;
   width: 80%;
-  border-radus: 2px;
+  border-radius: 2px;
   position: relative;
   .table-frame-nappe {
     background-size: cover !important;
@@ -37,10 +44,17 @@
   flex-direction: column;
   padding: 10px;
   position: relative;
+  margin-top: 70px;
 }
 
 .table-card-name {
-  h3{
+  display: flex;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  // min-height: 70px;
+  top: 0;
+  h3 .pencil {
     color: black;
     opacity: 0.8;
     font-size: 20px;
@@ -50,7 +64,12 @@
     margin-bottom: 5px;
     padding-top: 15px;
   }
+  .pencil {
+    margin-top: 14px;
+  }
 }
+
+
 .table-drop-zone {
   background-color: transparent;
   box-shadow: 0 0 5px $grey-btn;

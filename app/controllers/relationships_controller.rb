@@ -12,10 +12,10 @@ class RelationshipsController < ApplicationController
 
     if @relationship.save
       redirect_to seating_plan_tables_path(@table.seating_plan)
-      flash[:notice] = @relationship.errors_flash
+      flash.now[:notice] = @relationship.errors_flash
       #algo ajouter sur table + allouer un siége
     else
-      flash[:alert] = "Please review your inputs"
+      flash.now[:alert] = "Please review your inputs"
       render 'tables/index'
     end
   end
