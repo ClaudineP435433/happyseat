@@ -25,7 +25,11 @@ class Participant < ApplicationRecord
     "#{first_name[0].capitalize}#{last_name[0].capitalize}"
   end
 
-
+  def allocate_seat
+    super_tables = SuperTable.new(seating_plan: seating_plan)
+    participant_seat = super_tables.first_seat_available
+    self.update(seat: participant_seat)
+  end
 
 
 end

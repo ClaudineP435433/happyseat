@@ -9,7 +9,8 @@ class RelationshipsController < ApplicationController
     @relationship.second_guest.seating_plan = @seating_plan if @relationship.second_guest.present?
 
     if @relationship.save
-      @relationship.love_seat(@seating_plan)
+      @relationship.love_seat(@seating_plan) if @relationship.link == "couple"
+      @relationship.hate_seat(@seating_plan) if @relationship.link == "hate"
       @relationship.reverse_relationship
       flash[:notice] = @relationship.errors_flash
       redirect_to seating_plan_tables_path(@seating_plan)

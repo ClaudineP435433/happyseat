@@ -5,6 +5,7 @@ class ParticipantsController < ApplicationController
     @participant = @seating_plan.participants.new(participant_params)
     @relationship = Relationship.new
     if @participant.save
+      @participant.allocate_seat
       redirect_to seating_plan_tables_path(@seating_plan)
       #algo ajouter sur table + allouer un siége
       flash[:notice] = "Successfully added your guest : #{@participant.first_name.capitalize} #{@participant.last_name.capitalize}"

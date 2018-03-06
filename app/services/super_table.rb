@@ -31,16 +31,26 @@ class SuperTable
 
   def find_available_seat(index)
     #renvoie true place
-    @list[index].find { |seat| seat[:participant_id].nil?}
+    @list[index].find { |seat| seat[:participant_id].nil?}[:seat_id]
   end
 
   def first_seat_available
-    @list.flatten.find { |seat| seat[:participant_id].nil?}
+    @list.flatten.find { |seat| seat[:participant_id].nil?}[:seat_id]
   end
 
   def find_table_with_two_available_seats
     @list.each_with_index do |table, index|
       return index if table.select { |seat| seat[:participant_id].nil?}.size >= 2
+    end
+  end
+
+  def find_two_seats(index)
+    @list[index].select { |seat| seat[:participant_id].nil?}
+  end
+
+  def find_another_table(table_index)
+    @list.each_with_index do |table, index|
+      return index if table.select { |seat| seat[:participant_id].nil?}.any? && index != table_index
     end
   end
 

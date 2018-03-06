@@ -39,6 +39,7 @@ class Relationship < ApplicationRecord
     # relationships = seating_plan.relationships.where(link: "couple")
     # on itére sur chaque relationship
     # relationships.each do |relation|
+
       if self.first_guest.seat.present? && self.second_guest.seat.nil?
         table_index = super_tables.find_table(self.first_guest.seat)
         second_guest_seat = super_tables.find_available_seat(table_index)
@@ -51,13 +52,29 @@ class Relationship < ApplicationRecord
         self.first_guest.update(seat: first_guest_seat)
       elsif self.second_guest.seat.nil? && self.first_guest.seat.nil?
         table_index = super_tables.find_table_with_two_available_seats
-        first_guest_seat = super_tables.find_available_seat(table_index)
+        seats_available = super_tables.find_two_seats(table_index)
+        first_guest_seat = seats_available.first[:seat_id]
         self.first_guest.update(seat: first_guest_seat)
-        second_guest_seat = super_tables.find_available_seat(table_index)
+        second_guest_seat = seats_available.second[:seat_id]
         self.second_guest.update(seat: second_guest_seat)
       end
     # end
   end
 
+
+  def hate_seat(seating_plan)
+    super_tables = SuperTable.new(seating_plan: seating_plan)
+    if (self.first_guest.seat.present? && self.second_guest.seat.nil?) || (self.second_guest.seat.present? && self.first_guest.seat.present?)
+      table_index = super_tables.find_table(self.first_guest.seat)
+      second_table_index = super_tables.find_another_table(table_index)
+      second_guest_seat = super_tables.find_available_seat(second_table_index)
+      self.second_guest.update(seat: second_guest_seat)
+    elsif self.second_guest.seat.present? && self.first_guest.seat.nil?
+      table_index = super_tables.find_table(self.second_guest.seat)
+      first_table_index = super_tables.find_another_table(table_index)
+      first_guest_seat = super_tables.find_available_seat(first_table_index)
+      self.first_guest.update(seat: first_guest_seat)
+    end
+  end
 
 end
