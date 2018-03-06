@@ -1,21 +1,32 @@
 
 import dragula from 'dragula';
-let index = 0
-let list = []
 
-document.querySelectorAll('.table-card').forEach((table) => {
-  let table_nb_top = document.querySelector(`#table-top-${index}`);
-  list.push(table_nb_top);
-  let table_nb_bottom = document.querySelector(`#table-bottom-${index}`);
-  list.push(table_nb_bottom);
-  index += 1;
- });
-
+let seatIndex = 0
 
 const area = document.querySelector('#drop-zone');
-list.push(area);
 
+let containers = [area]
 
-dragula(list);
+const dragDecorator = (containers, options, transitZone) => {
+  const dragulaConst = dragula( containers, options);
+  dragulaConst.on('drop', (el, target, source, sibling) => {
+    if (transitZone !== target && target.children.length > 1) {
+      const element = sibling ? sibling : el;
+      element.classList.remove("gu-transit");
+      source.insertAdjacentHTML("beforeend", element.outerHTML);
+      element.remove();
+    }
+  });
+};
+
+document.querySelectorAll('.avatar').forEach((table) => {
+  let seats = document.querySelector(`#avatar-${seatIndex}`);
+  containers.push(seats);
+  seatIndex += 1;
+ });
+
+const options = { };
+dragDecorator(containers, options, area);
 
 import 'dragula/dist/dragula.css';
+

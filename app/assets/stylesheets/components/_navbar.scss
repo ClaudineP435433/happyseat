@@ -18,9 +18,7 @@
   background-position: center;
   opacity: 0.8;
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-
 }
-
 
 /* Logo */
 .navbar-wagon-brand {
@@ -83,10 +81,9 @@
   color: black !important;
 }
 .navbar-wagon-dropdown-menu:before {
-  content: ' ';
+  // content: ' ';
   height: 10px;
   width: 10px;
-  position: absolute;
   right: 10px;
   top: -6px;
   background-color: white;
@@ -95,12 +92,14 @@
   border-top: 1px solid #E6E6E6;
 }
 
-.dropdown-toggle{
-  color: $grey-btn;
+.navbar-wagon-dropdown-menu {
+  z-index: 1000;
 }
 
 
-
+.dropdown-toggle{
+  color: $grey-btn;
+}
 
 .power-off {
   color: $grey-btn;

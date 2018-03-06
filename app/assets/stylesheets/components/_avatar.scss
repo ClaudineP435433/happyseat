@@ -1,19 +1,12 @@
 .avatar {
-  width: 35px;
-  height: 35px;
+  width: 53px;
+  height: 53px;
   border-radius: 50%;
   border: 1px solid $grey-btn;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  p {
-    color: $grey-btn;
-    font-size: 12px;
-    font-weight: bolder;
-    margin: 0;
-    position: sticky;
-  }
 }
 
 .avatar_pink {
@@ -31,11 +24,21 @@
 }
 
 .avatar_color {
-  background-color: $purple-sit;
+  background-color: pink;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
   p {
     color: white;
+    font-size: 17px;
+    font-weight: bolder;
+    margin: 13px;
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: center;
   }
 }
+
 
 .avatar-small {
   width: 20px;
@@ -50,4 +53,10 @@
     margin: 0;
     position: sticky;
   }
+
+.avatar-frame{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
 }

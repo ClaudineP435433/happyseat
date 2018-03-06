@@ -14,9 +14,9 @@
 
     <% if user_signed_in? %>
 
-      <% if @seating_plan.present? && @seating_plan.id? && current_page?(seating_plan_tables_path(@seating_plan))%>
+      <% if @seating_plan.present? && @seating_plan.id?%>
         <div class="search">
-          <%= render 'tables/search', query: params[:query] %>
+          <%= render 'shared/search', query: params[:query] %>
         </div>
       <% else  %>
           <div class="test"></div>
@@ -31,14 +31,14 @@
           <%= image_tag "", class: "fa fa-bars dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
+              <%= link_to edit_user_registration_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
             <li>
               <% current_user.seating_plans.each_with_index do |seating_plan, index| %>
                 <%= link_to (seating_plan_tables_path(seating_plan)) do %>
-                  <i class="fa fa-cog"></i>  <%= "My seating plan N° #{index}" %>
+                  <i class="fa fa-cog"></i>  <%= "My seating plan n° #{index}" %>
                 <% end %>
               <% end %>
             </li>

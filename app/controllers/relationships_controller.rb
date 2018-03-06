@@ -14,9 +14,11 @@ class RelationshipsController < ApplicationController
       @relationship.hate_seat(@seating_plan) if @relationship.link == "hate"
       flash[:notice] = @relationship.errors_flash
       redirect_to seating_plan_tables_path(@seating_plan)
+      flash.now[:notice] = @relationship.errors_flash
+
       #algo ajouter sur table + allouer un siége
     else
-      flash[:alert] = "Please review your inputs"
+      flash.now[:alert] = "Please review your inputs"
       render 'tables/index'
     end
   end
