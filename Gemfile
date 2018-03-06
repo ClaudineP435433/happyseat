@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem "cocoon"
 gem 'pg_search' #searchbar
+gem "geocoder"
 
 
 group :development do
