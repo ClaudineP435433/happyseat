@@ -1,5 +1,5 @@
 class TablesController < ApplicationController
-  before_action :init, only: [:index]
+  before_action :init, only: [:index, :update]
 
   def index
     @relationship = Relationship.new
@@ -17,6 +17,15 @@ class TablesController < ApplicationController
   end
 
 
+  def update
+    @table = Table.find(params[:id])
+    if @table.update(tables_params)
+      flash[:notice] = 'Successfully updated your table name'
+      redirect_to seating_plan_tables_path(@seating_plan)
+    else
+      render 'tables/index'
+    end
+  end
 
 private
 
@@ -25,6 +34,10 @@ private
       :participant_id,
       :seating_plan_id
       )
+  end
+
+  def tables_params
+    params.require(:table).permit(:name)
   end
 
 end

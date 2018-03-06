@@ -6,6 +6,22 @@
   text-align: center;
   color: $grey-btn;
   margin-bottom: 0;
+  animation: move_alert 4s forwards;
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+}
+
+@keyframes move_alert {
+  0% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-300%);
+  }
 }
 
 .alert-warning {

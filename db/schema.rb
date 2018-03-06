@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20180227142237) do
   enable_extension "plpgsql"
 
   create_table "participants", force: :cascade do |t|
-    t.bigint "table_id"
+    t.bigint "seating_plan_id"
     t.string "first_name"
     t.string "last_name"
     t.integer "age_range"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20180227142237) do
     t.integer "family_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["table_id"], name: "index_participants_on_table_id"
+    t.index ["seating_plan_id"], name: "index_participants_on_seating_plan_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20180227142237) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "participants", "tables"
+  add_foreign_key "participants", "seating_plans"
   add_foreign_key "seating_plans", "users"
   add_foreign_key "tables", "seating_plans"
 end

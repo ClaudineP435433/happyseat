@@ -4,7 +4,7 @@
   }
 }
 
-.braked_heart img{
+.braked_heart img {
   opacity: 0.6;
   margin-top: -14px;
   margin-bottom: 14px;
@@ -64,6 +64,13 @@
   color: $grey-btn;
 }
 
+
+.display-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
 .modal-header {
   text-align: center;
   padding: 15px 0 5px 0px;

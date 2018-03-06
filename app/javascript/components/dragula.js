@@ -56,4 +56,6 @@ dragDecorator(containers, options, area);
 
 import 'dragula/dist/dragula.css';
 
+
 export { dragDecorator };
+

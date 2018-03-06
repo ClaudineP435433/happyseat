@@ -1,21 +1,101 @@
+.wrapper{
+  background-color: white;
+}
+
+.toolbar1 {
+  flex: 0 0 300px;
+  min-height: calc(100vh - 70px);
+  padding: 5px;
+  background-color: white;
+  opacity: 0.8;
+
+  border-top: 1px dotted $grey-btn;
+  position: sticky;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.card-info-toolbar {
+  border: 2px dashed $grey-btn ;
+  background-color: white;
+  width: 93%;
+  height: 99.2%;
+}
+
+.card-title-weds {
+  font-family:normal;
+  color: $grey-btn;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  font-size: 50px;
+  padding: 0px 35px;
+  text-align:right;
+}
+
+.weds-ref {
+  color: $green-btn;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 25px;
+  padding: 30px 28px;
+
+}
+
+.weds-dispo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.separteur3 {
+  padding-bottom: 30px;
+}
+
+.weds-text-party {
+  color: $grey-btn;
+  font-size: 22px;
+  font-family: "monserrat";
+  font-weight:lighter;
+  padding: 0px 25px;
+
+}
+
+
+
+
+
+
 .seating-plan-show{
-  h2{
-    color: $grey-btn;
-    font-size: 143px;
-    font-weight: lighter;
-  }
+  width: 100%;
+  text-align:center;
+
+}
+
+.congrats {
+    width: 100%;
+    padding-left: 15px;
+    h2 {
+      color: $grey-btn;
+      font-size: 180px;
+      font-weight: lighter;
+      text-align: left;
+    }
 }
 
 .seating-plan-toolbar {
   display: flex;
   align-items: center;
   justify-content: center;
-
-
+  width:100%;
 }
+
+
 
 .btn-congrats {
   width: 120px;
+  height: 102px;
   background-color: $green-btn;
   border: none;
   margin: 30px 30px ;
@@ -28,14 +108,141 @@
   font-family: "Raleway", "Helvetica", "sans-serif";
 }
 
-.container {
-  display:flex;
+.card {
+  margin: 20px 20px;
+  padding: 30px 30px;
+  background-image: url("image 2.png");
+  border: 1px solid $grey-btn;
+}
+.card-description1 {
+
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.card-description2 {
+  display: flex;
+  align-items: center;
+  padding-bottom: 30px;
+
+}
+
+.card-title {
+  font-family:bold;
+  color: $grey-btn;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  font-size: 28px;
+  padding: 10px;
+
+}
+
+.card-title-cadre {
+  font-family:bold;
+  color: $grey-btn;
+  background-color: white;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  font-size: 28px;
+  padding: 15px;
+  border: dashed 2px $grey-btn;
+}
+
+.card-content {
+  padding: 10px 0px;
+}
+
+.card-info {
+  border: 2px dashed $grey-btn ;
+  background-color: white;
+}
+
+#separe {
+  width: 100px;
+  opacity: 0.4;
+}
+
+.card-title-menu {
+  padding-bottom: 10px
+}
+
+.card-content-menu {
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  padding: 15px;
+  font-size: 15px;
+}
+
+.card-info-name {
+  border: 2px dashed $grey-btn ;
+  background-color: white;
+}
+
+.card-org {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
-.card {
+.text-deco {
+  h2 {
+    color: $grey-btn;
+    font-size: 40px;
+    font-weight: lighter
+  }
+}
+
+.print {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.card-print {
+  margin: 20px 20px;
+  padding: 15px 15px;
+  background-image: url("image 2.png");
+  border: 1px solid $grey-btn;
+}
+
+.card-info-print {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed $grey-btn ;
+  background-color: white;
+
+
+}
+.card-title-print {
+  font-family:bold;
+  color: $grey-btn;
+  font-family: "Helvetica", "sans-serif";
+  font-size: 20px;
+  padding: 10px;
 
 }
 
+.btn-congrats-print {
+  width: 120px;
+  height: 102px;
+  background-color: $green-btn;
+  border: none;
+  margin: 30px 30px ;
+  color: white;
+  padding: 15px 15px;
+  border-radius: 3px;
+  font-size: 22px;
+  font-family: bolder;
+  text-align: center;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  vertical-align: middle;
+}
 
+.card-title-print.large {
+  font-family:bold;
+  color: $grey-btn;
+  font-family: "Helvetica", "sans-serif";
+  font-size: 20px;
+  padding: 10px;
+}
