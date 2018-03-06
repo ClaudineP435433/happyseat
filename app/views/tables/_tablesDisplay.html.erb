@@ -41,10 +41,12 @@
                     <% @super_tables["#{index}"][0...(@super_tables["#{index}"].size / 2)].each do |seat| %>
                         <div class="avatar" id="avatar-<%= seat %>">
                           <% if @seating_plan.participants.find_by(seat: seat).present? %>
+
                             <div class="avatar-participant avatar_color" ><p><%= @seating_plan.participants.find_by(seat: seat).initial %></p></div>
                           <% else  %>
                               <div class="none-participant"></div>
                           <% end %>
+
                         </div>
                     <% end %>
                 </div>

@@ -29,3 +29,4 @@ const options = { };
 dragDecorator(containers, options, area);
 
 import 'dragula/dist/dragula.css';
+
