@@ -1,53 +1,123 @@
 <div class="wrapper">
 
-<div class="toolbar seating-plan-toolbar">
-    <div class="btn-congrats"> Export my guests list</div>
-    <div class="btn-congrats">PDF for my seating-plan</div>
-    <div class="btn-congrats">My Wedding details</div>
-    <div class="btn-congrats">Order my decoration</div>
-</div>
+
+<div class="toolbar1 seating-plan-toolbar">
+  <div class="card-info-toolbar">
+      <div class="weds-ref">Wedding of:</div>
+      <div class="card-title-weds"><em>Peter </em>and<em> Wendy</em></div>
+      <div ></div>
+      <div class="row weds-dispo">>
+        <%=image_tag("Flat 03 V2.png", :size=> "180x180") %>
+        <%=image_tag("marieF v2.png", :size=> "180x180")%>
+      </div>
+      <div class="separteur3"align="center"><%=image_tag("a315ba465d59cdd28b479191aef7c070.png", :width=> "280")%></div>
+      <div class="weds-ref">My text for party:</div>
+      <div class="weds-text-party">We are glad to welcome you to our wedding reception at Dromoland Castle, from 18.00.</div>
+
+    </div>
+
+
+
+  </div>
+
 
 <div class="seating-plan-show">
-  <div>
+  <div class="congrats">
     <h2>Congratulations</h2>
+
   </div>
+
   <div>
     <div class="container">
-      <div class="row card-description">
 
-        <div class="col-xs-12 col-sm-4 ">
-          <div class="card">
+      <div class="row card-description2">
+
+
+        <div class="col-xs-12 col-sm-9 ">
+          <div class="card-print">
           <div class="card-info">
-            <div class="card-title">Table n.5</div>
-            <div class="card-content">
-              <ul class="list-unstyled">
-                <li>Nom et Prénom</li>
-                <li>Nom et Prénom</li>
-                <li>Nom et Prénom</li>
-                <li>Nom et Prénom</li>
-                <li>Nom et Prénom</li>
-                <li>Nom et Prénom</li>
-                <li>Nom et Prénom</li>
-                <li>Nom et Prénom</li>
-              </ul>
+
+            <div class="card-content"><%= image_tag("chaise.png")%>
+            <div class="print">
+              <div class="card-title">Print your Seating plan in PDF</div>
+              <div class="btn-congrats-print">I DO</div>
+            </div>
             </div>
           </div>
           </div>
         </div>
 
-        <div class="col-xs-12 col-sm-4 ">
-          <div class="card-placement">
-            <div class="card-info-placement">
-              <div class="card-content-placement">Patrick </div>
+        <div class="col-xs-12 col-sm-3">
+          <div class="card-print">
+          <div class="card-info-print">
+            <div class="card-title-print">Export my guests list to CSV</div>
+            <div class="btn-congrats-print large">I DO</div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class= "row card-description1"">
+        <div class="card-print">
+            <div class="card-title-cadre">Order your decoration</div>
+        </div>
+
+        <div class="row card-description1">
+          <div class="col-xs-12 col-sm-4 ">
+            <div class="card">
+            <div class="card-info">
+              <div class="card-title">Table n.5</div>
+              <div class="card-content">
+                <ul class="list-unstyled">
+                  <li>Freddie MERCURY</li>
+                  <li>Pamela ANDERSON</li>
+                  <li>Elton JOHN</li>
+                  <li>Nina HAGEN</li>
+                  <li>Johnny WALKER</li>
+                  <li>Soeur SOURIRE</li>
+                  <li>Clara MORGANE</li>
+                  <li>James BOND</li>
+                </ul>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-4 ">
+            <div class="card">
+            <div class="card-info">
+              <div class="card-title">MENU</div>
+              <div class="card-content-menu">
+                <ul class="list-unstyled menu">
+                  <li>Foie gras & lentilles vertes du Puy, gelée au Porto, financier noisette & mesclun</li>
+                  <li><%= image_tag("separateur2.png", id:"separe" )%></li>
+                  <li>Carré d’agneau en croûte d’herbes, Risotto d’épeautre au citron en ramequin & fleur de courgette farcie</li>
+                  <li><%= image_tag("separateur2.png", id:"separe" )%></li>
+                  <li></li>
+                  <li>Ardoise de fromages affinés de nos régions</li>
+                  <li><%= image_tag("separateur2.png", id:"separe" )%></li>
+                  <li>Gâteau des mariés à étages</li>
+                </ul>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-4 ">
+            <div class= card-org>
+              <div class="card">
+                <div class="card-info">
+                  <div class="card-title">Freddie MERCURY</div>
+                </div>
+              </div>
+              <div class="btn-congrats-print large">I DO</div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
-  </div>
-</div>
 
+</div>
 </div>
 
 
