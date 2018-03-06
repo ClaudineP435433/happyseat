@@ -11,7 +11,7 @@ class Participant < ApplicationRecord
   validates :age_range, presence: true
 
   enum age_range: { children: 0, teenagers: 1, adults: 2, elderly: 3 }
-
+  enum status: { g: 0, b: 1, o: 2}
   enum family_type: { groom: 0, bride: 1, others: 2 }
 
   accepts_nested_attributes_for :relationships, reject_if: proc { |attributes| attributes[:link].blank? && attributes[:second_guest_id].blank? }, allow_destroy: true
