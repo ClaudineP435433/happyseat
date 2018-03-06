@@ -22,7 +22,7 @@
                 <div class="avatar-frame" id='table-top-<%= "#{index}" %>'>
                     <% @super_tables[index][0...(@super_tables[index].size / 2)].each do |seat| %>
 
-                        <div class="avatar <%= "avatar_color" if @seating_plan.participants.find_by(seat: seat[:seat_id]).present? %>" id="avatar-<%= seat[:seat_id] %>">
+                        <div class="avatar <%= avatar_colored(seat[:seat_id]) %>" id="avatar-<%= seat[:seat_id] %>">
                           <p> <%= @seating_plan.participants.find_by(seat: seat[:seat_id]).initial if @seating_plan.participants.find_by(seat: seat[:seat_id]).present? %> </p>
                         </div>
                     <% end %>
@@ -34,7 +34,7 @@
 
                 <div class="avatar-frame" id='table-bottom-<%= "#{index}" %>'>
                     <% @super_tables[index][(@super_tables[index].size / 2)..-1].each do |seat| %>
-                        <div class="avatar <%= "avatar_color" if @seating_plan.participants.find_by(seat: seat[:seat_id]).present? %>" id="avatar-<%= seat[:seat_id] %>">
+                        <div class="avatar <%= avatar_colored(seat[:seat_id]) %>" id="avatar-<%= seat[:seat_id] %>">
                           <p> <%= @seating_plan.participants.find_by(seat: seat[:seat_id]).initial if @seating_plan.participants.find_by(seat: seat[:seat_id]).present? %> </p>
                         </div>
                     <% end %>
