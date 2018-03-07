@@ -27,6 +27,9 @@ class Participant < ApplicationRecord
 
   def allocate_seat
     super_tables = SuperTable.new(seating_plan: seating_plan)
+
+
+
     participant_seat = super_tables.first_seat_available
     self.update(seat: participant_seat)
   end
@@ -42,7 +45,6 @@ class Participant < ApplicationRecord
 
   def couple?
     Relationship.where(link: "couple", first_guest: self).present?
-    #self.relationships.find_by(link: "couple").present?
   end
 
   def my_husband
@@ -51,25 +53,15 @@ class Participant < ApplicationRecord
     end
   end
 
-  # def couple_not_separated
-  #   if couple?
-  #     super_tables = SuperTable.new(seating_plan: seating_plan)
-  #     table_index = super_tables.find_table(self.seat)
-  #     my_husband = Relationship.find_by(link: "couple", first_guest: self).second_guest
-  #     #si nouvel table de self dispo alors on place aussi le conjoint dessus
-  #     if (super_tables.table_available(table_index))
-  #       second_guest_seat = super_tables.find_available_seat(table_index)
-  #       my_husband.update(seat: second_guest_seat)
-  #     else
-  #       new_table_index = super_tables.find_table_with_two_available_seats_with_no_hate_people(couple_relationships)
-  #       seats_available = super_tables.find_two_seats(new_table_index)
-  #       first_guest_seat = seats_available.first[:seat_id]
-  #       self.first_guest.update(seat: first_guest_seat)
-  #       second_guest_seat = seats_available.second[:seat_id]
-  #       self.second_guest.update(seat: second_guest_seat)
-  #     #si pas de place dispo alors recherche d'une nouvelle table avec 2 siéges et pas la table du ou des mecs qu'ils aiment pas
-  #     end
-  #   end
-  # end
+  def seat_allocation(super_tables, table_ids)
+    guest_table = table_ids.first[:table_index]
+    seats_available = super_tables.find_seats(guest_table)
+    guest_seat = seats_available.first[:seat_id]
+    self.update(seat: guest_seat)
+    if self.couple?
+      my_husband_seat = seats_available.second[:seat_id]
+      self.my_husband.update(seat: my_husband_seat)
+    end
+  end
 
 end
