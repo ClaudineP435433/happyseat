@@ -59,7 +59,12 @@
           <div class="card-print">
           <div class="card-info-print">
             <div class="card-title-print">Export my guests list to CSV</div>
-            <div class="btn-congrats-print large">I DO</div>
+
+
+            <div class="btn-congrats-print large">
+              <%#= link_to "CSV", seating_plan_path(format: "csv") %>
+              <%= link_to "Excel", seating_plan_path(format: "xls") %>
+            </div>
           </div>
           </div>
         </div>

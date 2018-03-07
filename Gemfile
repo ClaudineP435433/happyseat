@@ -19,7 +19,6 @@ gem 'webpacker'
 gem "cocoon"
 gem 'pg_search' #searchbar
 gem "geocoder"
-gem 'pg_search'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
 
