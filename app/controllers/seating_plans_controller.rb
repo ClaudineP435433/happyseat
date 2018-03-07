@@ -20,8 +20,8 @@ class SeatingPlansController < ApplicationController
   end
 
   def show
+    @seating_plan = SeatingPlan.where.not(latitude: nil, longitude: nil)
     @seating_plan = SeatingPlan.find(params[:id])
-    @seating_plans = SeatingPlan.where.not(latitude: nil, longitude: nil)
     @marker = [
       {
         lat: @seating_plan.latitude,
