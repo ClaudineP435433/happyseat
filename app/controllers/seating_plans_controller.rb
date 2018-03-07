@@ -20,7 +20,7 @@ class SeatingPlansController < ApplicationController
 
   def show
     @seating_plan = SeatingPlan.find(params[:id])
-    # @pdf = WickedPdf.new.pdf_from_html_file("/views/seating_plans/export.html.erb")
+    @supertable = SuperTable.new(@seating_plan)
   end
 
   def export
