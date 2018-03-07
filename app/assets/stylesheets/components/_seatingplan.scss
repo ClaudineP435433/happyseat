@@ -237,6 +237,17 @@
   text-align: center;
   font-family: "Raleway", "Helvetica", "sans-serif";
   vertical-align: middle;
+  decoration: none;
+     a {
+    color: white;
+    decoration:none;
+    font-size: bold;
+  }
+    a:hover{
+    color: $green;
+    decoration:none;
+    font-size: bold;
+  }
 }
 
 .card-title-print.large {
@@ -246,3 +257,25 @@
   font-size: 20px;
   padding: 10px;
 }
+
+
+
+
+
+#map {
+  height: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

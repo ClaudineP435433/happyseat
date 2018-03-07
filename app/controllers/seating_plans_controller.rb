@@ -1,19 +1,20 @@
 class SeatingPlansController < ApplicationController
 
+
   def create
     @seating_plan = current_user.seating_plans.new(seating_plan_params)
     @seating_plan.default_name
     n = 1
     if @seating_plan.save
-      @bride = Participant.create(first_name: current_user.bride_first_name, last_name: current_user.bride_last_name, seating_plan: @seating_plan, seat: 1, age_range: 2, family_type: 1)
-      @groom = Participant.create(first_name: current_user.groom_first_name, last_name: current_user.groom_last_name, seating_plan: @seating_plan, seat: 2, age_range: 2, family_type: 2)
+      @bride = Participant.create(first_name: current_user.bride_first_name, last_name: current_user.bride_last_name, seating_plan: @seating_plan, seat: 1, age_range: 2, family_type: 1, status: 1)
+      @groom = Participant.create(first_name: current_user.groom_first_name, last_name: current_user.groom_last_name, seating_plan: @seating_plan, seat: 2, age_range: 2, family_type: 0, status: 0)
       params[:seating_plan][:nb_tables].to_i.times do
         @seating_plan.tables.create(name: "Table #{n}", nb_max_participants: params[:seating_plan][:nb_max_participants])
         n += 1
       end
       redirect_to seating_plan_tables_path(@seating_plan)
     else
-      flash.now[:alert] = "Please review your inputs"
+      flash[:alert] = "Please review your inputs"
       redirect_to root_path
     end
   end
@@ -21,6 +22,24 @@ class SeatingPlansController < ApplicationController
   def show
     @seating_plan = SeatingPlan.find(params[:id])
     @supertable = SuperTable.new(@seating_plan)
+    @seating_plans = SeatingPlan.where.not(latitude: nil, longitude: nil)
+    @marker = [
+      {
+        lat: @seating_plan.latitude,
+        lng: @seating_plan.longitude
+      }
+    ]
+  end
+
+  def update
+    @seating_plan = SeatingPlan.find(params[:id])
+    if @seating_plan.update(seating_plan_params)
+      flash[:notice] = 'Successfully updated your wedding details'
+      redirect_to seating_plan_path(@seating_plan)
+    else
+      render 'seating_plan/show'
+    end
+>>>>>>> master
   end
 
   def export
@@ -41,7 +60,7 @@ class SeatingPlansController < ApplicationController
   private
 
   def seating_plan_params
-    params.require(:seating_plan).permit(:nb_participants, :nb_max_participants, :nb_tables)
+    params.require(:seating_plan).permit(:nb_participants, :nb_max_participants, :nb_tables, :name, :date, :address)
   end
 
 end
