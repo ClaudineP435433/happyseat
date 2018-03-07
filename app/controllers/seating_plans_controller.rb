@@ -21,7 +21,7 @@ class SeatingPlansController < ApplicationController
 
   def show
     @seating_plan = SeatingPlan.find(params[:id])
-    @supertable = SuperTable.new(@seating_plan)
+    @super_tables = SuperTable.new(seating_plan: @seating_plan)
     @seating_plans = SeatingPlan.where.not(latitude: nil, longitude: nil)
     @marker = [
       {
@@ -39,7 +39,6 @@ class SeatingPlansController < ApplicationController
     else
       render 'seating_plan/show'
     end
->>>>>>> master
   end
 
   def export
