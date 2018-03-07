@@ -17,7 +17,7 @@ class SeatingPlan < ApplicationRecord
     "My Seating Plan" if name.nil?
   end
 
-  def self.to_csv(options = {})
+  def to_csv(options = {})
     desired_columns = ["name", "age_range", "family_type", "seat"]
     CSV.generate(options) do |csv|
       csv << desired_columns
