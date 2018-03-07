@@ -30,7 +30,7 @@ class SeatingPlansController < ApplicationController
     ]
     respond_to do |format|
       format.html
-      # format.csv { send_data @seating_plan.to_csv }
+      format.csv { send_data @seating_plan.to_csv }
       format.xls
     end
   end
