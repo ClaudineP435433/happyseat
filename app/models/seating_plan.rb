@@ -18,7 +18,7 @@ class SeatingPlan < ApplicationRecord
   end
 
   def self.to_csv(options = {})
-    desired_columns = ["name", "age_range", "family_type"]
+    desired_columns = ["name", "age_range", "family_type", "seat"]
     CSV.generate(options) do |csv|
       csv << desired_columns
       @seating_plan.participants.each do |participant|
