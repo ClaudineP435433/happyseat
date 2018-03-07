@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+
+        <Cell><Data ss:Type="String">Name</Data></Cell>
+        <Cell><Data ss:Type="String">Age range</Data></Cell>
+        <Cell><Data ss:Type="String">Family type</Data></Cell>
+        <Cell><Data ss:Type="String">Seat</Data></Cell>
+
+      </Row>
+    <% @seating_plan.participants.each do |participant| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= participant.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= participant.age_range %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= participant.family_type %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= participant.seat %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+
