@@ -67,7 +67,7 @@ class SuperTable
     end
   end
 
-  def score_table(guest)
+  def score_relationship(guest)
     relationships_list = guest.couple_relationships
     seats_list = relationships_list.map {|relation| relation.second_guest.seat}
     @list.map.with_index do |table, index|
@@ -77,8 +77,8 @@ class SuperTable
     end
   end
 
-  def select_available_table(nb_available_seats, guest)
-    tables = self.score_table(guest).select do |table|
+  def select_available_table_by_relationship(nb_available_seats, guest)
+    tables = self.score_relationship(guest).select do |table|
       self.find_seats(table[:table_index]).size >= nb_available_seats
     end
     tables.sort { |table| table[:score] }
@@ -87,7 +87,6 @@ class SuperTable
   def score_age
     @list.map.with_index do |table, index|
       ages = table.map { |seat| seat[:participant_age] }.compact
-      # avg_age = ages.empty? ? nil : (ages.sum / ages.size).round
       significant_age = ages.compact
                             .group_by { |i| i}
                             .sort_by{|k,v| k}
@@ -100,5 +99,18 @@ class SuperTable
       }
     end
   end
+
+  def select_available_table_by_age(nb_available_seats, guest)
+    tables = self.score_age.select do |table|
+      self.find_seats(table[:table_index]).size >= nb_available_seats
+    end
+    guest_age = guest.read_attribute_before_type_cast(:age_range)
+    table_same_age = tables.select { |table| table[:score] == guest_age}
+    return table_same_age if table_same_age.present?
+    table_without_guest = tables.select { |table| table[:score] == nil }
+    return table_without_guest if table_without_guest.present?
+    tables
+  end
+
 
 end

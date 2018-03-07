@@ -27,11 +27,8 @@ class Participant < ApplicationRecord
 
   def allocate_seat
     super_tables = SuperTable.new(seating_plan: seating_plan)
-
-
-
-    participant_seat = super_tables.first_seat_available
-    self.update(seat: participant_seat)
+    score_by_age = super_tables.select_available_table_by_age(1, self)
+    self.seat_allocation(super_tables, score_by_age)
   end
 
   def couple_relationships

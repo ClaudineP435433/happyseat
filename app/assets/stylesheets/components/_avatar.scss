@@ -25,6 +25,36 @@
   }
 }
 
+.avatar_pink_test {
+  background-color: $pink-sit;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+}
+
+.avatar_blue_test {
+  background-color: $blue-sit;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+}
+
+.avatar_color_test {
+  background-color: $purple-sit;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+}
+
 .avatar_blue {
   background-color: $blue-sit;
   width: 52px;
@@ -57,6 +87,75 @@
   }
 }
 
+
+
+.avatar_children {
+  background-color: #DAF588;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  position: relative;
+  p {
+    color: white;
+    font-size: 17px;
+    font-weight: bolder;
+    margin: 13px;
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: center;
+  }
+}
+
+.avatar_teenagers {
+  background-color: #C4E65A;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  position: relative;
+  p {
+    color: white;
+    font-size: 17px;
+    font-weight: bolder;
+    margin: 13px;
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: center;
+  }
+}
+
+.avatar_adults {
+  background-color: #89AE19;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  position: relative;
+  p {
+    color: white;
+    font-size: 17px;
+    font-weight: bolder;
+    margin: 13px;
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: center;
+  }
+}
+
+.avatar_elderly {
+  background-color: #688904;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  position: relative;
+  p {
+    color: white;
+    font-size: 17px;
+    font-weight: bolder;
+    margin: 13px;
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: center;
+  }
+}
 
 .avatar-small {
   width: 20px;
