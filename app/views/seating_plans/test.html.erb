@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>My Seating PLan</title>
+    <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
+    <script>
+      function number_pages() {
+        var vars={};
+        var x=document.location.search.substring(1).split('&');
+        for(var i in x) {var z=x[i].split('=',2);vars[z[0]] = decodeURIComponent(z[1]);}
+        var x=['frompage','topage','page','webpage','section','subsection','subsubsection'];
+        for(var i in x) {
+          var y = document.getElementsByClassName(x[i]);
+          for(var j=0; j<y.length; ++j) y[j].textContent = vars[x[i]];
+        }
+      }
+    </script>
+    <style>
+* {
+  -webkit-box-sizing: border-box;
+}
+.flexrow {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.flexrow > div {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  margin-right: 10%;
+  background-color: yellow;
+  border: 1px dashed black;
+}
+.flexrow > div:last-child {
+  margin-right: 0;
+}
+
+.flexbox-center {
+  display: -webkit-box; /* wkhtmltopdf uses this one */
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  background-color: red;
+}
+</style>
+  </head>
+
+
+
+
+
+  <body onload='number_pages'>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <%= wicked_pdf_image_tag 'separateur2.png', class: "separateur" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="wedding-title-pdf">
+          <div class="col-xs-6 col-xs-offset-3">
+            <h2>Wedding of <%= current_user.bride_first_name %> and <%= current_user.groom_first_name %></h2>
+          </div>
+        </div>
+      </div>
+
+<div class="flexbox-center"><div class="test">test1</div>  <div class="test">test2</div> </div>
+
+
+  <div class="flexrow">
+    <div>This is<br>item 1</div>
+    <div>This is<br>item 2</div>
+    <div>This is<br>item 3</div>
+    <div>This is<br>item 4</div>
+    <div>This is<br>item 5</div>
+  </div>
+
+</html>    </div>
+    <div class="pagination">Page <span class="page"></span> of <span class="topage"></span></div>
+  </body>
+</html>

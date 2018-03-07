@@ -1,5 +1,5 @@
 class SeatingPlansController < ApplicationController
-
+  before_action :init, only: [:show, :export]
 
   def create
     @seating_plan = current_user.seating_plans.new(seating_plan_params)
@@ -46,13 +46,13 @@ class SeatingPlansController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "My_Seating_Plan",
+        render pdf: "My_Seating_Plan", header: { right: '[page] of [topage]' },
                orientation: 'Landscape',
                layout: false,
-               margin:  {   top:               15,                     # default 10 (mm)
-                            bottom:            15,
-                            left:              15,
-                            right:             15 }
+               margin:  {   top:               5,                     # default 10 (mm)
+                            bottom:            5,
+                            left:              5,
+                            right:             5 }
       end
     end
   end

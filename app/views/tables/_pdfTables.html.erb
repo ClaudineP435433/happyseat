@@ -1,0 +1,57 @@
+ <div class="row">
+  <% @tables.each_with_index do |table, index| %>
+    <div class="col-xs-4">
+      <div class="table-section" >
+
+        <div class="table-card-name text-left">
+          <div class="name"><h3><%= table.name %></h3></div>
+          <div class="pencil">
+
+            <%= link_to seating_plan_table_path(@seating_plan, table), method: :patch do %>
+            <a role="button" data-toggle="collapse" href='#collapseExample-<%= "#{index}" %>' aria-expanded="false" aria-controls="collapseExample">
+            <i class="fas fa-pencil-alt"></i></a>
+            <div class="collapse" id='collapseExample-<%= "#{index}" %>'>
+              <div class="table-name-form">
+                <%= simple_form_for [@seating_plan, table] do |f| %>
+                <%= f.error_notification %>
+                <%= f.input :name, required: true, placeholder: "Table name", label: false %>
+                <% end %>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+
+        <div class="table-card table-margin pdf-table-frame">
+          <div class="avatar-frame flexrow" id='table-top-<%= "#{index}" %>'>
+
+              <% @super_tables[index][0...(@super_tables[index].size / 2)].each do |seat| %>
+                <div class="avatar text-center padding-top-12" id="avatar-<%= seat[:seat_id] %>"><%= seat[:seat_id] %></div>
+              <% end %>
+          </div>
+
+          <div class="table-frame frame-pdf">
+            <ul class="list-unstyled">
+              <div class="row">
+                <% @super_tables[index].each do |seat| %>
+                  <div class="col-xs-6">
+                    <li class="pdf-name"><%= seat[:seat_id] %> - <%= @seating_plan.participants.find_by(seat: seat[:seat_id]).name if @seating_plan.participants.find_by(seat: seat[:seat_id]).present? %></li>
+                  </div>
+                <% end %>
+              </div>
+            </ul>
+          <!--   <div class="table-frame-nappe">
+          </div> -->
+          </div>
+
+          <div class="avatar-frame flexrow" id='table-bottom-<%= "#{index}" %>'>
+              <% @super_tables[index][(@super_tables[index].size / 2)..-1].each do |seat| %>
+                <div class="avatar text-center padding-top-12" id="avatar-<%= seat[:seat_id] %>"><%= seat[:seat_id] %></div>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

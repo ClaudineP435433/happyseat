@@ -1,30 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset='utf-8' />
     <title>My Seating PLan</title>
     <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
     <%= wicked_pdf_javascript_include_tag "number_pages" %>
-    <script>
-      function number_pages() {
-        var vars={};
-        var x=document.location.search.substring(1).split('&');
-        for(var i in x) {var z=x[i].split('=',2);vars[z[0]] = decodeURIComponent(z[1]);}
-        var x=['frompage','topage','page','webpage','section','subsection','subsubsection'];
-        for(var i in x) {
-          var y = document.getElementsByClassName(x[i]);
-          for(var j=0; j<y.length; ++j) y[j].textContent = vars[x[i]];
-        }
+    <style>
+      .flexrow {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
       }
-    </script>
+
+      .flexrow > div {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+        margin-right: 10%;
+        border: 1px solid rgb(160,160,160);
+      }
+
+      .flexrow > div:last-child {
+        margin-right: 0;
+      }
+
+
+      .flexcenter {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+      }
+
+      .flexcenter > div {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+        box-align: center;
+        box-pack: center;
+      }
+
+    .frame-pdf {
+      width: 305px;
+      margin: 15px 0;
+    }
+
+    .table-margin {
+      margin-bottom: 40px;
+    }
+
+    .pdf-table-frame {
+      border: 1px solid (160,160,160);
+      box-shadow: 0 0 5px (160,160,160);
+    }
+
+    .padding-top-12 {
+      padding-top: 12px;
+    }
+
+    .pdf-name {
+      font-size: 12px;
+      padding-left: 2px;
+      padding-top: 1px;
+    }
+
+    </style>
   </head>
-  <body onload='number_pages'>
-    <h1></h1>
-    Page <span class="page"></span> of <span class="topage"></span>
-<!-- <div id="header">
-      <%= wicked_pdf_image_tag 'mysite.jpg' %>
-    </div> -->
-    <div id="content">
+
+
+
+
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <%= wicked_pdf_image_tag 'separateur2.png', class: "separateur" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="wedding-title-pdf table-margin">
+          <div class="col-xs-6 col-xs-offset-3">
+            <h2>Wedding of <%= current_user.bride_first_name %> and <%= current_user.groom_first_name %></h2>
+          </div>
+        </div>
+      </div>
+      <div class="render-tables"><%= render "tables/pdfTables.html.erb" %></div>
     </div>
   </body>
 </html>
