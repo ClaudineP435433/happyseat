@@ -85,8 +85,42 @@
     display: none;
   }
 }
+
+.avatar-bride-login {
+  background: image-url("marieF_v1.png");
+  background-color: $pink-sit;
+  background-size: cover;
+  border-radius: 50%;
+  border: 1px solid $grey-btn;
+  margin-right: 7px;
+  width: 72px;
+  height: 72px;
+  p {
+    display: none;
+  }
+}
+
+.avatar-groom-login {
+  background: image-url("Flat_01.png");
+  background-color: $blue-sit;
+  background-size: cover;
+  border-radius: 50%;
+  border: 1px solid $grey-btn;
+  width: 72px;
+  height: 72px;
+  p {
+    display: none;
+  }
+}
+
 .avatar_groom {
   background: image-url("Flat_01.png");
   background-size: cover;
    p { display: none; }
+}
+
+.bride-and-groom-login {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
