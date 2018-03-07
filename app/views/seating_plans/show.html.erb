@@ -7,17 +7,22 @@
       <div class="card-title-weds"><em>Peter </em>and<em> Wendy</em></div>
       <div ></div>
       <div class="row weds-dispo">>
-        <%=image_tag("Flat 03 V2.png", :size=> "180x180") %>
-        <%=image_tag("marieF v2.png", :size=> "180x180")%>
+        <%=image_tag("Flat 03 V2.png", :size=> "150x150") %>
+        <%=image_tag("marieF v2.png", :size=> "150x150")%>
       </div>
-      <div class="separteur3"align="center"><%=image_tag("a315ba465d59cdd28b479191aef7c070.png", :width=> "280")%></div>
-      <div class="weds-ref">My text for party:</div>
-      <div class="weds-text-party">We are glad to welcome you to our wedding reception at Dromoland Castle, from 18.00.</div>
+      <div class="separteur3 text-centered"><%=image_tag("a315ba465d59cdd28b479191aef7c070.png", :width=> "280")%></div>
+      <div class="weds-ref">My wedding details :</div>
 
+  <%= simple_form_for @seating_plan do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :name, required: true, placeholder: "Wedding Name", label: false %>
+    <%= f.input :address, required: true, placeholder: "Address", label: false %>
+      <%= f.input :wedding_date, required: true, label: false %>
+    <%= f.button :submit, class: "btn-success" %>
+   <% end %>
+
+ <div id="map" class="map hidden-xs" style="width: 100%" data-markers="<%= @marker.to_json %>"></div>
     </div>
-
-
-
   </div>
 
 

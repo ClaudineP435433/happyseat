@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :seating_plans, only: [:create, :show ] do
+  resources :seating_plans, only: [:create, :show, :update ] do
     resources :tables, only: [:index, :update]
     resources :participants, only: [:create] do
       patch 'swap'

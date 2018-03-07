@@ -7,6 +7,9 @@ class SeatingPlan < ApplicationRecord
   validates :nb_max_participants, presence: true
   validates :nb_tables, presence: true
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   def default_name
     "My Seating Plan" if name.nil?
   end
