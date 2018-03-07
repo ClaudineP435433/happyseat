@@ -19,7 +19,7 @@
                     <%= t.input :link, input_html: {value: "hate"}, as: :hidden %>
                     <div id="first_guest">
 
-                        <%= t.input :first_guest_id, collection: Participant.all.order(:last_name), required: true, prompt: "Select 1st Guest", label: false  %>
+                        <%= t.input :first_guest_id, collection: @seating_plan.participants.order(:last_name), required: true, prompt: "Select 1st Guest", label: false  %>
                     </div>
 
                     <div class="braked_heart text-center">
@@ -28,7 +28,7 @@
 
                     <div id="second_guest">
 
-                        <%= t.input :second_guest_id, collection: Participant.all.order(:last_name), required: true, prompt: "Select 2nd Guest", label: false  %>
+                        <%= t.input :second_guest_id, collection: @seating_plan.participants.order(:last_name), required: true, prompt: "Select 2nd Guest", label: false  %>
                     </div>
                     <%= t.button :submit, class: "btn-success btn-max"%>
                     <% end %>
