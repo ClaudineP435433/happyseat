@@ -7,6 +7,7 @@ class CreateParticipants < ActiveRecord::Migration[5.1]
       t.integer :age_range
       t.integer :seat
       t.integer :family_type
+      t.integer :status
 
       t.timestamps
     end

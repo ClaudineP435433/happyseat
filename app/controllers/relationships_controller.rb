@@ -2,6 +2,7 @@ class RelationshipsController < ApplicationController
   before_action :init, only: [:create]
 
   def create
+
     @relationship = Relationship.new(relationship_params)
     @participant = @seating_plan.participants.new
 

@@ -76,5 +76,17 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+}
 
+.avatar_bride {
+  background: image-url("marieF_v1.png");
+  background-size: cover;
+  p {
+    display: none;
+  }
+}
+.avatar_groom {
+  background: image-url("Flat_01.png");
+  background-size: cover;
+   p { display: none; }
 }

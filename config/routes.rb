@@ -5,18 +5,18 @@ Rails.application.routes.draw do
 
   resources :seating_plans, only: [:create, :show, :update ] do
     resources :tables, only: [:index, :update]
-    resources :participants, only: [:create]
+    resources :participants, only: [:create] do
+      patch 'swap'
+      put 'swap'
+    end
     resources :relationships, only: [:create]
-  end
-
+    get 'export'
+ end
 
   resources :participants, only: [:update, :destroy], shallow: true
 
-
-  patch 'participants/swap'
-  put 'participants/swap'
-
   get 'tables/find_for_modal', as: "find_for_modal"
+
 
 
 end

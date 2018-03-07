@@ -4,10 +4,10 @@ class SeatingPlansController < ApplicationController
   def create
     @seating_plan = current_user.seating_plans.new(seating_plan_params)
     @seating_plan.default_name
-
     n = 1
-
     if @seating_plan.save
+      @bride = Participant.create(first_name: current_user.bride_first_name, last_name: current_user.bride_last_name, seating_plan: @seating_plan, seat: 1, age_range: 2, family_type: 1, status: 1)
+      @groom = Participant.create(first_name: current_user.groom_first_name, last_name: current_user.groom_last_name, seating_plan: @seating_plan, seat: 2, age_range: 2, family_type: 0, status: 0)
       params[:seating_plan][:nb_tables].to_i.times do
         @seating_plan.tables.create(name: "Table #{n}", nb_max_participants: params[:seating_plan][:nb_max_participants])
         n += 1
@@ -37,6 +37,22 @@ class SeatingPlansController < ApplicationController
       redirect_to seating_plan_path(@seating_plan)
     else
       render 'seating_plan/show'
+    end
+  end
+
+  def export
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "My Seating Plan",
+               template: 'seating_plans/export.html.erb',
+               orientation: 'Landscape',
+               layout: 'pdf',
+               margin:  {   top:               15,                     # default 10 (mm)
+                            bottom:            15,
+                            left:              15,
+                            right:             15 }
+      end
     end
   end
 

@@ -1,6 +1,7 @@
 import "bootstrap";
 import '../components/select2';
 import '../components/dragula';
+import { dragDecorator } from '../components/dragula';
 
 
 

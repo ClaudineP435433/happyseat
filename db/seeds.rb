@@ -18,6 +18,10 @@ puts "start seeds"
 u = User.create!(email: "toto@toto.com", password: "123456", groom_first_name: "Teddy", groom_last_name: "Smith", bride_first_name: "Pamela", bride_last_name: "Andersson")
 sp = SeatingPlan.create!(nb_tables: 6, nb_max_participants: 8, nb_participants: 48, user: u)
 
+bride = Participant.create(first_name: u.bride_first_name, last_name: u.bride_last_name, seating_plan: sp, seat: 1, age_range: 2, family_type: 1, status: 1)
+groom = Participant.create(first_name: u.groom_first_name, last_name: u.groom_last_name, seating_plan: sp, seat: 2, age_range: 2, family_type: 0, status: 0)
+
+
 t = Table.create!(nb_max_participants: 8, seating_plan: sp, name: "Table 1")
 t2 = Table.create!(nb_max_participants: 8, seating_plan: sp, name: "Table 2")
 t3 = Table.create!(nb_max_participants: 8, seating_plan: sp, name: "Table 3")

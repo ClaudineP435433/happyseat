@@ -35,6 +35,9 @@
   <div>
     <div class="container">
 
+
+
+
       <div class="row card-description2">
 
 
@@ -45,7 +48,7 @@
             <div class="card-content"><%= image_tag("chaise.png")%>
             <div class="print">
               <div class="card-title">Print your Seating plan in PDF</div>
-              <div class="btn-congrats-print">I DO</div>
+              <div class="btn-congrats-print"><%= link_to 'I DO', seating_plan_export_path(@seating_plan, :format => :pdf) %></div>
             </div>
             </div>
           </div>
@@ -123,6 +126,5 @@
     </div>
 
 </div>
+
 </div>
-
-
