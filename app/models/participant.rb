@@ -49,6 +49,12 @@ class Participant < ApplicationRecord
     #self.relationships.find_by(link: "couple").present?
   end
 
+  def my_husband
+    if couple?
+      Relationship.find_by(link: "couple", first_guest: self).second_guest
+    end
+  end
+
   # def couple_not_separated
   #   if couple?
   #     super_tables = SuperTable.new(seating_plan: seating_plan)
