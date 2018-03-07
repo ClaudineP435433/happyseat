@@ -8,7 +8,6 @@
   padding: 5px;
   background-color: white;
   opacity: 0.8;
-
   border-top: 1px dotted $grey-btn;
   position: sticky;
   top: 70px;
@@ -20,7 +19,6 @@
 .card-info-toolbar {
   border: 2px dashed $grey-btn ;
   background-color: white;
-  width: 93%;
   height: 99.2%;
 }
 
@@ -50,7 +48,7 @@
 }
 
 .separteur3 {
-  padding-bottom: 30px;
+  padding-bottom: 25px;
 }
 
 .weds-text-party {
@@ -109,14 +107,14 @@
 }
 
 .card {
-  margin: 20px 20px;
+  margin: 10px 20px;
   padding: 30px 30px;
   background-image: url("image 2.png");
   border: 1px solid $grey-btn;
 }
 .card-description1 {
 
-  padding-top: 30px;
+  padding-top: 40px;
   padding-bottom: 50px;
 }
 
@@ -224,20 +222,20 @@
 }
 
 .btn-congrats-print {
+
   width: 120px;
-  height: 102px;
   background-color: $green-btn;
   border: none;
   margin: 30px 30px ;
   color: white;
-  padding: 15px 15px;
+  padding: 44.5px 0px;
   border-radius: 3px;
   font-size: 22px;
-  font-family: bolder;
+  font-weight: bolder;
   text-align: center;
   font-family: "Raleway", "Helvetica", "sans-serif";
-  vertical-align: middle;
   decoration: none;
+
      a {
     color: white;
     decoration:none;
@@ -255,18 +253,36 @@
   color: $grey-btn;
   font-family: "Helvetica", "sans-serif";
   font-size: 20px;
-  padding: 10px;
+
 }
-
-
-
 
 
 #map {
   height: 200px;
 }
 
+.weds-address {
+  padding-bottom: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
 
+.card-name {
+  margin-top: 10px;
+  margin-bottom: 45px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 30px 30px;
+  background-image: url("image 2.png");
+  border: 1px solid $grey-btn;
+  width: 300px;
+}
+
+.deco-info {
+  color: $grey-btn;
+  font-size: 18px;
+  padding: 0px 20px;
+}
 
 
 

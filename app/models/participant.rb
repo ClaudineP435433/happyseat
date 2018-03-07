@@ -18,11 +18,15 @@ class Participant < ApplicationRecord
 
 
   def name
-      "#{first_name} #{last_name}"
+      "#{first_name.capitalize} #{last_name.capitalize}"
   end
 
   def initial
     "#{first_name[0].capitalize}#{last_name[0].capitalize}"
+  end
+
+  def decoration_name
+      "#{first_name.capitalize} #{last_name[0].capitalize}."
   end
 
   def allocate_seat
