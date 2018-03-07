@@ -4,7 +4,11 @@
 <div class="toolbar1 seating-plan-toolbar">
   <div class="card-info-toolbar">
       <div class="weds-ref">Wedding of:</div>
-      <div class="card-title-weds"><em>Peter </em>and<em> Wendy</em></div>
+      <div class="card-title-weds">
+        <em><%=@seating_plan.user.bride_first_name %></em>
+        and
+        <em><%= current_user.groom_first_name%></em>
+      </div>
       <div ></div>
       <div class="row weds-dispo">>
         <%=image_tag("Flat 03 V2.png", :size=> "150x150") %>
@@ -12,15 +16,15 @@
       </div>
       <div class="separteur3 text-centered"><%=image_tag("a315ba465d59cdd28b479191aef7c070.png", :width=> "280")%></div>
       <div class="weds-ref">My wedding details :</div>
-
-  <%= simple_form_for @seating_plan do |f| %>
-    <%= f.error_notification %>
-    <%= f.input :name, required: true, placeholder: "Wedding Name", label: false %>
-    <%= f.input :address, required: true, placeholder: "Address", label: false %>
-      <%= f.input :wedding_date, required: true, label: false %>
-    <%= f.button :submit, class: "btn-success" %>
-   <% end %>
-
+      <div class= weds-address>
+        <%= simple_form_for @seating_plan do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :name, required: true, placeholder: "Wedding Name", label: false %>
+          <%= f.input :address, required: true, placeholder: "Address", label: false %>
+            <%= f.input :wedding_date, required: true, label: false %>
+          <%= f.button :submit, class: "btn-success" %>
+         <% end %>
+      </div>
  <div id="map" class="map hidden-xs" style="width: 100%" data-markers="<%= @marker.to_json %>"></div>
     </div>
   </div>
@@ -58,12 +62,13 @@
         <div class="col-xs-12 col-sm-3">
           <div class="card-print">
           <div class="card-info-print">
-            <div class="card-title-print">Export my guests list to CSV</div>
 
 
             <div class="btn-congrats-print large">
+            <div class="card-title-print">Export my guests list to excel</div>
               <%= link_to "Excel", seating_plan_path(format: "xls") %>
             </div>
+
           </div>
           </div>
         </div>
@@ -71,24 +76,26 @@
 
       <div class= "row card-description1"">
         <div class="card-print">
-            <div class="card-title-cadre">Order your decoration</div>
+            <div class="card-title-cadre">Preview of your table decoration</div>
         </div>
 
         <div class="row card-description1">
+          <div class= "row deco-info">
+            <div class="col-xs-12 col-sm-4 w-33" >Seating plan card</div>
+            <div class="col-xs-12 col-sm-4 w-33">Menu</div>
+            <div class="col-xs-12 col-sm-4 w-33">Table place card</div>
+          </div>
           <div class="col-xs-12 col-sm-4 ">
             <div class="card">
             <div class="card-info">
-              <div class="card-title">Table n.5</div>
+              <div class="card-title">
+                    <%= @seating_plan.tables.first.name.capitalize %>
+              </div>
               <div class="card-content">
                 <ul class="list-unstyled">
-                  <li>Freddie MERCURY</li>
-                  <li>Pamela ANDERSON</li>
-                  <li>Elton JOHN</li>
-                  <li>Nina HAGEN</li>
-                  <li>Johnny WALKER</li>
-                  <li>Soeur SOURIRE</li>
-                  <li>Clara MORGANE</li>
-                  <li>James BOND</li>
+                  <% @seating_plan.participants.each do |participant| %>
+                    <li><%= participant.name %></li>
+                  <% end %>
                 </ul>
               </div>
             </div>
@@ -117,17 +124,18 @@
 
           <div class="col-xs-12 col-sm-4 ">
             <div class= card-org>
-              <div class="card">
+              <div class="card-name">
                 <div class="card-info">
-                  <div class="card-title">Freddie MERCURY</div>
+                  <div class="card-title"><%= @seating_plan.participants.first.decoration_name %></div>
                 </div>
               </div>
-              <div class="btn-congrats-print large">I DO</div>
+              <div class="btn-congrats-print">PRINT</div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
 
 </div>
 
