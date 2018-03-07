@@ -5,12 +5,12 @@
   <div class="card-info-toolbar">
       <div class="weds-ref">Wedding of:</div>
       <div class="card-title-weds">
-        <em><%=@seating_plan.user.bride_first_name %></em>
+        <em><%= @seating_plan.user.bride_first_name %></em>
         and
         <em><%= current_user.groom_first_name%></em>
       </div>
-      <div ></div>
-      <div class="row weds-dispo">>
+
+      <div class="row weds-dispo">
         <%=image_tag("Flat 03 V2.png", :size=> "150x150") %>
         <%=image_tag("marieF v2.png", :size=> "150x150")%>
       </div>
