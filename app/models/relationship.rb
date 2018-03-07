@@ -74,9 +74,20 @@ class Relationship < ApplicationRecord
     # guest_2.update(seat: guest_2_seat)
     score_guest_2 = super_tables.score_table(guest_2) #renvoie [{table_index: 0,score: 1 }, {}] avec toutes les tables
     score_guest_2_sorted = score_guest_2.select { |table| super_tables.table_available(table[:table_index]) }.sort { |table| table[:score] }
-    guest_2_table = score_guest_2_sorted.first[:table_index]
-    guest_2_seat = super_tables.find_available_seat(guest_2_table)
-    guest_2.update(seat: guest_2_seat)
+
+    if guest_2.couple?
+      new_score_couple = score_guest_2_sorted.select { |table| super_tables.find_two_seats(table[:table_index]).size >= 2 }
+      guest_2_table = new_score_couple.first[:table_index]
+      seats_available = super_tables.find_two_seats(guest_2_table)
+      guest_2_seat = seats_available.first[:seat_id]
+      guest_2.update(seat: guest_2_seat)
+      my_husband_seat = seats_available.second[:seat_id]
+      guest_2.my_husband.update(seat: my_husband_seat)
+    else
+      guest_2_table = score_guest_2_sorted.first[:table_index]
+      guest_2_seat = super_tables.find_available_seat(guest_2_table)
+      guest_2.update(seat: guest_2_seat)
+    end
   end
 
 end
