@@ -5,15 +5,16 @@
 .toolbar1 {
   flex: 0 0 300px;
   min-height: calc(100vh - 70px);
-  padding: 5px;
-  background-color: white;
+  padding: 8px;
+  background-image: url("image_2.png");
   opacity: 0.8;
-  border-top: 1px dotted $grey-btn;
   position: sticky;
   top: 70px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  border: 1px solid #a0a0a0;
+
 }
 
 .card-info-toolbar {
@@ -109,7 +110,7 @@
 .card {
   margin: 10px 20px;
   padding: 30px 30px;
-  background-image: url("image 2.png");
+  background-image: url("image_2.png");
   border: 1px solid $grey-btn;
 }
 .card-description1 {
@@ -200,7 +201,7 @@
 .card-print {
   margin: 20px 20px;
   padding: 15px 15px;
-  background-image: url("image 2.png");
+  background-image: url("image_2.png");
   border: 1px solid $grey-btn;
 }
 
@@ -275,7 +276,7 @@
   margin-left: 20px;
   margin-right: 20px;
   padding: 30px 30px;
-  background-image: url("image 2.png");
+  background-image: url("image_2.png");
   border: 1px solid $grey-btn;
   width: 300px;
 }
