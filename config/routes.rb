@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
     resources :relationships, only: [:create]
     get 'export'
+    get 'deco'
  end
 
   resources :participants, only: [:update, :destroy], shallow: true

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>My Decoration</title>
+  <meta charset='utf-8' />
+      <%= wicked_pdf_stylesheet_link_tag "application" -%>
+      <%= wicked_pdf_javascript_include_tag "number_pages" %>
+    <style>
+      #pdf-menu {
+        font-size: 18px;
+        padding-bottom: 50px;
+      }
+      .pdf-padding {
+        padding: 45px 0px;
+      }
+
+      .page-break-after { page-break-inside: avoid; }
+
+      #card-pdf {
+        height: 575px;
+      }
+      #card-info-pdf {
+        height: 515px;
+      }
+
+Ajouter un commentaire
+    </style>
+  </head>
+
+
+
+  <body>
+
+  <div class='container'>
+    <div class="row">
+      <% @seating_plan.participants.each do |participant| %>
+        <div class="col-xs-4">
+          <div class= card-org>
+            <div class="card-name">
+              <div class="card-info">
+                <div class="card-title text-center">
+                  <%= participant.decoration_name %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="card">
+        <div class="card-info">
+          <div class="card-title text-center pdf-padding">MENU</div>
+          <div class="card-content-menu text-center" id="pdf-menu">
+            <ul class="list-unstyled menu">
+              <li>Crisp Romaine, Poached Pears, Toasted Hazelnuts, Dried Cranberries, Crumbled Blue Cheese Dressing</li>
+              <li><%= wicked_pdf_image_tag("separateur2.png", id:"separe" )%></li>
+              <li>Grilled Pork Tenderloin, Caramelized Peppers, Roasted Brussells Sprouts, Farmhouse Mashed Potatoes</li>
+              <li><%= wicked_pdf_image_tag("separateur2.png", id:"separe" )%></li>
+              <li>Veronica’s Sweet Cakes</li>
+              <li><%= wicked_pdf_image_tag("separateur2.png", id:"separe" )%></li>
+              <li>Coffee and Assorted Teas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% @seating_plan.tables.order(:id).each_with_index do |table, index| %>
+      <% unless @super_tables_pdf.table_empty(index) %>
+      <div class="col-xs-6 page-break-after" >
+        <div class="card" id="card-pdf">
+          <div class="card-info" id="card-info-pdf">
+            <div class="card-title text-center">
+                <h2><%= table.name %> </h2>
+                <div class="card-content text-center">
+                    <% @super_tables[index].each do |seat| %>
+                      <ul class="list-unstyled">
+                        <% if seat[:participant_id].present? %>
+                          <li><%= seat[:name] %></li>
+                        <% end %>
+                      </ul>
+                    <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+
+
+
+  </div>
+
+
+
+
+  </body>
+
+
+
+
+
+</html>

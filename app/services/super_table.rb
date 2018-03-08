@@ -13,7 +13,8 @@ class SuperTable
       {
         seat_id: s,
         participant_id: (participant.id if participant),
-        participant_age: (participant.read_attribute_before_type_cast(:age_range) if participant)
+        participant_age: (participant.read_attribute_before_type_cast(:age_range) if participant),
+        name:(participant.name if participant)
       }
     end
     @list = seats.in_groups_of(@seating_plan.nb_max_participants, false)
@@ -24,6 +25,10 @@ class SuperTable
       return index if table.map{|seat| seat[:seat_id]}.include? s
     end
     nil
+  end
+
+  def table_empty(index)
+    @list[index].select { |seat| seat[:participant_id].present?}.empty?
   end
 
   def table_available(index)
