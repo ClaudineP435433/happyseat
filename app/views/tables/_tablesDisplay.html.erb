@@ -33,7 +33,7 @@
                     <div class="table-name-form">
                       <%= simple_form_for [@seating_plan, table] do |f| %>
                       <%= f.error_notification %>
-                      <%= f.input :name, required: true, placeholder: "Table name", label: false %>
+                      <%= f.input :name, required: true, label: false %>
                       <% end %>
                     </div>
                   </div>
@@ -48,9 +48,11 @@
                     <% @super_tables[index][0...(@super_tables[index].size / 2)].each do |seat| %>
                         <div class="avatar" id="avatar-<%= seat[:seat_id] %>">
                           <% if @seating_plan.participants.find_by(seat: seat[:seat_id]).present? %>
+
                             <div class="avatar-participant <%= avatar_colored(seat[:seat_id]) %> " data-path="<%= seating_plan_participant_swap_url(@seating_plan, @seating_plan.participants.find_by(seat: seat[:seat_id]))%>">
                               <p> <%= @seating_plan.participants.find_by(seat: seat[:seat_id]).initial %></p>
                               <div class= "<%= avatar_family(seat[:seat_id]) %>" ></div>
+
                             </div>
                           <% end %>
 

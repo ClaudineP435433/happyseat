@@ -11,15 +11,16 @@
       </div>
 
       <div class="row weds-dispo">
+
         <%=image_tag("Flat 03 V2.png", :size=> "150x150", class: "bobby") %>
         <%=image_tag("marieF v2.png", :size=> "150x150", class: "mariee")%>
+
       </div>
       <div class="separteur3 text-centered"><%=image_tag("a315ba465d59cdd28b479191aef7c070.png", :width=> "280")%></div>
       <div class="weds-ref">My wedding details :</div>
       <div class= weds-address>
         <%= simple_form_for @seating_plan do |f| %>
           <%= f.error_notification %>
-          <%= f.input :name, required: true, placeholder: "Wedding Name", label: false %>
           <%= f.input :address, required: true, placeholder: "Address", label: false %>
             <%= f.input :wedding_date, required: true, label: false %>
           <%= f.button :submit, class: "btn-success" %>
