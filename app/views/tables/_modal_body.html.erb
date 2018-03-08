@@ -1,7 +1,7 @@
 <div class="toolbar-form">
   <h5>Participants details</h5>
   <div class="modal-details">
-    <p><%= participant.table_nb.present? ? participant.table_nb : "No Table for now" %> - Seat N° <%= participant.seat.present? ? participant.seat : "No seat for now"  %></p>
+    <p><%= participant.table_nb.present? ? participant.table_nb : "No Table" %> - Seat N° <%= participant.seat.present? ? participant.seat : "No seat for now"  %></p>
   </div>
   <div class="toolbar-form-one-participant">
   <%= simple_form_for participant do |f| %>
@@ -9,8 +9,8 @@
     <%= f.input :first_name, required: true, placeholder: "First Name", label: false %>
     <%= f.input :last_name, required: true, placeholder: "Last Name", label: false %>
     <div class="nested-prompt">
-      <%= f.input :age_range, collection: Participant.age_ranges.keys, prompt: "Age", required: true, label: false, class: "prompt-size nested-prompt-age" %>
-      <%= f.input :family_type, collection: Participant.family_types.keys, prompt: "Family Link", required: true, label: false %>
+      <%= f.input :age_range, collection: Participant.age_ranges.keys, prompt: "Age", required: true, label: false, class: "prompt-size nested-prompt-age", label_method: lambda { |age| "#{age.capitalize}" } %>
+      <%= f.input :family_type, collection: Participant.family_types.keys, prompt: "Family Link", required: true, label: false, label_method: lambda { |family| "#{family.capitalize}" } %>
     </div>
     <%= f.button :submit, class: "btn-success" %>
    <% end %>
