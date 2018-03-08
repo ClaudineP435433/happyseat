@@ -4,7 +4,7 @@ class SeatingPlansController < ApplicationController
   def create
     @seating_plan = current_user.seating_plans.new(seating_plan_params)
     @seating_plan.default_name
-    n = 1
+
     @seating_plan.define_table_nb
     if @seating_plan.save
       @bride = Participant.create(
@@ -25,9 +25,9 @@ class SeatingPlansController < ApplicationController
         family_type: 0,
         status: 0
         )
-      @seating_plan.nb_tables.times do
-        @seating_plan.tables.create(name: "Table #{n}", nb_max_participants: @seating_plan.nb_max_participants)
-        n += 1
+      @seating_plan.nb_tables.times do |n|
+
+        @seating_plan.tables.create(name: "Table #{n + 1}", nb_max_participants: @seating_plan.nb_max_participants)
       end
       redirect_to seating_plan_tables_path(@seating_plan)
     else
