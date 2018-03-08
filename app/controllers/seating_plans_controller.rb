@@ -49,8 +49,8 @@ class SeatingPlansController < ApplicationController
         render pdf: "My_Seating_Plan", header: { right: '[page] of [topage]' },
                orientation: 'Landscape',
                layout: false,
-               margin:  {   top:               7,                     # default 7 (mm)
-                            bottom:            9,
+               margin:  {   top:               5,                     # default 7 (mm)
+                            bottom:            5,
                             left:              5,
                             right:             5 }
       end
