@@ -21,13 +21,13 @@ module ApplicationHelper
       elsif participant.status == "g"
         c = "avatar_groom avatar_blue"
       elsif participant.age_range == "children"
-        c = "avatar_children"
+        c = "avatar_age avatar_children"
       elsif participant.age_range == "elderly"
-        c = "avatar_elderly"
+        c = "avatar_age avatar_elderly"
       elsif participant.age_range == "adults"
-        c = "avatar_adults"
+        c = "avatar_age avatar_adults"
       elsif participant.age_range == "teenagers"
-        c = "avatar_teenagers"
+        c = "avatar_age avatar_teenagers"
       else
         c = "avatar_color"
       end
