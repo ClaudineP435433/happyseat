@@ -5,80 +5,126 @@
     <title>My Seating PLan</title>
     <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
     <%= wicked_pdf_javascript_include_tag "number_pages" %>
-    <script>
-      function number_pages() {
-        var vars={};
-        var x=document.location.search.substring(1).split('&');
-        for(var i in x) {var z=x[i].split('=',2);vars[z[0]] = decodeURIComponent(z[1]);}
-        var x=['frompage','topage','page','webpage','section','subsection','subsubsection'];
-        for(var i in x) {
-          var y = document.getElementsByClassName(x[i]);
-          for(var j=0; j<y.length; ++j) y[j].textContent = vars[x[i]];
-        }
-      }
-    </script>
     <style>
-* {
-  -webkit-box-sizing: border-box;
-}
-.flexrow {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-}
-.flexrow > div {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  margin-right: 10%;
-  background-color: yellow;
-  border: 1px dashed black;
-}
-.flexrow > div:last-child {
-  margin-right: 0;
-}
+      .flexrow {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+      }
 
-.flexbox-center {
-  display: -webkit-box; /* wkhtmltopdf uses this one */
-  display: -webkit-flex;
-  display: flex;
-  justify-content: center;
-  background-color: red;
-}
-</style>
+      .flexrow > div {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+        margin-right: 10%;
+        border: 1px solid rgb(160,160,160);
+      }
+
+      .flexrow > div:last-child {
+        margin-right: 0;
+      }
+
+
+      .flexcenter {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+      }
+
+      .flexcenter > div {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+        box-align: center;
+        box-pack: center;
+      }
+
+    .frame-pdf {
+      width: 288px;
+      margin: 15px 0;
+    }
+
+    .table-margin {
+      margin-bottom: 5px;
+    }
+
+    .pdf-table-frame {
+      border: 1px solid (160,160,160);
+      box-shadow: 0 0 5px (160,160,160);
+    }
+
+    .padding-top-12 {
+      padding-top: 12px;
+    }
+
+    .padding-top-6 {
+      padding-top: 6px;
+    }
+
+    .pdf-name {
+      font-size: 10px;
+      padding-left: 2px;
+      padding-top: 1px;
+    }
+
+  .background-container {
+    width: 100%;
+    height: 685px;
+    position: relative;
+    margin-top: 10px;
+  }
+
+  .table-container {
+    width: 93%;
+    height: 94%;
+    background-color: white;
+    position: absolute;
+    top: 26px;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    margin: 0 auto;
+  }
+
+  .background-grey {
+    background-color: rgb(245 ,245 ,245 );
+  }
+
+  .render-table-pdf {
+    margin: 0 5px;
+  }
+
+  #grey-border {
+    border: 1px solid rgb(160,160,160);
+    box-shadow: none;
+  }
+
+    </style>
   </head>
 
 
 
 
 
-  <body onload='number_pages'>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
-          <%= wicked_pdf_image_tag 'separateur2.png', class: "separateur" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="wedding-title-pdf">
-          <div class="col-xs-6 col-xs-offset-3">
-            <h2>Wedding of <%= current_user.bride_first_name %> and <%= current_user.groom_first_name %></h2>
+ <body>
+    <div class="container">
+      <%= wicked_pdf_image_tag 'frame.png', class: "background-container" %>
+        <div class="table-container">
+
+          <div class="row">
+            <div class="col-xs-6 col-xs-offset-3">
+              <div class="wedding-title-pdf">
+                <h3>Wedding of <%= current_user.bride_first_name %> and <%= current_user.groom_first_name %></h3>
+              </div>
+            </div>
           </div>
+
+          <div class="render-table-pdf">
+              <%= render "tables/pdf_table" %>
+          </div>
+
         </div>
-      </div>
-
-<div class="flexbox-center"><div class="test">test1</div>  <div class="test">test2</div> </div>
-
-
-  <div class="flexrow">
-    <div>This is<br>item 1</div>
-    <div>This is<br>item 2</div>
-    <div>This is<br>item 3</div>
-    <div>This is<br>item 4</div>
-    <div>This is<br>item 5</div>
-  </div>
-
-</html>    </div>
-    <div class="pagination">Page <span class="page"></span> of <span class="topage"></span></div>
+    </div>
   </body>
 </html>
+

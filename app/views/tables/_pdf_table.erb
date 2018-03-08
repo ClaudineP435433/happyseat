@@ -4,7 +4,6 @@
       <div class="table-section" >
 
         <div class="table-card-name text-left">
-          <div class="name"><h3><%= table.name %></h3></div>
           <div class="pencil">
 
             <%= link_to seating_plan_table_path(@seating_plan, table), method: :patch do %>
@@ -31,8 +30,9 @@
               <% end %>
           </div>
 
-          <div class="table-frame frame-pdf">
+          <div class="table-frame frame-pdf padding-top-9" id="height-frame">
             <ul class="list-unstyled">
+                <div class="name"><h3 class="padding-left-10"><%= table.name %></h3></div>
               <div class="row">
                 <% @super_tables[index].each do |seat| %>
                   <div class="col-xs-6">
