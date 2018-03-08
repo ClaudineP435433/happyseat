@@ -35,7 +35,7 @@ class SeatingPlansController < ApplicationController
       end
       redirect_to seating_plan_tables_path(@seating_plan)
     else
-      flash.now[:alert] = "Please review your inputs"
+      flash[:alert] = "Please review your inputs"
       redirect_to root_path
     end
   end

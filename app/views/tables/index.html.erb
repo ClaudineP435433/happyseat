@@ -17,10 +17,6 @@
           <div class="display-center"><div class="avatar-small avatar_color"></div><h6>Others guests</h6></div>
         </div>
       </div>
-      <!-- <div class="toolbar-legend-details">
-        <div class="display-center"><h6>Your seating plan guests :</h6></div>
-          <div class="display-center text-center"><h6><%= @seating_plan.participants.size %> created / <%= @seating_plan.nb_participants %> total</h6></div>
-      </div> -->
     </div>
 
     <div class="toolbar-name text-center">
@@ -49,14 +45,14 @@
                       label_method: lambda { |age| "#{age.capitalize}" },
                       class: "prompt-size nested-prompt-age" %>
           <%= f.input :family_type,
-          collection: Participant.family_types.keys,
-          prompt: "Family Link",
-          required: true,
-          label: false,
-          label_method: lambda { |family| "#{family.capitalize}" } %>
+                      collection: Participant.family_types.keys,
+                      prompt: "Family Link",
+                      required: true,
+                      label: false,
+                      label_method: lambda { |family| "#{family.capitalize}" } %>
         </div>
-        <%= f.button :submit, class: "btn-success" %>
-       <% end %>
+          <%= f.button :submit, class: "btn-success" %>
+        <% end %>
       </div>
 
       <div class="toolbar-form-couple hidden-couple">
