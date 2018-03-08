@@ -1,0 +1,71 @@
+<!doctype<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>My Seating PLan</title>
+    <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
+    <style>
+      .flexrow {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+      }
+
+      .flexrow > div {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+        margin-right: 10%;
+        border: 1px solid rgb(160,160,160);
+      }
+
+      .flexrow > div:last-child {
+        margin-right: 0;
+      }
+
+
+      .flexcenter {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+      }
+
+      .flexcenter > div {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+        box-align: center;
+        box-pack: center;
+      }
+
+
+    </style>
+  </head>
+
+
+
+
+
+ <body>
+    <p>HappySeat</p>
+    <div class="container">
+        <div class="table-container">
+
+          <div class="row">
+            <div class="col-xs-6 col-xs-offset-3">
+              <div class="wedding-title-pdf">
+                <h3>Wedding of <%= current_user.bride_first_name %> and <%= current_user.groom_first_name %></h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="render-table-pdf">
+              <%= render "tables/pdf_table" %>
+          </div>
+
+        </div>
+    </div>
+  </body>
+</html>
+

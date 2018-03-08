@@ -1,0 +1,33 @@
+ <div class="row">
+  <% @tables.each_with_index do |table, index| %>
+    <div class="col-xs-4">
+      <div class="table-section">
+      <div class="name"><h3 class="padding-left-10"><%= table.name %></h3></div>
+        <div class="table-card no-padding-and-margin table-margin pdf-table-frame">
+          <div class="avatar-frame flexrow" id='table-top-<%= "#{index}" %>'>
+            <% @super_tables[index][0...(@super_tables[index].size / 2)].each do |seat| %>
+              <div class="avatar text-center padding-top-12" id="avatar-<%= seat[:seat_id] %>"><%= seat[:seat_id] %></div>
+            <% end %>
+          </div>
+
+          <div class="table-frame frame-pdf padding-top-9" id="height-frame">
+            <ul class="list-unstyled">
+              <div class="row">
+                <% @super_tables[index].each do |seat| %>
+                  <div class="col-xs-6">
+                    <li class="pdf-name"><%= seat[:seat_id] %> - <%= @seating_plan.participants.find_by(seat: seat[:seat_id]).name if @seating_plan.participants.find_by(seat: seat[:seat_id]).present? %></li>
+                  </div>
+                <% end %>
+              </div>
+            </ul>
+          </div>
+          <div class="avatar-frame flexrow" id='table-bottom-<%= "#{index}" %>'>
+              <% @super_tables[index][(@super_tables[index].size / 2)..-1].each do |seat| %>
+                <div class="avatar text-center padding-top-12" id="avatar-<%= seat[:seat_id] %>"><%= seat[:seat_id] %></div>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

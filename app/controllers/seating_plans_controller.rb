@@ -1,5 +1,5 @@
 class SeatingPlansController < ApplicationController
-
+  before_action :init, only: [:show, :export]
 
   def create
     @seating_plan = current_user.seating_plans.new(seating_plan_params)
@@ -22,6 +22,8 @@ class SeatingPlansController < ApplicationController
   def show
     @seating_plan = SeatingPlan.where.not(latitude: nil, longitude: nil)
     @seating_plan = SeatingPlan.find(params[:id])
+    @super_tables = SuperTable.new(seating_plan: @seating_plan)
+
     @marker = [
       {
         lat: @seating_plan.latitude,
@@ -50,14 +52,13 @@ class SeatingPlansController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "My Seating Plan",
-               template: 'seating_plans/export.html.erb',
+        render pdf: "My_Seating_Plan", header: { right: '[page] of [topage]' },
                orientation: 'Landscape',
-               layout: 'pdf',
-               margin:  {   top:               15,                     # default 10 (mm)
-                            bottom:            15,
-                            left:              15,
-                            right:             15 }
+               layout: false,
+               margin:  {   top:               5,                     # default 7 (mm)
+                            bottom:            5,
+                            left:              5,
+                            right:             5 }
       end
     end
   end
