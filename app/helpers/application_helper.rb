@@ -17,20 +17,22 @@ module ApplicationHelper
     participant = @seating_plan.participants.find_by(seat: seat_id)
     if participant.present?
       if participant.status == "b"
-        "avatar_bride avatar_pink"
+        c = "avatar_bride avatar_pink"
       elsif participant.status == "g"
-        "avatar_groom avatar_blue"
+        c = "avatar_groom avatar_blue"
       elsif participant.age_range == "children"
-        "avatar_children"
+        c = "avatar_children"
       elsif participant.age_range == "elderly"
-        "avatar_elderly"
+        c = "avatar_elderly"
       elsif participant.age_range == "adults"
-        "avatar_adults"
+        c = "avatar_adults"
       elsif participant.age_range == "teenagers"
-        "avatar_teenagers"
+        c = "avatar_teenagers"
       else
-        "avatar_color"
+        c = "avatar_color"
       end
+      participant.pulse ? "#{c} pulse-button" : c
     end
+
   end
 end
