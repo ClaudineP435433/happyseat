@@ -5,6 +5,7 @@
     <title>My Seating PLan</title>
     <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
     <%= wicked_pdf_javascript_include_tag "number_pages" %>
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
     <style>
       .flexrow {
         display: -webkit-box;
@@ -44,18 +45,16 @@
   </head>
 
 
-
-
-
  <body>
-    <p>HappySeat</p>
+
     <div class="container">
         <div class="table-container">
-
           <div class="row">
-            <div class="col-xs-6 col-xs-offset-3">
+
+            <div class="col-xs-12">
               <div class="wedding-title-pdf">
-                <h3>Wedding of <%= current_user.bride_first_name %> and <%= current_user.groom_first_name %></h3>
+                <h3><strong> Wedding of <%= current_user.bride_first_name %> and <%= current_user.groom_first_name %></strong></h3>
+                <p>Seating plan done with HappySeat.fr <%= wicked_pdf_image_tag "chaise.png" %></p>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 class SeatingPlansController < ApplicationController
-  before_action :init, only: [:show, :export]
+  before_action :init, only: [ :export]
 
   def create
     @seating_plan = current_user.seating_plans.new(seating_plan_params)
@@ -20,7 +20,7 @@ class SeatingPlansController < ApplicationController
   end
 
   def show
-    @seating_plan = SeatingPlan.where.not(latitude: nil, longitude: nil)
+    #@seating_plan = SeatingPlan.where.not(latitude: nil, longitude: nil)
     @seating_plan = SeatingPlan.find(params[:id])
     @super_tables = SuperTable.new(seating_plan: @seating_plan)
 
@@ -52,7 +52,7 @@ class SeatingPlansController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "My_Seating_Plan", header: { right: '[page] of [topage]' },
+        render pdf: "My_Seating_Plan", footer: { right: '[page] of [topage]' },
                orientation: 'Landscape',
                layout: false,
                margin:  {   top:               5,                     # default 7 (mm)
