@@ -14,7 +14,7 @@ class SuperTable
         seat_id: s,
         participant_id: (participant.id if participant),
         participant_age: (participant.read_attribute_before_type_cast(:age_range) if participant),
-        name:(participant.name if participant)
+        name:(participant.name if participant),
         initials: (participant.initial  if participant)
       }
     end
