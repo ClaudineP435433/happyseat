@@ -1,7 +1,7 @@
 <div class="toolbar-form">
   <h5>Participants details</h5>
   <div class="modal-details">
-    <p>Table name - Seat N°: <%= participant.seat %></p>
+    <p><%= participant.table_nb %> - Seat N°: <%= participant.seat.present? ? participant.seat : "No seat for now"  %></p>
   </div>
   <div class="toolbar-form-one-participant">
   <%= simple_form_for participant do |f| %>
