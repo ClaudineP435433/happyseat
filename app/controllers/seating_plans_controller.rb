@@ -1,5 +1,5 @@
 class SeatingPlansController < ApplicationController
-  before_action :init, only: [ :export]
+  before_action :init, only: [:export, :deco]
 
   def create
     @seating_plan = current_user.seating_plans.new(seating_plan_params)
@@ -77,6 +77,22 @@ class SeatingPlansController < ApplicationController
                orientation: 'Landscape',
                layout: false,
                margin:  {   top:               5,                     # default 7 (mm)
+                            bottom:            5,
+                            left:              5,
+                            right:             5 }
+      end
+    end
+  end
+
+  def deco
+    @super_tables_pdf = SuperTable.new(seating_plan: @seating_plan)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "My_Decoration", footer: { right: '[page] of [topage]' },
+               orientation: 'Landscape',
+               layout: false,
+               margin:  {   top:               10,                     # default 7 (mm)
                             bottom:            5,
                             left:              5,
                             right:             5 }

@@ -89,26 +89,26 @@
             <div class="col-xs-12 col-sm-4 w-33">Menu</div>
             <div class="col-xs-12 col-sm-4 w-33">Table place card</div>
           </div>
+
+
           <div class="col-xs-12 col-sm-4 ">
             <div class="card">
             <div class="card-info">
               <div class="card-title">
-                    <%= @seating_plan.tables.first.name.capitalize %>
-              </div>
-              <div class="card-content">
-                <ul class="list-unstyled">
-                  <%# @seating_plan.participants.each do |participant| %>
-                    <li><%#= participant.name %></li>
-                  <% #end %>
-                  <li>Antoine Lefevre</li>
-                  <li>Monique Champard</li>
-                  <li>Camomille Franchin</li>
-                  <li>Marielle Renard</li>
-                  <li>Henri Renard</li>
-                  <li>Catherine Legrand</li>
-                  <li>Renaud Gendran</li>
-                  <li>Lousie Andre</li>
-                </ul>
+                <% [@seating_plan.tables.order(:id).first].each_with_index do |table, index| %>
+                  <% unless @super_tables.table_empty(index) %>
+                    <h2><%= table.name %> </h2>
+                    <div class="card-content">
+                        <% @super_tables.list[index].each do |seat| %>
+                          <ul class="list-unstyled">
+                            <% if seat[:participant_id].present? %>
+                              <li><%= seat[:name] %></li>
+                            <% end %>
+                          </ul>
+                        <% end %>
+                    </div>
+                  <% end %>
+                <% end %>
               </div>
             </div>
             </div>
