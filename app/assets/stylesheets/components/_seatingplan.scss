@@ -76,7 +76,7 @@
     padding-left: 15px;
     h2 {
       color: $grey-btn;
-      font-size: 180px;
+      font-size: 200px;
       font-weight: lighter;
       text-align: left;
     }
@@ -109,7 +109,7 @@
 .card {
   margin: 10px 20px;
   padding: 30px 30px;
-  background-image: url("image 2.png");
+  background-image: url("image_2.png");
   border: 1px solid $grey-btn;
 }
 .card-description1 {
@@ -200,7 +200,7 @@
 .card-print {
   margin: 20px 20px;
   padding: 15px 15px;
-  background-image: url("image 2.png");
+  background-image: url("image_2.png");
   border: 1px solid $grey-btn;
 }
 
@@ -236,16 +236,12 @@
   font-weight: bolder;
   text-align: center;
   font-family: "Raleway", "Helvetica", "sans-serif";
-  decoration: none;
+  text-decoration: none;
 
-     a {
+    &:hover{
+    background-color: $green;
+    text-decoration: none;
     color: white;
-    decoration:none;
-    font-size: bold;
-  }
-    a:hover{
-    color: $green;
-    decoration:none;
     font-size: bold;
   }
 }
@@ -275,7 +271,7 @@
   margin-left: 20px;
   margin-right: 20px;
   padding: 30px 30px;
-  background-image: url("image 2.png");
+  background-image: url("image_2.png");
   border: 1px solid $grey-btn;
   width: 300px;
 }

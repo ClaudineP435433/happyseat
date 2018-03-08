@@ -2,5 +2,5 @@
   <%= f.input :seating_plan_id, input_html: {value: @seating_plan.id}, as: :hidden %>
   <%= f.input :participant_id, collection: @seating_plan.participants.map{|p| [p.name, p.id]}, input_html: {class: 'select2'}, label: false %>
 
-  <%= f.button :submit, id: "submit-form", data: {target: "#exampleModalParticipant", toggle: "modal"}, class: 'btn btn-happy-grey btn-small'%>
+  <%= f.button :submit, id: "submit-form", data: {target: "#exampleModalParticipant", toggle: "modal"}, class: 'btn btn-happy-grey btn-small btn-text-white'%>
 <% end %>
