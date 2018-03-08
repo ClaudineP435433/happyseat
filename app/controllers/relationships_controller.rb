@@ -6,6 +6,11 @@ class RelationshipsController < ApplicationController
     @relationship = Relationship.new(relationship_params)
     @participant = @seating_plan.participants.new
 
+    @recent_participants = @seating_plan.participants.where(pulse: true)
+    @recent_participants.each { |participant| participant.update(pulse: false) }
+    @relationship.first_guest.pulse = true if @relationship.first_guest.present?
+    @relationship.second_guest.pulse = true if @relationship.second_guest.present?
+
     @relationship.first_guest.seating_plan = @seating_plan if @relationship.first_guest.present?
     @relationship.second_guest.seating_plan = @seating_plan if @relationship.second_guest.present?
 
