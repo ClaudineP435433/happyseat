@@ -25,6 +25,10 @@ class SeatingPlansController < ApplicationController
         family_type: 0,
         status: 0
         )
+
+      r = Relationship.create(link: "couple", first_guest: @bride, second_guest: @groom)
+      r.reverse_relationship
+
       @seating_plan.nb_tables.times do |n|
 
         @seating_plan.tables.create(name: "Table #{n + 1}", nb_max_participants: @seating_plan.nb_max_participants)

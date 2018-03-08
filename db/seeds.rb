@@ -20,7 +20,8 @@ sp = SeatingPlan.create!(nb_tables: 6, nb_max_participants: 8, nb_participants: 
 
 bride = Participant.create!(first_name: u.bride_first_name, last_name: u.bride_last_name, seating_plan: sp, seat: 1, age_range: 2, family_type: 1, status: 1)
 groom = Participant.create!(first_name: u.groom_first_name, last_name: u.groom_last_name, seating_plan: sp, seat: 2, age_range: 2, family_type: 0, status: 0)
-
+r = Relationship.create!(link: "couple", first_guest: bride, second_guest: groom)
+r.reverse_relationship
 
 t = Table.create!(nb_max_participants: 8, seating_plan: sp, name: "Table 1")
 t2 = Table.create!(nb_max_participants: 8, seating_plan: sp, name: "Table 2")
@@ -42,9 +43,10 @@ puts "start seeds kiki"
 k = User.create!(email: "kiki@kiki.com", password: "123456", groom_first_name: "Lea", groom_last_name: "Smith", bride_first_name: "Ted", bride_last_name: "Andersson")
 spk = SeatingPlan.create!(nb_tables: 6, nb_max_participants: 8, nb_participants: 48, user: k, address: "Chateau Smith Haut Lafitte")
 
-bride = Participant.create!(first_name: k.bride_first_name, last_name: k.bride_last_name, seating_plan: spk, seat: 1, age_range: 2, family_type: 1, status: 1)
-groom = Participant.create!(first_name: k.groom_first_name, last_name: k.groom_last_name, seating_plan: spk, seat: 2, age_range: 2, family_type: 0, status: 0)
-
+bride2 = Participant.create!(first_name: k.bride_first_name, last_name: k.bride_last_name, seating_plan: spk, seat: 1, age_range: 2, family_type: 1, status: 1)
+groom2 = Participant.create!(first_name: k.groom_first_name, last_name: k.groom_last_name, seating_plan: spk, seat: 2, age_range: 2, family_type: 0, status: 0)
+r2 = Relationship.create!(link: "couple", first_guest: bride2, second_guest: groom2)
+r2.reverse_relationship
 
 y = Table.create!(nb_max_participants: 8, seating_plan: spk, name: "Table 1")
 y2 = Table.create!(nb_max_participants: 8, seating_plan: spk, name: "Table 2")
