@@ -41,8 +41,19 @@
         <%= f.input :first_name, required: true, placeholder: "First Name", label: false %>
         <%= f.input :last_name, required: true, placeholder: "Last Name", label: false %>
         <div class="nested-prompt">
-          <%= f.input :age_range, collection: Participant.age_ranges.keys, prompt: "Age", required: true, label: false, class: "prompt-size nested-prompt-age" %>
-          <%= f.input :family_type, collection: Participant.family_types.keys, prompt: "Family Link", required: true, label: false %>
+          <%= f.input :age_range,
+                      collection: Participant.age_ranges.keys,
+                      prompt: "Age",
+                      required: true,
+                      label: false,
+                      label_method: lambda { |age| "#{age.capitalize}" },
+                      class: "prompt-size nested-prompt-age" %>
+          <%= f.input :family_type,
+          collection: Participant.family_types.keys,
+          prompt: "Family Link",
+          required: true,
+          label: false,
+          label_method: lambda { |family| "#{family.capitalize}" } %>
         </div>
         <%= f.button :submit, class: "btn-success" %>
        <% end %>
