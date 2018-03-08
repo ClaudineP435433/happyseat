@@ -28,4 +28,12 @@ class SeatingPlan < ApplicationRecord
   end
 
 
+  def define_table_nb
+    if nb_participants.to_i + nb_max_participants.to_i != 0
+      self.nb_tables = (self.nb_participants / self.nb_max_participants)
+      self.nb_tables += 1 if (nb_participants % nb_max_participants) != 0
+    end
+  end
+
+
 end

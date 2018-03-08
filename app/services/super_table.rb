@@ -15,6 +15,7 @@ class SuperTable
         participant_id: (participant.id if participant),
         participant_age: (participant.read_attribute_before_type_cast(:age_range) if participant),
         name:(participant.name if participant)
+        initials: (participant.initial  if participant)
       }
     end
     @list = seats.in_groups_of(@seating_plan.nb_max_participants, false)

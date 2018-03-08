@@ -4,13 +4,34 @@ class SeatingPlansController < ApplicationController
   def create
     @seating_plan = current_user.seating_plans.new(seating_plan_params)
     @seating_plan.default_name
-    n = 1
+
+    @seating_plan.define_table_nb
     if @seating_plan.save
-      @bride = Participant.create(first_name: current_user.bride_first_name, last_name: current_user.bride_last_name, seating_plan: @seating_plan, seat: 1, age_range: 2, family_type: 1, status: 1)
-      @groom = Participant.create(first_name: current_user.groom_first_name, last_name: current_user.groom_last_name, seating_plan: @seating_plan, seat: 2, age_range: 2, family_type: 0, status: 0)
-      params[:seating_plan][:nb_tables].to_i.times do
-        @seating_plan.tables.create(name: "Table #{n}", nb_max_participants: params[:seating_plan][:nb_max_participants])
-        n += 1
+      @bride = Participant.create(
+        first_name: current_user.bride_first_name,
+        last_name: current_user.bride_last_name,
+        seating_plan: @seating_plan,
+        seat: 1,
+        age_range: 2,
+        family_type: 1,
+        status: 1
+        )
+      @groom = Participant.create(
+        first_name: current_user.groom_first_name,
+        last_name: current_user.groom_last_name,
+        seating_plan: @seating_plan,
+        seat: 2,
+        age_range: 2,
+        family_type: 0,
+        status: 0
+        )
+
+      r = Relationship.create(link: "couple", first_guest: @bride, second_guest: @groom)
+      r.reverse_relationship
+
+      @seating_plan.nb_tables.times do |n|
+
+        @seating_plan.tables.create(name: "Table #{n + 1}", nb_max_participants: @seating_plan.nb_max_participants)
       end
       redirect_to seating_plan_tables_path(@seating_plan)
     else
@@ -82,7 +103,7 @@ class SeatingPlansController < ApplicationController
   private
 
   def seating_plan_params
-    params.require(:seating_plan).permit(:nb_participants, :nb_max_participants, :nb_tables, :name, :date, :address)
+    params.require(:seating_plan).permit(:nb_participants, :nb_max_participants, :name, :date, :address)
   end
 
 end

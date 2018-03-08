@@ -17,10 +17,6 @@
           <div class="display-center"><div class="avatar-small avatar_color"></div><h6>Others guests</h6></div>
         </div>
       </div>
-      <!-- <div class="toolbar-legend-details">
-        <div class="display-center"><h6>Your seating plan guests :</h6></div>
-          <div class="display-center text-center"><h6><%= @seating_plan.participants.size %> created / <%= @seating_plan.nb_participants %> total</h6></div>
-      </div> -->
     </div>
 
     <div class="toolbar-name text-center">
@@ -41,11 +37,22 @@
         <%= f.input :first_name, required: true, placeholder: "First Name", label: false %>
         <%= f.input :last_name, required: true, placeholder: "Last Name", label: false %>
         <div class="nested-prompt">
-          <%= f.input :age_range, collection: Participant.age_ranges.keys, prompt: "Age", required: true, label: false, class: "prompt-size nested-prompt-age" %>
-          <%= f.input :family_type, collection: Participant.family_types.keys, prompt: "Family Link", required: true, label: false %>
+          <%= f.input :age_range,
+                      collection: Participant.age_ranges.keys,
+                      prompt: "Age",
+                      required: true,
+                      label: false,
+                      label_method: lambda { |age| "#{age.capitalize}" },
+                      class: "prompt-size nested-prompt-age" %>
+          <%= f.input :family_type,
+                      collection: Participant.family_types.keys,
+                      prompt: "Family Link",
+                      required: true,
+                      label: false,
+                      label_method: lambda { |family| "#{family.capitalize}" } %>
         </div>
-        <%= f.button :submit, class: "btn-success" %>
-       <% end %>
+          <%= f.button :submit, class: "btn-success" %>
+        <% end %>
       </div>
 
       <div class="toolbar-form-couple hidden-couple">
@@ -61,8 +68,8 @@
               <%= x.input :first_name, required: true, placeholder: "First Name", label: false  %>
               <%= x.input :last_name, required: true, placeholder: "Last Name", label: false  %>
               <div class="nested-prompt">
-                <%= x.input :age_range, collection: Participant.age_ranges.keys, prompt: "Age", required: true, label: false, class: "prompt-size nested-prompt-age" %>
-                <%= x.input :family_type, collection: Participant.family_types.keys, prompt: "Family Link", required: true , label: false%>
+                <%= x.input :age_range, collection: Participant.age_ranges.keys, prompt: "Age", required: true, label: false, class: "prompt-size nested-prompt-age", label_method: lambda { |age| "#{age.capitalize}" } %>
+                <%= x.input :family_type, collection: Participant.family_types.keys, prompt: "Family Link", required: true , label: false,label_method: lambda { |family| "#{family.capitalize}" } %>
               </div>
             </div>
           <% end %>
@@ -75,8 +82,8 @@
               <%= y.input :first_name, required: true, placeholder: "First Name" , label: false %>
               <%= y.input :last_name, required: true, placeholder: "Last Name", label: false  %>
               <div class="nested-prompt">
-                <%= y.input :age_range, collection: Participant.age_ranges.keys, prompt: "Age", required: true, label: false, class: "prompt-size nested-prompt-age" %>
-                <%= y.input :family_type, collection: Participant.family_types.keys, prompt: "Family Link", required: true, label: false %>
+                <%= y.input :age_range, collection: Participant.age_ranges.keys, prompt: "Age", required: true, label: false, class: "prompt-size nested-prompt-age", label_method: lambda { |age| "#{age.capitalize}" } %>
+                <%= y.input :family_type, collection: Participant.family_types.keys, prompt: "Family Link", required: true, label: false,label_method: lambda { |family| "#{family.capitalize}" }  %>
               </div>
             </div>
           <% end %>

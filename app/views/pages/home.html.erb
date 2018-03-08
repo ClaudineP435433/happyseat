@@ -4,9 +4,9 @@
     <p>Everyone can have the best seat</p>
     <%= simple_form_for @seating_plan do |f| %>
     <div class="form-home">
-        <%= f.input :nb_participants, label: false, placeholder:"Total Number of Guests" %>
-        <%= f.input :nb_tables, label: false, placeholder:"Total Number of Tables"  %>
-        <%= f.input :nb_max_participants, label: false, placeholder:"Number of Guests per Table" %>
+        <%= f.error_notification %>
+        <%= f.input :nb_participants, label: false, placeholder:"Total Number of Guests", required: true %>
+        <%= f.input :nb_max_participants, label: false, placeholder:"Number of Guests per Table", required: true %>
     </div>
     <%= f.button :submit, class: "green-btn" %>
     <% end %>

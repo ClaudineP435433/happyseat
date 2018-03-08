@@ -8,7 +8,7 @@
         <%= t.input :first_guest_id, input_html: {value: participant.id}, as: :hidden   %>
     </div>
     <div id="second_guest">
-        <%= t.input :second_guest_id, collection: Participant.all, required: true, prompt: "Select a guest", label: false  %>
+        <%= t.input :second_guest_id, collection: participant.seating_plan.participants.order(:last_name), required: true, prompt: "Select a guest", label: false  %>
     </div>
     <%= t.button :submit, class: "btn-success btn-max"%>
     <% end %>
