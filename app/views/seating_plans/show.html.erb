@@ -21,7 +21,7 @@
       <div class= weds-address>
         <%= simple_form_for @seating_plan do |f| %>
           <%= f.error_notification %>
-          <%= f.input :address, required: true, placeholder: "Address", label: false %>
+          <%= f.input :address, required: true, placeholder: "Address", label: false, autofocus: true %>
           <%= f.input :wedding_date, required: true, label: false %>
           <%= f.button :submit, class: "btn-success" %>
          <% end %>

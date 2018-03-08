@@ -1,4 +1,6 @@
 import "bootstrap";
+import '../components/autocomplete';
+import '../components/autocomplete_start';
 import '../components/select2';
 import '../components/dragula';
 import { dragDecorator } from '../components/dragula';

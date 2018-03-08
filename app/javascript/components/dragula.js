@@ -56,14 +56,8 @@ dragDecorator(containers, options, area);
 import 'dragula/dist/dragula.css';
 
 
-// Tentative open modal on avatar
-// const avatar = document.querySelectorAll('.avatar').forEach((table) => {
-//   avatar.addEventListener("click", (event) => {
-//   console.log(event);
-//   console.log(event.currentTarget);
-// });
-//  });
-// end
+
+
 
 
 
