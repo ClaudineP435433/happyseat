@@ -16,7 +16,7 @@ Relationship.destroy_all
 puts "start seeds"
 
 u = User.create!(email: "toto@toto.com", password: "123456", groom_first_name: "Teddy", groom_last_name: "Smith", bride_first_name: "Pamela", bride_last_name: "Andersson")
-sp = SeatingPlan.create!(nb_tables: 6, nb_max_participants: 8, nb_participants: 48, user: u)
+sp = SeatingPlan.create!(nb_tables: 6, nb_max_participants: 8, nb_participants: 48, user: u, address: "Chateau de Versailles")
 
 bride = Participant.create!(first_name: u.bride_first_name, last_name: u.bride_last_name, seating_plan: sp, seat: 1, age_range: 2, family_type: 1, status: 1)
 groom = Participant.create!(first_name: u.groom_first_name, last_name: u.groom_last_name, seating_plan: sp, seat: 2, age_range: 2, family_type: 0, status: 0)

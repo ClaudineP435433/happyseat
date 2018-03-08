@@ -65,4 +65,14 @@ class Participant < ApplicationRecord
     end
   end
 
+  def table_nb
+    super_tables = SuperTable.new(seating_plan: self.seating_plan)
+    table_index = super_tables.find_table(self.seat)
+    if table_index.nil?
+      return ""
+    else
+      self.seating_plan.tables[table_index-1].name
+    end
+  end
+
 end

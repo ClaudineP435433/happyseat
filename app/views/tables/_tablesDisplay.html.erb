@@ -4,7 +4,11 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="table-section">
-          <h3>Guests Drop Zone</h3>
+            <div class="table-drop-zone-title">
+              <h3>Guests Drop Zone</h3>
+              <h6> Guests : <%= @seating_plan.participants.size %> / <%= @seating_plan.nb_participants %></h6>
+            </div>
+
             <div class="table-drop-zone" id="drop-zone">
               <% @seating_plan.participants.where(seat: nil).each do |participant| %>
                 <div class="avatar-participant <%= avatar_colored(participant.seat) %>" data-path="<%= seating_plan_participant_swap_url(@seating_plan, participant)%>" data-pid="<%= participant.id %>" >
