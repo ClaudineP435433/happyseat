@@ -3,7 +3,6 @@
   height: 53px;
   border-radius: 50%;
   border: 1px solid $grey-btn;
-  box-shadow: 0 0 3px rgb(200,200,200);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +27,7 @@
 }
 
 .avatar_pink_test {
-  background-color: #FFA895;
+  background-color: $pink-sit;
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -38,7 +37,7 @@
 }
 
 .avatar_blue_test {
-  background-color: #809BCE;
+  background-color: $blue-sit;
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -48,7 +47,7 @@
 }
 
 .avatar_color_test {
-  background-color: #FFC13A;
+  background-color: $yellow-sit;
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -74,7 +73,7 @@
 }
 
 .avatar_color {
-  background-color: $purple-sit;
+  background-color: $yellow-sit;
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -109,22 +108,22 @@
 
 .avatar_children {
 
-background-color: #64BEA9;
+background-color: $children-sit;
 
 }
 
 .avatar_teenagers {
 
- background-color: #65E547;
+ background-color: $teens-sit;
 }
 
 .avatar_adults {
-  background-color: #65E1A1;
+  background-color: $adult-sit;
 
 }
 
 .avatar_elderly {
-   background-color: #78F0E7;
+   background-color: $eldery-sit;
 }
 
 .avatar-small {
