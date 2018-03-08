@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def init
+    # @seating_plan = SeatingPlan.includes(:participants).find(params[:seating_plan_id].to_i)
     @seating_plan = SeatingPlan.find(params[:seating_plan_id].to_i)
     @bride = @seating_plan.participants.find_by(seat: 1)
     @groom = @seating_plan.participants.find_by(seat: 2)
