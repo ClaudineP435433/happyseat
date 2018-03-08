@@ -140,7 +140,7 @@
                   <div class="card-title"><%= @seating_plan.participants.first.decoration_name %></div>
                 </div>
               </div>
-              <%= link_to "I DO", seating_plan_export_path(@seating_plan, :format => :pdf), class: "btn-congrats-print large" %></div>
+              <%= link_to "I DO", seating_plan_deco_path(@seating_plan, :format => :pdf), class: "btn-congrats-print large", target: "blank" %></div>
             </div>
           </div>
         </div>
