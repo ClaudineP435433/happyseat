@@ -3,11 +3,13 @@
   height: 53px;
   border-radius: 50%;
   border: 1px solid $grey-btn;
+  box-shadow: 0 0 3px rgb(200,200,200);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
+
 
 .avatar_pink {
   background-color: $pink-sit;
@@ -23,6 +25,36 @@
     position: sticky;
     text-align: center;
   }
+}
+
+.avatar_pink_test {
+  background-color: #FFA895;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+}
+
+.avatar_blue_test {
+  background-color: #809BCE;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+}
+
+.avatar_color_test {
+  background-color: #FFC13A;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: -1px;
+  right: -1px;
 }
 
 .avatar_blue {
@@ -47,7 +79,7 @@
   height: 52px;
   border-radius: 50%;
   p {
-    color: white;
+
     font-size: 17px;
     font-weight: bolder;
     margin: 13px;
@@ -57,6 +89,43 @@
   }
 }
 
+.avatar_age {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  position: relative;
+
+  p {
+    text-shadow: 0px 0px 2px rgb(60,60,60);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 13px;
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: center;
+  }
+}
+
+.avatar_children {
+
+background-color: #64BEA9;
+
+}
+
+.avatar_teenagers {
+
+ background-color: #65E547;
+}
+
+.avatar_adults {
+  background-color: #65E1A1;
+
+}
+
+.avatar_elderly {
+   background-color: #78F0E7;
+}
 
 .avatar-small {
   width: 20px;
@@ -81,12 +150,48 @@
 .avatar_bride {
   background: image-url("marieF_v1.png");
   background-size: cover;
+  position: relative;
   p {
     display: none;
   }
 }
+
+.avatar-bride-login {
+  background: image-url("marieF_v1.png");
+  background-color: $pink-sit;
+  background-size: cover;
+  border-radius: 50%;
+  border: 1px solid $grey-btn;
+  margin-right: 7px;
+  width: 72px;
+  height: 72px;
+  p {
+    display: none;
+  }
+}
+
+.avatar-groom-login {
+  background: image-url("Flat_01.png");
+  background-color: $blue-sit;
+  background-size: cover;
+  border-radius: 50%;
+  border: 1px solid $grey-btn;
+  width: 72px;
+  height: 72px;
+  p {
+    display: none;
+  }
+}
+
 .avatar_groom {
   background: image-url("Flat_01.png");
   background-size: cover;
+  position: relative;
    p { display: none; }
+}
+
+.bride-and-groom-login {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }

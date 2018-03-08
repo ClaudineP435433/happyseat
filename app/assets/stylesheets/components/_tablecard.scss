@@ -20,12 +20,13 @@
 
 .table-frame {
   border: 1px solid $grey-btn;
+  box-shadow: 0 0 5px rgb(200,200,200);
   height: 80px;
   width: 80%;
   border-radius: 2px;
   position: relative;
   .table-frame-nappe {
-    background-size: cover !important;
+
     width: 100%;
     height: 30px;
     position: absolute;
@@ -35,7 +36,7 @@
 
 .table-card {
   background-color: white;
-  box-shadow: 0 0 5px $grey-btn;
+
   height: 230px;
   width: 100%;
   display: flex;
@@ -71,7 +72,7 @@
 
 
 .table-drop-zone {
-  background-color: transparent;
+  background-color: white;
   box-shadow: 0 0 5px $grey-btn;
   height: 65px;
   width: 100%;
@@ -80,7 +81,7 @@
   position:relative;
   display: flex;
   p {
-    color: white;
+    // color: white;
     font-size: 17px;
     font-weight: bolder;
     margin: 13px;
@@ -88,4 +89,10 @@
     position: sticky;
     text-align: center;
   }
+}
+
+.table-drop-zone-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

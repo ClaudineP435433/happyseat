@@ -3,7 +3,16 @@ class ParticipantsController < ApplicationController
 
   def create
     @participant = @seating_plan.participants.new(participant_params)
+
+    @recent_participants = @seating_plan.participants.where(pulse: true)
+    @recent_participants.each { |participant| participant.update(pulse: false) }
+    @participant.pulse = true if @participant.present?
+
     @relationship = Relationship.new
+
+
+    # @participant.pulse = true
+
     if @participant.save
       @participant.allocate_seat
       redirect_to seating_plan_tables_path(@seating_plan)

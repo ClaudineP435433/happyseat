@@ -30,7 +30,13 @@ class SeatingPlansController < ApplicationController
         lng: @seating_plan.longitude
       }
     ]
+    respond_to do |format|
+      format.html
+      format.csv { send_data @seating_plan.to_csv }
+      format.xls
+    end
   end
+
 
   def update
     @seating_plan = SeatingPlan.find(params[:id])

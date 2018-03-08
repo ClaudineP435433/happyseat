@@ -4,10 +4,16 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="table-section">
-          <h3>Guests Drop Zone</h3>
+            <div class="table-drop-zone-title">
+              <h3>Guests Drop Zone</h3>
+              <h6> Guests : <%= @seating_plan.participants.size %> / <%= @seating_plan.nb_participants %></h6>
+            </div>
+
             <div class="table-drop-zone" id="drop-zone">
               <% @seating_plan.participants.where(seat: nil).each do |participant| %>
-                <div class="avatar-participant avatar_color" data-path="<%= seating_plan_participant_swap_url(@seating_plan, participant) %>" ><p><%= participant.initial %></p>
+                <div class="avatar-participant <%= avatar_colored(participant.seat) %>" data-path="<%= seating_plan_participant_swap_url(@seating_plan, participant) %>" >
+                  <p><%= participant.initial %></p>
+                  <div class= "<%= avatar_family(participant.seat) %>" ></div>
                 </div>
               <% end %>
              </div>
@@ -31,7 +37,7 @@
                     <div class="table-name-form">
                       <%= simple_form_for [@seating_plan, table] do |f| %>
                       <%= f.error_notification %>
-                      <%= f.input :name, required: true, placeholder: "Table name", label: false %>
+                      <%= f.input :name, required: true, label: false %>
                       <% end %>
                     </div>
                   </div>
@@ -46,7 +52,12 @@
                     <% @super_tables[index][0...(@super_tables[index].size / 2)].each do |seat| %>
                         <div class="avatar" id="avatar-<%= seat[:seat_id] %>">
                           <% if @seating_plan.participants.find_by(seat: seat[:seat_id]).present? %>
-                            <div class="avatar-participant <%= avatar_colored(seat[:seat_id]) %>" data-path="<%= seating_plan_participant_swap_url(@seating_plan, @seating_plan.participants.find_by(seat: seat[:seat_id]))%>"> <p> <%= @seating_plan.participants.find_by(seat: seat[:seat_id]).initial %></p></div>
+
+                            <div class="avatar-participant <%= avatar_colored(seat[:seat_id]) %> " data-path="<%= seating_plan_participant_swap_url(@seating_plan, @seating_plan.participants.find_by(seat: seat[:seat_id]))%>">
+                              <p> <%= @seating_plan.participants.find_by(seat: seat[:seat_id]).initial %></p>
+                              <div class= "<%= avatar_family(seat[:seat_id]) %>" ></div>
+
+                            </div>
                           <% end %>
 
 
@@ -55,7 +66,7 @@
                 </div>
 
                 <div class="table-frame">
-                  <div class="table-frame-nappe" style="background-image: url('<%= image_path "frame.png" %>');"></div>
+                  <div class="table-frame-nappe" style="background-image: url('<%= image_path "image_2.png" %>');"></div>
                 </div>
 
                 <div class="avatar-frame" id='table-bottom-<%= "#{index}" %>'>
@@ -63,7 +74,10 @@
                         <div class="avatar" id="avatar-<%= seat[:seat_id] %>">
 
                           <% if @seating_plan.participants.find_by(seat: seat[:seat_id]).present? %>
-                            <div class="avatar-participant <%= avatar_colored(seat[:seat_id]) %>" data-path="<%= seating_plan_participant_swap_url(@seating_plan, @seating_plan.participants.find_by(seat: seat[:seat_id]))%>"><p><%= @seating_plan.participants.find_by(seat: seat[:seat_id]).initial %></p></div>
+                            <div class="avatar-participant <%= avatar_colored(seat[:seat_id]) %>" data-path="<%= seating_plan_participant_swap_url(@seating_plan, @seating_plan.participants.find_by(seat: seat[:seat_id]))%>">
+                              <p><%= @seating_plan.participants.find_by(seat: seat[:seat_id]).initial %></p>
+                              <div class= "<%= avatar_family(seat[:seat_id]) %>" ></div>
+                            </div>
                           <% end %>
                         </div>
                     <% end %>
@@ -77,10 +91,3 @@
     </div>
   </div>
 
-<% content_for(:after_js) do %>
-  <script>
-
-
-
-  </script>
-<% end %>
