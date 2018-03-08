@@ -16,16 +16,16 @@
   display:flex;
   align-items: center;
   flex-direction: column;
-  height: 100px;
+  height: 120px;
   border-bottom: 1px dotted $grey-btn;
 
   h5 {
     margin: 5px;
-    letter-spacing: 5px;
+    letter-spacing: 16px;
   }
 
   h6 {
-    color: $grey-btn;
+    color: #9a9a9a;
     font-size: 12px;
     margin: 0;
     padding-top: 5px;

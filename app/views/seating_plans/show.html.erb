@@ -53,7 +53,7 @@
             <div class="card-content"><%= image_tag("chaise.png")%>
             <div class="print">
               <div class="card-title">Print your Seating plan in PDF</div>
-              <div class="btn-congrats-print"><%= link_to 'I DO', seating_plan_export_path(@seating_plan, :format => :pdf) %></div>
+              <%= link_to 'I DO', seating_plan_export_path(@seating_plan, :format => :pdf), class: "btn-congrats-print"  %>
             </div>
             </div>
           </div>
@@ -67,10 +67,9 @@
 
             <div class="card-title-print">Export my guests list to excel</div>
 
-            <div class="btn-congrats-print large">
-              <%= link_to "Excel", seating_plan_path(format: "xls") %></div>
 
-            </div>
+              <%= link_to "I DO", seating_plan_path(format: "xls"), class: "btn-congrats-print large" %></div>
+
 
           </div>
           </div>
@@ -139,7 +138,7 @@
                   <div class="card-title"><%= @seating_plan.participants.first.decoration_name %></div>
                 </div>
               </div>
-              <div class="btn-congrats-print">PRINT</div>
+              <%= link_to "I DO", seating_plan_export_path(@seating_plan, :format => :pdf), class: "btn-congrats-print large" %></div>
             </div>
           </div>
         </div>

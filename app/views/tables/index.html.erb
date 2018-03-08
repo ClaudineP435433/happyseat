@@ -3,22 +3,28 @@
 
   <div class="toolbar">
     <div class="toolbar-legend">
-      <h5>Legend</h5>
+      <h5 class="text-center" >Legend</h5>
       <div class="toolbar-legend-colors-details">
+        <div class="toolbar-legend-colors">
+          <div class="display-center"><div class="avatar-small avatar_age avatar_children"></div><h6>Children</h6></div>
+          <div class="display-center"><div class="avatar-small avatar_age avatar_teenagers"></div><h6>Teenagers</h6></div>
+          <div class="display-center"><div class="avatar-small avatar_age avatar_adults"></div><h6>Adults</h6></div>
+          <div class="display-center"><div class="avatar-small avatar_age avatar_elderly"></div><h6>Elderly</h6></div>
+        </div>
         <div class="toolbar-legend-colors">
           <div class="display-center"><div class="avatar-small avatar_pink"></div><h6>Bride Family</h6></div>
           <div class="display-center"><div class="avatar-small avatar_blue"></div><h6>Groom Family</h6></div>
           <div class="display-center"><div class="avatar-small avatar_color"></div><h6>Others guests</h6></div>
         </div>
-        <div class="toolbar-legend-colors">
-          <div class="display-center"><h6>Your seating plan guests :</h6></div>
-          <div class="display-center text-center"><h6><%= @seating_plan.participants.size %> created / <%= @seating_plan.nb_participants %> total</h6></div>
-        </div>
       </div>
+      <!-- <div class="toolbar-legend-details">
+        <div class="display-center"><h6>Your seating plan guests :</h6></div>
+          <div class="display-center text-center"><h6><%= @seating_plan.participants.size %> created / <%= @seating_plan.nb_participants %> total</h6></div>
+      </div> -->
     </div>
 
     <div class="toolbar-name text-center">
-      <h5>Add a Participant</h5>
+      <h5>Add a Guest</h5>
       <%=  link_to "#", class: "btn btn-happy-grey active-couple"  do %>
         Or a couple <i class="fas fa-venus-mars"></i>
       <% end %>
