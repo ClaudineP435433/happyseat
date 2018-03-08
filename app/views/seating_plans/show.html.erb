@@ -7,12 +7,14 @@
       <div class="card-title-weds">
         <em><%= @seating_plan.user.bride_first_name %></em>
         and
-        <em><%= current_user.groom_first_name%></em>
+        <em><%= current_user.groom_first_name %></em>
       </div>
 
       <div class="row weds-dispo">
-        <%=image_tag("Flat 03 V2.png", :size=> "150x150") %>
-        <%=image_tag("marieF v2.png", :size=> "150x150")%>
+
+        <%=image_tag("Flat 03 V2.png", :size=> "150x150", class: "bobby") %>
+        <%=image_tag("marieF v2.png", :size=> "150x150", class: "mariee")%>
+
       </div>
       <div class="separteur3 text-centered"><%=image_tag("a315ba465d59cdd28b479191aef7c070.png", :width=> "280")%></div>
       <div class="weds-ref">My wedding details :</div>
@@ -23,7 +25,7 @@
             <%= f.input :wedding_date, required: true, label: false %>
           <%= f.button :submit, class: "btn-success" %>
          <% end %>
-      </div>
+      </div seating-plan-map>
  <div id="map" class="map hidden-xs" style="width: 100%" data-markers="<%= @marker.to_json %>"></div>
     </div>
   </div>
@@ -63,9 +65,11 @@
           <div class="card-info-print">
 
 
-            <div class="btn-congrats-print large">
             <div class="card-title-print">Export my guests list to excel</div>
-              <%= link_to "Excel", seating_plan_path(format: "xls") %>
+
+            <div class="btn-congrats-print large">
+              <%= link_to "Excel", seating_plan_path(format: "xls") %></div>
+
             </div>
 
           </div>
@@ -92,9 +96,17 @@
               </div>
               <div class="card-content">
                 <ul class="list-unstyled">
-                  <% @seating_plan.participants.each do |participant| %>
-                    <li><%= participant.name %></li>
-                  <% end %>
+                  <%# @seating_plan.participants.each do |participant| %>
+                    <li><%#= participant.name %></li>
+                  <% #end %>
+                  <li>Antoine Lefrvre</li>
+                  <li>Monique Champard</li>
+                  <li>Camomille Franchin</li>
+                  <li>Marielle Renard</li>
+                  <li>Henri Renard</li>
+                  <li>Catherine Legrand</li>
+                  <li>Renaud Gendran</li>
+                  <li>Lousie Andre</li>
                 </ul>
               </div>
             </div>
@@ -107,14 +119,13 @@
               <div class="card-title">MENU</div>
               <div class="card-content-menu">
                 <ul class="list-unstyled menu">
-                  <li>Foie gras & lentilles vertes du Puy, gelée au Porto, financier noisette & mesclun</li>
+                  <li>Crisp Romaine, Poached Pears, Toasted Hazelnuts, Dried Cranberries, Crumbled Blue Cheese Dressing</li>
                   <li><%= image_tag("separateur2.png", id:"separe" )%></li>
-                  <li>Carré d’agneau en croûte d’herbes, Risotto d’épeautre au citron en ramequin & fleur de courgette farcie</li>
+                  <li>Grilled Pork Tenderloin, Caramelized Peppers, Roasted Brussells Sprouts, Farmhouse Mashed Potatoes</li>
                   <li><%= image_tag("separateur2.png", id:"separe" )%></li>
-                  <li></li>
-                  <li>Ardoise de fromages affinés de nos régions</li>
+                  <li>Veronica’s Sweet Cakes</li>
                   <li><%= image_tag("separateur2.png", id:"separe" )%></li>
-                  <li>Gâteau des mariés à étages</li>
+                  <li>Coffee and Assorted Teas</li>
                 </ul>
               </div>
             </div>
