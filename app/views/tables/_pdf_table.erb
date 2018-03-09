@@ -3,7 +3,7 @@
     <div class="col-xs-4">
       <div class="table-section">
       <div class="name"><h3 class="padding-left-10"><strong><%= table.name %></strong></h3></div>
-        <div class="table-card no-padding-and-margin table-margin pdf-table-frame">
+        <div class="table-card no-padding-and-margin table-margin pdf-table-frame" id="background-white">
           <div class="avatar-frame flexrow" id='table-top-<%= "#{index}" %>'>
             <% @super_tables[index][0...(@super_tables[index].size / 2)].each do |seat| %>
               <div class="avatar text-center padding-top-12" id="avatar-<%= seat[:seat_id] %>"><%= seat[:seat_id] %></div>
