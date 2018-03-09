@@ -23,7 +23,7 @@
       }
 
       #test {
-        background: image-url("image_2.png");
+          background-image: url('image_2.png');
       }
 
     </style>
@@ -38,7 +38,7 @@
       <% @seating_plan.participants.each do |participant| %>
         <div class="col-xs-4">
           <div class="card-org">
-            <div class="card-name">
+            <div class="card-name other_cadre">
               <div class="card-info">
                 <div class="card-title text-center">
                   <%= participant.decoration_name %>
@@ -51,7 +51,7 @@
     </div>
 
     <div class="col-xs-8 col-xs-offset-2 page-break-after">
-      <div class="card">
+      <div class="card other_cadre">
         <div class="card-info">
           <div class="card-title text-center pdf-padding">MENU</div>
           <div class="card-content-menu text-center" id="pdf-menu">
@@ -72,7 +72,7 @@
     <% @seating_plan.tables.order(:id).each_with_index do |table, index| %>
       <% unless @super_tables_pdf.table_empty(index) %>
       <div class="col-xs-6 page-break-after" >
-        <div class="card" id="card-pdf">
+        <div class="card other_cadre" id="card-pdf">
           <div class="card-info" id="card-info-pdf">
             <div class="card-title text-center">
                 <h2><%= table.name %> </h2>
