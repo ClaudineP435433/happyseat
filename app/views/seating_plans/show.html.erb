@@ -5,9 +5,9 @@
   <div class="card-info-toolbar">
       <div class="weds-ref">Wedding of:</div>
       <div class="card-title-weds">
-        <em><%= @seating_plan.user.bride_first_name %></em>
+        <em><%= @seating_plan.participants.find_by(status: "b").first_name %></em>
         and
-        <em><%= current_user.groom_first_name %></em>
+        <em><%= @seating_plan.participants.find_by(status: "g").first_name %></em>
       </div>
 
       <div class="row weds-dispo">
