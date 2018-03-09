@@ -11,12 +11,10 @@ class ParticipantsController < ApplicationController
     @relationship = Relationship.new
 
 
-    # @participant.pulse = true
 
     if @participant.save
       @participant.allocate_seat
       redirect_to seating_plan_tables_path(@seating_plan)
-      #algo ajouter sur table + allouer un siége
       flash[:notice] = "Successfully added your guest : #{@participant.first_name.capitalize} #{@participant.last_name.capitalize}"
     else
       render 'tables/index'
@@ -25,9 +23,10 @@ class ParticipantsController < ApplicationController
 
   def update
     @participant = Participant.find(params[:id])
+    @seating_plan = @participant.seating_plan
     if @participant.update(participant_params)
-      flash[:notice] = 'Successfully updated participant'
       redirect_to seating_plan_tables_path(@seating_plan)
+      flash[:notice] = "Successfully updated your guest : #{@participant.first_name.capitalize} #{@participant.last_name.capitalize}"
     else
       render 'tables/index'
     end
