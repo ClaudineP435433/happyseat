@@ -2,8 +2,6 @@
 import dragula from 'dragula';
 
 const updateSeatParticipant = (element, source) => {
-  console.log(element);
-  console.log(source.getAttribute("id").split("-")[1]);
   const token = document.querySelector('[name="csrf-token"]').getAttribute('content');
   fetch(element.dataset.path, {
     method: 'PUT',
@@ -23,7 +21,6 @@ const dragDecorator = (containers, options, transitZone) => {
     if (transitZone !== target && target.children.length > 1) {
       const element = (sibling !== null) ? sibling : el;
       if (sibling !== null) {
-        console.log(sibling !== null);
         updateSeatParticipant(el, target);
       }
       updateSeatParticipant(element, source);
