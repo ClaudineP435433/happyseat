@@ -111,8 +111,9 @@
   margin: 10px 20px;
   padding: 30px 30px;
   background: image-url("image_2.png");
-  background-image: url('image_2.png');
+
   border: 1px solid $grey-btn;
+
 }
 .card-description1 {
 
@@ -205,7 +206,7 @@
   margin: 20px 20px;
   padding: 15px 15px;
   background: image-url("image_2.png");
-  background-image: url('image_2.png');
+
   border: 1px solid $grey-btn;
 }
 
@@ -281,9 +282,14 @@
   margin-right: 20px;
   padding: 30px 30px;
   background: image-url("image_2.png");
-  background-image: url('image_2.png');
+
   border: 1px solid $grey-btn;
   width: 300px;
+
+}
+
+.other_cadre {
+    background-image: url('image_2.png');
 }
 
 .deco-info {
