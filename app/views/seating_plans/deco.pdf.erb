@@ -4,7 +4,6 @@
   <title>My Decoration</title>
   <meta charset='utf-8' />
       <%= wicked_pdf_stylesheet_link_tag "application" -%>
-      <%= wicked_pdf_javascript_include_tag "number_pages" %>
     <style>
       #pdf-menu {
         font-size: 18px;
@@ -23,7 +22,10 @@
         height: 515px;
       }
 
-Ajouter un commentaire
+      #test {
+        background: image-url("image_2.png");
+      }
+
     </style>
   </head>
 
@@ -35,7 +37,7 @@ Ajouter un commentaire
     <div class="row">
       <% @seating_plan.participants.each do |participant| %>
         <div class="col-xs-4">
-          <div class= card-org>
+          <div class="card-org">
             <div class="card-name">
               <div class="card-info">
                 <div class="card-title text-center">
