@@ -11,7 +11,7 @@
 
             <div class="table-drop-zone" id="drop-zone">
               <% @seating_plan.participants.where(seat: nil).each do |participant| %>
-                <%= render "avatar", seat: { participant_id: participant.id, seat_id: participant.seat, initials: participant.initial } %>
+                <%= render 'avatar', seat: { participant_id: participant.id, seat_id: participant.seat, initials: participant.initial } %>
               <% end %>
              </div>
           </div>
@@ -48,7 +48,7 @@
 
                     <% @super_tables[index][0...(@super_tables[index].size / 2)].each do |seat| %>
                         <div class="avatar" id="avatar-<%= seat[:seat_id] %>">
-                          <%= (render "avatar", seat: seat) if seat[:participant_id].present? %>
+                          <%= (render 'tables/avatar', seat: seat) if seat[:participant_id].present? %>
                         </div>
                     <% end %>
                 </div>
@@ -60,7 +60,7 @@
                 <div class="avatar-frame" id='table-bottom-<%= "#{index}" %>'>
                     <% @super_tables[index][(@super_tables[index].size / 2)..-1].each do |seat| %>
                         <div class="avatar" id="avatar-<%= seat[:seat_id] %>">
-                          <%= (render "avatar", seat: seat) if seat[:participant_id].present? %>
+                          <%= (render 'tables/avatar', seat: seat) if seat[:participant_id].present? %>
                         </div>
                     <% end %>
                 </div>
