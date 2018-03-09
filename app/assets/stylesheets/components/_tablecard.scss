@@ -20,6 +20,7 @@
 
 .table-frame {
   border: 1px solid $grey-btn;
+  background-color: white;
   box-shadow: 0 0 5px rgb(200,200,200);
   height: 80px;
   width: 80%;
@@ -35,8 +36,7 @@
 }
 
 .table-card {
-  background-color: white;
-
+  background-color: rgb(230,230,230);
   height: 230px;
   width: 100%;
   display: flex;
