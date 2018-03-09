@@ -71,7 +71,7 @@ class Participant < ApplicationRecord
     if table_index.nil?
       return ""
     else
-      self.seating_plan.tables[table_index-1].name
+      self.seating_plan.tables.order(:id)[table_index].name
     end
   end
 
