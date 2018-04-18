@@ -1,4 +1,5 @@
 const searchForm = document.getElementById('search-form');
+// seats = que les sieges --> impossible de double clicker sur avatar dans la dropzone
 const seats = document.querySelectorAll(".avatar");
 seats.forEach((seat) => {
   seat.addEventListener("dblclick", (event) => {
