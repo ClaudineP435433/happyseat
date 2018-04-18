@@ -17,6 +17,7 @@
           <div class="display-center"><div class="avatar-small avatar_color"></div><h6>Others guests</h6></div>
         </div>
       </div>
+       <%= link_to "Finalize your Seating Plan", seating_plan_path(@seating_plan), class: "btn btn-happy-grey btn-small btn-normal" %>
     </div>
 
     <div class="toolbar-name text-center">
@@ -34,8 +35,8 @@
       <div class="toolbar-form-one-participant" id="form-recuperate">
         <%= simple_form_for [@seating_plan, @participant] do |f| %>
         <%= f.error_notification %>
-        <%= f.input :first_name, required: true, placeholder: "First Name", label: false %>
-        <%= f.input :last_name, required: true, placeholder: "Last Name", label: false %>
+          <%= f.input :first_name, required: true, placeholder: "First Name", label: false %>
+          <%= f.input :last_name, required: true, placeholder: "Last Name", label: false %>
         <div class="nested-prompt">
           <%= f.input :age_range,
                       collection: Participant.age_ranges.keys,
@@ -92,7 +93,7 @@
         <%= t.button :submit, class: "btn-success"%>
         <% end %>
       </div>
-    </div>
+
 
     <div class="toolbar-buttons">
       <!-- Button trigger modal -->
@@ -101,6 +102,7 @@
       </button> -->
       <%= link_to "Finalize your Seating Plan", seating_plan_path(@seating_plan), class: "btn btn-happy-grey btn-size" %>
     </div>
+
   </div>
 
 
@@ -108,6 +110,7 @@
   <%#= render "tables/modalRelationship" %>
   <%= render "tables/modalParticipant" %>
   <%= render "tables/tablesDisplay" %>
+  <%#= render "tables/toolbar_guestsList" %>
 
 </div>
 <!-- Footer -->
