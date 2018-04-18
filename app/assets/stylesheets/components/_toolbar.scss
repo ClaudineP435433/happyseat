@@ -66,6 +66,10 @@
   display: none;
 }
 
+.active-couple {
+  margin-bottom: 10px;
+}
+
 .toolbar-buttons {
   height: 100px;
   width: 100%;
@@ -78,7 +82,7 @@
     width: 80%;
   }
   a {
-    width: 80%;
+    width: 100%;
   }
 }
 
