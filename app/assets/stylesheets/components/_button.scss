@@ -3,6 +3,7 @@
   color: $grey-btn;
   border: 1px solid $grey-btn;
   border-radius: 2px;
+  font-size: 11px;
   &:hover {
   background-color : $grey-btn;
   color: white;
@@ -43,4 +44,8 @@
   opacity: 0.2;
   margin: 0 5px 0 0;
   font-weight: lighter;
+}
+
+.btn-normal {
+  width: 140px;
 }

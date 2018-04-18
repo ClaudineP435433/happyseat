@@ -1,6 +1,6 @@
 .toolbar {
-  flex: 0 0 300px;
-  min-height: calc(100vh - 70px);
+  flex: 0 0 230px;
+  height: calc(100vh - 70px);
   padding: 5px;
   background-color: white;
   border-right: 1px solid black;
@@ -16,8 +16,9 @@
   display:flex;
   align-items: center;
   flex-direction: column;
-  height: 120px;
+  height: 150px;
   border-bottom: 1px dotted $grey-btn;
+  padding-bottom: 5px;
 
   h5 {
     margin: 5px;
@@ -26,7 +27,7 @@
 
   h6 {
     color: #9a9a9a;
-    font-size: 12px;
+    font-size: 10px;
     margin: 0;
     padding-top: 5px;
     font-weight: lighter;
@@ -90,7 +91,7 @@
   justify-content: space-around;
   .form-control {
     color: $grey-form;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   hr {
@@ -100,8 +101,10 @@
 
 .nested-prompt {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   .form-control {
-    font-size: 13px;
+    font-size: 11px;
+    width: 95%;
   }
 }
