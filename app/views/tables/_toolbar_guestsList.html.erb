@@ -1,3 +1,42 @@
-<div class="toolbar toolbar-guests">
-  TEST
+<div class="toolbar-guests hidden-couple">
+  <div class="toolbar-close text-right">
+    <span>&times;</span>
+  </div>
+
+  <div class="toolbar-name">
+     <h5>Your guests list</h5>
+  </div>
+
+  <div class="toolbar-list">
+    <ul class="list-unstyled">
+      <div class='display-left'>
+        <div class="avatar-small avatar_pink"></div>
+        <h6><em>Bride Family</em></h6>
+      </div>
+      <% @seating_plan.participants.where(family_type: 'bride').each do |p|%>
+        <li> <h6><%= p.initial %> - <%= p.name %></h6> </li>
+      <% end %>
+    </ul>
+
+     <ul class="list-unstyled">
+      <div class='display-left'>
+        <div class="avatar-small avatar_blue"></div>
+        <h6><em>Groom Family</em></h6>
+      </div>
+      <% @seating_plan.participants.where(family_type: 'groom').each do |p|%>
+        <li> <h6><%= p.initial %> - <%= p.name %></h6> </li>
+      <% end %>
+    </ul>
+
+     <ul class="list-unstyled">
+      <div class='display-left'>
+        <div class="avatar-small avatar_color"></div>
+        <h6><em>Others</em></h6>
+      </div>
+      <li><h6><%= "No guests for now..." if @seating_plan.participants.where(family_type: 'others').empty? %></h6></li>
+      <% @seating_plan.participants.where(family_type: 'others').each do |p|%>
+        <li> <h6><%= p.initial %> - <%= p.name %></h6> </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

@@ -15,3 +15,8 @@ initUpdateNavbarOnScroll();
 
 import { hiddenCouple } from '../components/toolbar';
 hiddenCouple();
+
+import { displayGuest, hiddenGuest } from '../components/toolbar_guest';
+displayGuest();
+hiddenGuest();
+

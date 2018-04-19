@@ -47,6 +47,11 @@
   justify-content: space-around;
 }
 
+.display-left {
+  display: flex;
+  align-items: left;
+}
+
 .toolbar-legend-colors {
   display:flex;
   flex-direction: column;
@@ -110,5 +115,30 @@
 }
 
 .toolbar-guests {
-  background-color: red;
+  transition: all 1s ease;
+  border-left: 1px solid black;
+  flex: 0 0 230px;
+  height: calc(100vh - 70px);
+  padding: 5px;
+  background-color: white;
+  border-top: 1px dotted $grey-btn;
+  position: sticky;
+  top: 70px;
+
+  h6 {
+    color: #9a9a9a;
+    font-size: 10px;
+    margin: 0;
+    padding-top: 5px;
+    font-weight: lighter;
+
+  }
+  li {
+    margin-left: 40px;
+  }
+}
+.toolbar-close {
+  &:hover{
+    color: rgba(10,10,10,0.5);
+  }
 }
