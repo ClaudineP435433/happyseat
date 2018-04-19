@@ -17,6 +17,9 @@
           <div class="display-center"><div class="avatar-small avatar_color"></div><h6>Others guests</h6></div>
         </div>
       </div>
+      <button type="button" class="btn btn-happy-grey btn-small btn-normal" data-toggle="modal" data-target="#exampleModalRelationship">
+        Add Conflictual Relationship
+      </button>
        <%= link_to "Finalize your Seating Plan", seating_plan_path(@seating_plan), class: "btn btn-happy-grey btn-small btn-normal" %>
     </div>
 
@@ -108,7 +111,7 @@
 
 
   <!-- Modal -->
-  <%#= render "tables/modalRelationship" %>
+  <%= render "tables/modalRelationship" %>
   <%= render "tables/modalParticipant" %>
   <%= render "tables/tablesDisplay" %>
   <%= render "tables/toolbar_guestsList" %>
