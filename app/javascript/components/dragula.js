@@ -34,7 +34,7 @@ const dragDecorator = (containers, options, transitZone) => {
 };
 
 
-let seatIndex = 0
+let seatIndex = 1
 
 const area = document.querySelector('#drop-zone');
 

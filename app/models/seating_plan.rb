@@ -1,6 +1,6 @@
-class SeatingPlan < ApplicationRecord
-  require 'csv'
+require 'csv'
 
+class SeatingPlan < ApplicationRecord
   belongs_to :user
   has_many :tables
   has_many :participants

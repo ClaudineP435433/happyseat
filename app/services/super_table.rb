@@ -8,6 +8,8 @@ class SuperTable
   end
 
   def create_list
+    all_participants = SeatingPlan.where(id: @seating_plan.id).eager_load(:participants)
+
     seats = (1..@seating_plan.nb_participants).to_a.map do |s|
       participant = @seating_plan.participants.find_by(seat: s)
       {

@@ -47,6 +47,9 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.3)
+    bullet (5.7.5)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11.0)
     byebug (10.0.0)
     cocoon (1.2.11)
     coderay (1.1.2)
@@ -105,6 +108,8 @@ GEM
       pry (>= 0.10.4)
     puma (3.11.2)
     rack (2.0.4)
+    rack-mini-profiler (1.0.0)
+      rack (>= 1.2.0)
     rack-proxy (0.6.3)
       rack
     rack-test (0.8.2)
@@ -173,6 +178,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.6)
       execjs (>= 0.3.0, < 3)
+    uniform_notifier (1.11.0)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.5.1)
@@ -196,6 +202,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
+  bullet
   cocoon
   devise
   figaro
@@ -208,6 +215,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma
+  rack-mini-profiler
   rails (= 5.1.5)
   redis
   sass-rails
