@@ -1,0 +1,29 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.triangle {
+  display: inline-block;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
+
+.triangle-2 {
+  width: 10px;
+  height: 20px;
+  border-right: solid 10px rgba(10,10,10,0.5);
+  border-bottom: solid 10px transparent;
+  border-top: solid 10px transparent;
+  position: fixed;
+  top: 50%;
+  right: 1px;
+
+  &:hover {
+    border-right: solid 10px rgba(10,10,10,1);
+  }
+}
+
+
