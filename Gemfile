@@ -26,6 +26,7 @@ gem 'wicked_pdf'
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'rack-mini-profiler'
+  gem 'letter_opener'
 end
 
 group :development, :test do
