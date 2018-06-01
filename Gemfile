@@ -21,6 +21,7 @@ gem 'pg_search' #searchbar
 gem "geocoder"
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
+gem 'postmark-rails'
 
 
 group :development do
