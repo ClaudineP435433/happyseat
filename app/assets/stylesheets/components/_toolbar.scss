@@ -55,7 +55,7 @@
 .toolbar-legend-colors {
   display:flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start;
   justify-content: space-around;
   margin-left: 7px;
   flex: 50%;
@@ -121,7 +121,7 @@
 .toolbar-guests {
   border-left: 1px solid black;
   // flex: 0 0 230px;
-  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
   padding: 5px;
   background-color: white;
   border-top: 1px dotted $grey-btn;

@@ -133,6 +133,7 @@ background-color: $children-sit;
   border-radius: 50%;
   border: 1px solid $grey-btn;
   margin-right: 7px;
+
   p {
     color: $grey-btn;
     font-size: 12px;
@@ -194,4 +195,8 @@ background-color: $children-sit;
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.middle {
+
 }
