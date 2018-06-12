@@ -1,4 +1,9 @@
 <div class="avatar-participant <%= avatar_colored(seat[:seat_id]) %>" data-path="<%= seating_plan_participant_swap_url(@seating_plan, seat[:participant_id])%>" data-pid="<%= seat[:participant_id] %>">
-  <p><%= seat[:initials] %></p>
-  <div class= "<%= avatar_family(seat[:seat_id]) %>" ></div>
+  <div class="avatar-middle">
+    <p><%= seat[:initials] %></p>
+    <div class= "<%= avatar_family(seat[:seat_id]) %>" ></div>
+  </div>
+  <div class="middle">
+    <div class="text-middle"><%= seat[:name]%></div>
+  </div>
 </div>
