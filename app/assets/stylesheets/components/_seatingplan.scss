@@ -69,7 +69,6 @@
 .seating-plan-show{
   width: 100%;
   text-align:center;
-
 }
 
 .congrats {
@@ -77,7 +76,7 @@
     padding-left: 15px;
     h2 {
       color: $grey-btn;
-      font-size: 200px;
+      font-size: 150px;
       font-weight: lighter;
       text-align: left;
     }
@@ -204,6 +203,7 @@
 
 .card-print {
   margin: 20px 20px;
+  margin-right: 40px;
   padding: 15px 15px;
   background: image-url("image_2.png");
 
