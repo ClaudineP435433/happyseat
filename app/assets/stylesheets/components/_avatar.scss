@@ -9,6 +9,7 @@
   position: relative;
   background-color: white;
   box-shadow: 0 0 30px #c8c8c8;
+
 }
 
 .avatar_pink {
@@ -198,5 +199,36 @@ background-color: $children-sit;
 }
 
 .middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  min-width: 80%;
+}
 
+.avatar-middle {
+  transition: .5s ease;
+  opacity: 1;
+}
+
+.text-middle {
+  background-color: $dark-grey-filter;
+  border-radius:5%;
+  font-weight: lighter;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  color: white;
+  font-size: 8px;
+  padding: 2px 2px;
+}
+
+.avatar-participant:hover .avatar-middle {
+  opacity: 0.3;
+}
+
+.avatar-participant:hover .middle {
+  opacity: 1;
 }
